@@ -64,6 +64,7 @@
     <Compile Include="Contract.Designer.cs">
       <DependentUpon>Contract.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="DanhMucSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +101,72 @@
     </Compile>
     <Compile Include="fChiTietPhieuXuat.Designer.cs">
       <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietDonDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietDonDatHang.Designer.cs">
+      <DependentUpon>frmChiTietDonDatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietNV.Designer.cs">
+      <DependentUpon>frmChiTietNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChucVu.Designer.cs">
+      <DependentUpon>frmChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDanhSachNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDanhSachNhanVien.Designer.cs">
+      <DependentUpon>frmDanhSachNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDonDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonDatHang.Designer.cs">
+      <DependentUpon>frmDonDatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanVien.Designer.cs">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaiKhoanCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaiKhoanCaNhan.Designer.cs">
+      <DependentUpon>frmTaiKhoanCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemNhanVien.Designer.cs">
+      <DependentUpon>frmThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrangChu.Designer.cs">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="fTaoChiTietNhap.cs">
       <SubType>Form</SubType>
@@ -150,6 +217,12 @@
     </Compile>
     <Compile Include="ThemSP.Designer.cs">
       <DependentUpon>ThemSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="XuatKho.cs">
       <SubType>Form</SubType>
@@ -211,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThemSP.resx">
       <DependentUpon>ThemSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XuatKho.resx">
       <DependentUpon>XuatKho.cs</DependentUpon>
