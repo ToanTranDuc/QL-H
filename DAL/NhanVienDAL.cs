@@ -22,7 +22,7 @@ namespace DAL
                 JOIN tblTaiKhoan tk ON nv.ID_DangNhap = tk.ID_DangNhap
                 JOIN tblChucVu cv ON nv.ID_ChucVu = cv.ID_ChucVu";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -82,7 +82,7 @@ namespace DAL
                 JOIN tblQuyen q ON nq.ID_Quyen = q.ID_Quyen
                 WHERE nq.ID_NhanVien = @idNhanVien";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -113,7 +113,7 @@ namespace DAL
 
         public bool UpdateEmployee(NhanVien nhanVien)
         {
-            using (var connection = SqlConnectionData.Connect())
+            using (var connection = SqlConnectionData1.Connect())
             {
                 connection.Open();
 
@@ -165,7 +165,7 @@ namespace DAL
         {
             try
             {
-                using (var connection = SqlConnectionData.Connect())
+                using (var connection = SqlConnectionData1.Connect())
                 {
                     connection.Open();
                     // Xóa quyền cũ
@@ -200,7 +200,7 @@ namespace DAL
         {
             try
             {
-                using (var connection = SqlConnectionData.Connect())
+                using (var connection = SqlConnectionData1.Connect())
                 {
                     connection.Open();
                     string insertEmployeeQuery = @"
@@ -260,7 +260,7 @@ namespace DAL
                 JOIN tblChucVu cv ON nv.ID_ChucVu = cv.ID_ChucVu
                 WHERE nv.ID_NhanVien = @ID_NhanVien";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))

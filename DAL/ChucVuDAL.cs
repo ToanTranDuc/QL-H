@@ -18,7 +18,7 @@ namespace DAL
                 SELECT ID_ChucVu, Ma_ChucVu, Ten_ChucVu, Ghi_Chu
                 FROM tblChucVu";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -51,7 +51,7 @@ namespace DAL
             Ghi_Chu = @Ghi_Chu
         WHERE ID_ChucVu = @ID_ChucVu";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -72,7 +72,7 @@ namespace DAL
             string query = @"INSERT INTO tblChucVu (Ma_ChucVu, Ten_ChucVu, Ghi_Chu) 
                              VALUES (@Ma_ChucVu, @Ten_ChucVu, @Ghi_Chu)";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -92,7 +92,7 @@ namespace DAL
         DELETE FROM tblChucVu
         WHERE ID_ChucVu = @ID_ChucVu";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(query, conn))

@@ -14,7 +14,7 @@ namespace DAL
         {
             var donDatHangList = new List<DonDatHang>();
 
-            using (SqlConnection conn = SqlConnectionData.ConnectSP())
+            using (SqlConnection conn = SqlConnectionData1.ConnectSP())
             {
                 
                 string query = @"

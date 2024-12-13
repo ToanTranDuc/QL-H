@@ -13,7 +13,7 @@ namespace DAL
         {
             List<NCC> danhSachNCC = new List<NCC>();
 
-            using (SqlConnection conn = SqlConnectionData.ConnectSP())
+            using (SqlConnection conn = SqlConnectionData1.ConnectSP())
             {
                 conn.Open();
                 string query = "SELECT MaNCC, TenNCC";

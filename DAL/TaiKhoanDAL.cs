@@ -10,10 +10,11 @@ using System.Runtime.CompilerServices;
 
 namespace DAL
 {
-    public class SqlConnectionData
+    public class SqlConnectionData1
     {
         public static SqlConnection Connect()
         {
+            
             string strcon = @"Data Source=beetinhtinhte\mssqlsever1;Initial Catalog=QLCuaHangDH;Integrated Security=True;";
             SqlConnection conn = new SqlConnection(strcon);
             return conn;
@@ -33,7 +34,7 @@ namespace DAL
 
             try
             {
-                using (SqlConnection conn = SqlConnectionData.Connect())
+                using (SqlConnection conn = SqlConnectionData1.Connect())
                 {
                     conn.Open(); // Đảm bảo mở kết nối trước khi thực hiện lệnh SQL
 
@@ -101,7 +102,7 @@ namespace DAL
                 JOIN tblQuyen q ON nq.ID_Quyen = q.ID_Quyen
                 WHERE nq.ID_NhanVien = @idNhanVien";
 
-            using (SqlConnection conn = SqlConnectionData.Connect())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -132,7 +133,7 @@ namespace DAL
 
         public int InsertAccount(TaiKhoan taiKhoan)
         {
-            using (var connection = SqlConnectionData.Connect())
+            using (var connection = SqlConnectionData1.Connect())
             {
                 connection.Open();
                 string insertAccountQuery = @"
@@ -151,7 +152,7 @@ namespace DAL
         {
             try
             {
-                using (var connection = SqlConnectionData.Connect())
+                using (var connection = SqlConnectionData1.Connect())
                 {
                     connection.Open();
                     string query = "SELECT COUNT(*) FROM tblTaiKhoan WHERE TenDangNhap = @TenDangNhap";
@@ -176,7 +177,7 @@ namespace DAL
             List<TaiKhoan> accountList = new List<TaiKhoan>();
             try
             {
-                using (var connection = SqlConnectionData.Connect())
+                using (var connection = SqlConnectionData1.Connect())
                 {
                     connection.Open();
                     string query = @"
@@ -226,7 +227,7 @@ namespace DAL
         {
             try
             {
-                using (SqlConnection conn = SqlConnectionData.Connect())
+                using (SqlConnection conn = SqlConnectionData1.Connect())
                 {
                     conn.Open();
                     string query = @"
