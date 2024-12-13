@@ -34,13 +34,6 @@ namespace GUI.DAO
             HoaDonBan HD = new HoaDonBan(Data.Rows[0]);
             return HD;
         }
-        public DataTable GetHoaDonBanByNCC(int MaNCC, DateTime? Start, DateTime? End)
-        {
-            string query = "";
-
-            query = "EXEC GetHoaDonBanByNCC @MaNCC , @StartDate , @EndDate";
-            return DataProvider.Instance.ExecuteQuery(query, new object[] { MaNCC, Start, End });
-        }
         public void InsertPN(int MaNCC, DateTime? DateCreate, string GhiChu)
         {
             string query = "EXEC InsertPN @MaNCC , @DateCreate , @GhiChu ";
@@ -61,6 +54,13 @@ namespace GUI.DAO
         {
             string query = "Delete dbo.HoaDonBan Where MaHoaDonBan =" + idPN;
             DataProvider.Instance.ExecuteNonQuery(query);
+        }
+        public DataTable GetHoaDonByDate(DateTime? Start, DateTime? End)
+        {
+
+            string query = "EXEC GetPhieuXuatByDate  @StartDate , @EndDate";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { Start, End });
+
         }
     }
 }

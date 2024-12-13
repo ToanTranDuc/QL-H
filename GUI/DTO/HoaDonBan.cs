@@ -29,7 +29,7 @@ namespace GUI.DTO
         public HoaDonBan(DataRow rows)
         {
             MaHD = (int)rows["MaHoaDon"];
-            TongTien = double.Parse(rows["MaHoaDon"].ToString());
+            TongTien = double.Parse(rows["TongTien"].ToString());
             DateNhap = (DateTime?)rows["NgayLapHoaDon"];
             GhiChu = rows["GhiChu"].ToString();
         }
