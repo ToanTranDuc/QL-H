@@ -358,6 +358,7 @@
             this.ClientSize = new System.Drawing.Size(1060, 654);
             this.Controls.Add(this.panel1);
             this.Name = "fChiTietPhieuXuat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fChiTietPhieuXuat";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

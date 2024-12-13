@@ -166,6 +166,9 @@
     <EmbeddedResource Include="DSSanPham.resx">
       <DependentUpon>DSSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fChiTietPhieuXuat.resx">
+      <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien.resx">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThemSP.resx">
       <DependentUpon>ThemSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XuatKho.resx">
+      <DependentUpon>XuatKho.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
