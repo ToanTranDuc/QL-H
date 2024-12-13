@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemNhanVien));
             this.pnlThongTin = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grbQuyen = new System.Windows.Forms.GroupBox();
@@ -298,7 +297,7 @@
             // 
             this.ptbAnh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ptbAnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ptbAnh.Image = ((System.Drawing.Image)(resources.GetObject("ptbAnh.Image")));
+            this.ptbAnh.Image = global::GUI.Properties.Resources.user;
             this.ptbAnh.Location = new System.Drawing.Point(3, 3);
             this.ptbAnh.Name = "ptbAnh";
             this.ptbAnh.Size = new System.Drawing.Size(231, 282);

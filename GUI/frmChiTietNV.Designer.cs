@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietNV));
             this.rdbQuanLy = new System.Windows.Forms.RadioButton();
             this.grbQuyen = new System.Windows.Forms.GroupBox();
             this.rdbNhanVien = new System.Windows.Forms.RadioButton();
@@ -210,7 +209,7 @@
             // 
             this.ptbAnh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ptbAnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ptbAnh.Image = ((System.Drawing.Image)(resources.GetObject("ptbAnh.Image")));
+            this.ptbAnh.Image = global::GUI.Properties.Resources.user;
             this.ptbAnh.Location = new System.Drawing.Point(3, 4);
             this.ptbAnh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ptbAnh.Name = "ptbAnh";
