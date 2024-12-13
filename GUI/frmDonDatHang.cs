@@ -95,10 +95,9 @@ namespace GUI
         {
             if (selectedDonDatHang != null)
             {
-                frmChiTietDonDatHang frm = new frmChiTietDonDatHang(selectedDonDatHang);
+                frmChiTietDonDatHang frm = new frmChiTietDonDatHang(selectedDonDatHang.ID_DonDatHang);
                 frm.ShowDialog();
             }
-
             else
             {
                 MessageBox.Show("Vui lòng chọn một đơn đặt hàng trước!", "Thông báo");

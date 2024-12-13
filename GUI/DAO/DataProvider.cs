@@ -13,8 +13,9 @@ namespace GUI.DAO
     {
         private static DataProvider instance;
         //private static string connectionSTR = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
-        private static string connectionSTR = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-        
+        //private static string connectionSTR = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
+        private static string connectionSTR = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True;";
+
         internal static DataProvider Instance 
         { 
             get { if (instance == null) instance = new DataProvider(); return instance; }
