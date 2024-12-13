@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class HoaDonBan : Form
+    public partial class fTaoChiTietHoaDon : Form
     {
-        public HoaDonBan()
+        public fTaoChiTietHoaDon()
         {
             InitializeComponent();
         }

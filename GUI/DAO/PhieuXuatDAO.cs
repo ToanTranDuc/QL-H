@@ -34,7 +34,7 @@ namespace GUI.DAO
             PhieuXuat PN = new PhieuXuat(Data.Rows[0]);
             return PN;
         }
-      
+
         public void InsertPX(string LyDo, DateTime? DateCreate)
         {
             string query = "EXEC InsertPX @DateCreate , @LyDo ";

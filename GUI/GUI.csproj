@@ -71,9 +71,13 @@
     <Compile Include="DanhMucSP.Designer.cs">
       <DependentUpon>DanhMucSP.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ChiTietHoaDonDAO.cs" />
+    <Compile Include="DAO\ChiTietHoaDonMua.cs" />
     <Compile Include="DAO\ChiTietNhapKhoDAO.cs" />
     <Compile Include="DAO\ChiTietPhieuXuatDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HoaDonBanDAO.cs" />
+    <Compile Include="DAO\HoaDonMuaDAO.cs" />
     <Compile Include="DAO\NCCDAO.cs" />
     <Compile Include="DAO\PhieuNhapDAO.cs" />
     <Compile Include="DAO\PhieuXuatDAO.cs" />
@@ -84,12 +88,22 @@
     <Compile Include="DSSanPham.Designer.cs">
       <DependentUpon>DSSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ChiTietHoaDonBan.cs" />
+    <Compile Include="DTO\ChiTietHoaDonMua.cs" />
     <Compile Include="DTO\ChiTietNhapKho.cs" />
     <Compile Include="DTO\ChiTietPhieuXuat.cs" />
+    <Compile Include="DTO\HoaDonBan.cs" />
+    <Compile Include="DTO\HoaDonMua.cs" />
     <Compile Include="DTO\NCC.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
     <Compile Include="DTO\SanPham.cs" />
+    <Compile Include="fChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChiTietHoaDon.Designer.cs">
+      <DependentUpon>fChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="fChiTietNhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +188,12 @@
     <Compile Include="frmTrangChu.Designer.cs">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTaoChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTaoChiTietHoaDon.Designer.cs">
+      <DependentUpon>fTaoChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTaoChiTietNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,11 +212,11 @@
     <Compile Include="GiaoDien.Designer.cs">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoaDonBan.cs">
+    <Compile Include="fHoaDonBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HoaDonBan.Designer.cs">
-      <DependentUpon>HoaDonBan.cs</DependentUpon>
+    <Compile Include="fHoaDonBan.Designer.cs">
+      <DependentUpon>fHoaDonBan.cs</DependentUpon>
     </Compile>
     <Compile Include="InforNCC.cs">
       <SubType>Form</SubType>
@@ -290,8 +310,8 @@
     <EmbeddedResource Include="GiaoDien.resx">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonBan.resx">
-      <DependentUpon>HoaDonBan.cs</DependentUpon>
+    <EmbeddedResource Include="fHoaDonBan.resx">
+      <DependentUpon>fHoaDonBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InforNCC.resx">
       <DependentUpon>InforNCC.cs</DependentUpon>

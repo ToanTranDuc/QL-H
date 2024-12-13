@@ -36,6 +36,7 @@ namespace GUI
             List<NCC> NCCList = NCCDAO.Instance.GetNCC();
             cbTenNCC.DataSource = NCCList;
             cbTenNCC.DisplayMember = "NCCName1";
+            cbTenNCC.Enabled = false;
         }
         void LoadSPByNCCID(int id)
         {

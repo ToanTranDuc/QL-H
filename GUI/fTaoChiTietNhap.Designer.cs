@@ -52,16 +52,16 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.grbThongTinChung = new System.Windows.Forms.GroupBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbTenNCC = new System.Windows.Forms.ComboBox();
             this.lbDateCreate = new System.Windows.Forms.Label();
             this.lbTenNhaCungCap = new System.Windows.Forms.Label();
-            this.txtMaPhieuNhap = new System.Windows.Forms.TextBox();
-            this.lbMaPhieuNhap = new System.Windows.Forms.Label();
+            this.txtMaDonMua = new System.Windows.Forms.TextBox();
+            this.lbMaDonMua = new System.Windows.Forms.Label();
             this.DtpDateCreate = new System.Windows.Forms.DateTimePicker();
             this.txtTenNhaCungCap = new System.Windows.Forms.TextBox();
             this.lbDanhSach = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             this.cbTenSP.FormattingEnabled = true;
             this.cbTenSP.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.cbTenSP.Location = new System.Drawing.Point(28, 20);
+            this.cbTenSP.Location = new System.Drawing.Point(28, 30);
             this.cbTenSP.Name = "cbTenSP";
             this.cbTenSP.Size = new System.Drawing.Size(182, 21);
             this.cbTenSP.TabIndex = 18;
@@ -147,7 +147,7 @@
             // txtDonGia
             // 
             this.txtDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtDonGia.Location = new System.Drawing.Point(453, 82);
+            this.txtDonGia.Location = new System.Drawing.Point(453, 79);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(189, 24);
             this.txtDonGia.TabIndex = 13;
@@ -156,7 +156,7 @@
             // 
             this.lbDonGia.AutoSize = true;
             this.lbDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbDonGia.Location = new System.Drawing.Point(371, 85);
+            this.lbDonGia.Location = new System.Drawing.Point(388, 82);
             this.lbDonGia.Name = "lbDonGia";
             this.lbDonGia.Size = new System.Drawing.Size(59, 18);
             this.lbDonGia.TabIndex = 12;
@@ -234,7 +234,7 @@
             this.grbDanhSach.Controls.Add(this.lvSanPham);
             this.grbDanhSach.Location = new System.Drawing.Point(7, 18);
             this.grbDanhSach.Name = "grbDanhSach";
-            this.grbDanhSach.Size = new System.Drawing.Size(1014, 149);
+            this.grbDanhSach.Size = new System.Drawing.Size(1004, 149);
             this.grbDanhSach.TabIndex = 4;
             this.grbDanhSach.TabStop = false;
             this.grbDanhSach.Text = "Danh sách";
@@ -255,7 +255,7 @@
             this.lvSanPham.LabelWrap = false;
             this.lvSanPham.Location = new System.Drawing.Point(3, 16);
             this.lvSanPham.Name = "lvSanPham";
-            this.lvSanPham.Size = new System.Drawing.Size(1001, 130);
+            this.lvSanPham.Size = new System.Drawing.Size(995, 130);
             this.lvSanPham.TabIndex = 0;
             this.lvSanPham.UseCompatibleStateImageBehavior = false;
             this.lvSanPham.View = System.Windows.Forms.View.Details;
@@ -294,8 +294,8 @@
             this.grbThongTinChung.Controls.Add(this.cbTenNCC);
             this.grbThongTinChung.Controls.Add(this.lbDateCreate);
             this.grbThongTinChung.Controls.Add(this.lbTenNhaCungCap);
-            this.grbThongTinChung.Controls.Add(this.txtMaPhieuNhap);
-            this.grbThongTinChung.Controls.Add(this.lbMaPhieuNhap);
+            this.grbThongTinChung.Controls.Add(this.txtMaDonMua);
+            this.grbThongTinChung.Controls.Add(this.lbMaDonMua);
             this.grbThongTinChung.Controls.Add(this.DtpDateCreate);
             this.grbThongTinChung.Controls.Add(this.txtTenNhaCungCap);
             this.grbThongTinChung.Location = new System.Drawing.Point(13, 12);
@@ -304,6 +304,24 @@
             this.grbThongTinChung.TabIndex = 3;
             this.grbThongTinChung.TabStop = false;
             this.grbThongTinChung.Text = "Tìm kiếm";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtGhiChu.Location = new System.Drawing.Point(531, 69);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(189, 24);
+            this.txtGhiChu.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(388, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Ghi chú";
             // 
             // cbTenNCC
             // 
@@ -333,22 +351,22 @@
             this.lbTenNhaCungCap.TabIndex = 3;
             this.lbTenNhaCungCap.Text = "Tên nhà cung cấp :";
             // 
-            // txtMaPhieuNhap
+            // txtMaDonMua
             // 
-            this.txtMaPhieuNhap.Location = new System.Drawing.Point(531, 32);
-            this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
-            this.txtMaPhieuNhap.ReadOnly = true;
-            this.txtMaPhieuNhap.Size = new System.Drawing.Size(189, 20);
-            this.txtMaPhieuNhap.TabIndex = 10;
+            this.txtMaDonMua.Location = new System.Drawing.Point(531, 32);
+            this.txtMaDonMua.Name = "txtMaDonMua";
+            this.txtMaDonMua.ReadOnly = true;
+            this.txtMaDonMua.Size = new System.Drawing.Size(189, 20);
+            this.txtMaDonMua.TabIndex = 10;
             // 
-            // lbMaPhieuNhap
+            // lbMaDonMua
             // 
-            this.lbMaPhieuNhap.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lbMaPhieuNhap.Location = new System.Drawing.Point(387, 29);
-            this.lbMaPhieuNhap.Name = "lbMaPhieuNhap";
-            this.lbMaPhieuNhap.Size = new System.Drawing.Size(149, 23);
-            this.lbMaPhieuNhap.TabIndex = 9;
-            this.lbMaPhieuNhap.Text = "Mã phiếu nhập :";
+            this.lbMaDonMua.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lbMaDonMua.Location = new System.Drawing.Point(387, 29);
+            this.lbMaDonMua.Name = "lbMaDonMua";
+            this.lbMaDonMua.Size = new System.Drawing.Size(149, 23);
+            this.lbMaDonMua.TabIndex = 9;
+            this.lbMaDonMua.Text = "Mã đơn mua :";
             // 
             // DtpDateCreate
             // 
@@ -373,24 +391,6 @@
             this.lbDanhSach.Size = new System.Drawing.Size(254, 44);
             this.lbDanhSach.TabIndex = 2;
             this.lbDanhSach.Text = "Chi tiết phiếu nhập";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(388, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 18);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Ghi chú";
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtGhiChu.Location = new System.Drawing.Point(474, 69);
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(189, 24);
-            this.txtGhiChu.TabIndex = 19;
             // 
             // fTaoChiTietNhap
             // 
@@ -443,8 +443,8 @@
         private System.Windows.Forms.GroupBox grbThongTinChung;
         private System.Windows.Forms.Label lbDateCreate;
         private System.Windows.Forms.Label lbTenNhaCungCap;
-        private System.Windows.Forms.TextBox txtMaPhieuNhap;
-        private System.Windows.Forms.Label lbMaPhieuNhap;
+        private System.Windows.Forms.TextBox txtMaDonMua;
+        private System.Windows.Forms.Label lbMaDonMua;
         private System.Windows.Forms.DateTimePicker DtpDateCreate;
         private System.Windows.Forms.TextBox txtTenNhaCungCap;
         private System.Windows.Forms.Label lbDanhSach;

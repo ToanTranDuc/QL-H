@@ -15,13 +15,13 @@ using System.Runtime.Remoting.Channels;
 
 namespace GUI
 {
-    public partial class XuatKho : Form
+    public partial class fHoaDonBan : Form
     {
-        public XuatKho()
+        public fHoaDonBan()
         {
             InitializeComponent();
             Form_Load();
-            LoadPhieuXuat();
+            LoadHoaDon();
 
         }
         void Form_Load()
@@ -34,7 +34,7 @@ namespace GUI
         {
             fTaoChiTietXuat CTNKho = new fTaoChiTietXuat();
             CTNKho.ShowDialog();
-        
+
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -45,22 +45,22 @@ namespace GUI
                 return;
             }
 
-            if (dtgvPhieuXuat.SelectedRows.Count > 0)
+            if (dtgvHoaDon.SelectedRows.Count > 0)
             {
-                DataGridViewRow rowToDelete = dtgvPhieuXuat.SelectedRows[0];
-                int id = (int)rowToDelete.Cells["MaPhieuXuat"].Value;
-                ChiTietPhieuXuatDAO.Instance.DeleteCTXKho(id);
-                PhieuXuatDAO.Instance.DeletePX(id);
+                DataGridViewRow rowToDelete = dtgvHoaDon.SelectedRows[0];
+                int id = (int)rowToDelete.Cells["MaHoaDon"].Value;
+                ChiTietHoaDonDAO.Instance.DeleteCTNKho(id);
+                HoaDonBanDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
-            else if (dtgvPhieuXuat.SelectedCells.Count > 0)
+            else if (dtgvHoaDon.SelectedCells.Count > 0)
             {
-                DataGridViewCell cellToDelete = dtgvPhieuXuat.SelectedCells[0];
+                DataGridViewCell cellToDelete = dtgvHoaDon.SelectedCells[0];
                 int RowIndex = cellToDelete.RowIndex;
-                DataGridViewRow rowToDelete = dtgvPhieuXuat.Rows[RowIndex];
-                int id = (int)rowToDelete.Cells["MaPhieuXuat"].Value;
-                ChiTietPhieuXuatDAO.Instance.DeleteCTXKho(id);
-                PhieuXuatDAO.Instance.DeletePX(id);
+                DataGridViewRow rowToDelete = dtgvHoaDon.Rows[RowIndex];
+                int id = (int)rowToDelete.Cells["MaHoaDon"].Value;
+                ChiTietHoaDonDAO.Instance.DeleteCTNKho(id);
+                HoaDonBanDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
         }
@@ -68,32 +68,32 @@ namespace GUI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Form_Load();
-            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuat();
-            dtgvPhieuXuat.Rows.Clear();
+            DataTable dt = HoaDonBanDAO.Instance.GetHoaDonBan();
+            dtgvHoaDon.Rows.Clear();
             foreach (DataRow row in dt.Rows)
             {
                 {
-                    dtgvPhieuXuat.Rows.Add
+                    dtgvHoaDon.Rows.Add
                         (
-                        row["MaPhieuXuat"],
-                        row["NgayLapPhieuXuat"],
+                        row["MaHoaDon"],
+                        row["NgayLapHoaDon"],
                         row["LyDoXuat"]
                         );
                 }
             }
 
         }
-        void LoadPhieuXuat()
+        void LoadHoaDon()
         {
-            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuat();
-            dtgvPhieuXuat.Rows.Clear();
+            DataTable dt = HoaDonBanDAO.Instance.GetHoaDonBan();
+            dtgvHoaDon.Rows.Clear();
             foreach (DataRow row in dt.Rows)
             {
                 {
-                    dtgvPhieuXuat.Rows.Add
+                    dtgvHoaDon.Rows.Add
                         (
-                        row["MaPhieuXuat"],
-                        row["NgayLapPhieuXuat"],
+                        row["MaHoaDon"],
+                        row["NgayLapHoaDon"],
                         row["LyDoXuat"]
                         );
                 }
@@ -105,15 +105,15 @@ namespace GUI
             DateTime? Start = dtpStart.Value;
             DateTime? End = dtpEnd.Value;
 
-            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuatByDate(Start,End);
-            dtgvPhieuXuat.Rows.Clear();
+            DataTable dt = HoaDonBanDAO.Instance.GetHoaDonByDate(Start, End);
+            dtgvHoaDon.Rows.Clear();
             foreach (DataRow row in dt.Rows)
             {
                 {
-                    dtgvPhieuXuat.Rows.Add
+                    dtgvHoaDon.Rows.Add
                         (
-                        row["MaPhieuXuat"],
-                        row["NgayLapPhieuXuat"],
+                        row["MaHoaDon"],
+                        row["NgayLapHoaDon"],
                         row["LyDoXuat"]
                         );
                 }
@@ -122,33 +122,33 @@ namespace GUI
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            if (dtgvPhieuXuat.SelectedRows.Count > 0)
+            if (dtgvHoaDon.SelectedRows.Count > 0)
             {
 
-                dtgvPhieuXuat_Choose(sender, new DataGridViewCellEventArgs(0, dtgvPhieuXuat.SelectedRows[0].Index));
+                dtgvHoaDon_Choose(sender, new DataGridViewCellEventArgs(0, dtgvHoaDon.SelectedRows[0].Index));
             }
-            else if (dtgvPhieuXuat.SelectedCells.Count > 0)
+            else if (dtgvHoaDon.SelectedCells.Count > 0)
             {
-                dtgvPhieuXuat_Choose(sender, new DataGridViewCellEventArgs(0, dtgvPhieuXuat.SelectedCells[0].RowIndex));
+                dtgvHoaDon_Choose(sender, new DataGridViewCellEventArgs(0, dtgvHoaDon.SelectedCells[0].RowIndex));
 
             }
         }
 
 
 
-        private void dtgvPhieuXuat_Choose(object sender, DataGridViewCellEventArgs e)
+        private void dtgvHoaDon_Choose(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dtgvPhieuXuat.Rows[e.RowIndex];
+                DataGridViewRow row = dtgvHoaDon.Rows[e.RowIndex];
 
-                int id = Convert.ToInt32(row.Cells["MaPhieuXuat"].Value);
+                int id = Convert.ToInt32(row.Cells["MaHoaDon"].Value);
 
                 // Create a new form and pass the data
-                fChiTietPhieuXuat CTXKho = new fChiTietPhieuXuat(id);
+                fChiTietHoaDon CTXKho = new fChiTietHoaDon(id);
                 CTXKho.Show();
             }
         }
-     
+
     }
 }

@@ -40,7 +40,7 @@ namespace GUI.DAO
         }
         public void DeleteCTNKho(int idPN)
         {
-            string query = "Delete dbo.ChiTietPhieuNhap Where idPhieuNhap =" + idPN;
+            string query = "Delete dbo.ChiTietPhieuNhap Where MaPhieuNhap =" + idPN;
             DataProvider.Instance.ExecuteNonQuery (query);
         }
     }

@@ -18,35 +18,39 @@ namespace GUI
         public fChiTietNhapKho(int id)
         {
             InitializeComponent();
+
             Form_Load(id);
-            LoadChiTietNhapKho(id);
-            LoadSanPhamByNCCID(id);
+           
 
         }
         void Form_Load(int id)
         {
-            PhieuNhap PN = PhieuNhapDAO.Instance.GetPhieuNhap(id);
+            LoadChiTietNhapKho(id);
+            LoadSanPhamByNCCID(id);
+            HoaDonMua HDM = HoaDonMuaDAO.Instance.GetHoaDonMua(id);
             NCC NCC = NCCDAO.Instance.GetNCCByID(id);
+
             txtTenNhaCungCap.Text = NCC.NCCName1.ToString();
+            
             txtMaPhieuNhap.Text = id.ToString();
-            DtpDateCreate.Value = (DateTime)PN.DateNhap1;
+            DtpDateCreate.Value = (DateTime)HDM.DateNhap1;
 
 
         }
         void LoadChiTietNhapKho(int id)
         {
-            List<ChiTietPhieuNhap> CTNKhoList = ChiTietPhieuNhapDAO.Instance.GetChiTietPhieuNhapByID(id);
+            List<ChiTietHoaDonMua> CTNKhoList = ChiTietHoaDonMuaDAO.Instance.GetChiTietHoaDonMuaByID(id);
             float Thanhtien = 0;
-            foreach (ChiTietPhieuNhap CTNKho in CTNKhoList)
+            foreach (ChiTietHoaDonMua CTNKho in CTNKhoList)
             {
-                SanPham SP = SanPhamDAO.Instance.GetSanPham(CTNKho.MaSP2);
-                ListViewItem lsvItem = new ListViewItem(CTNKho.MaSP2.ToString());
+                SanPham SP = SanPhamDAO.Instance.GetSanPham(CTNKho.MaSP1);
+                ListViewItem lsvItem = new ListViewItem(CTNKho.MaSP1.ToString());
                 lsvItem.SubItems.Add(SP.TenSP1.ToString());
                 lsvItem.SubItems.Add(CTNKho.SL1.ToString());
                 lsvItem.SubItems.Add(CTNKho.DG1.ToString());
                 Thanhtien += float.Parse(CTNKho.DG1.ToString()) * float.Parse(CTNKho.SL1.ToString());
 
-                lvSanPham.Items.Add(lsvItem);
+                lvDonDatHang.Items.Add(lsvItem);
             }
 
             CultureInfo Culture = new CultureInfo("vi-VN");
@@ -55,10 +59,12 @@ namespace GUI
         }
         void LoadSanPhamByNCCID(int id)
         {
-            PhieuNhap PN = PhieuNhapDAO.Instance.GetPhieuNhap(id);
-            List<SanPham> SPList = SanPhamDAO.Instance.GetSanPhamByNCCID(PN.MaNCC1);
+            HoaDonMua HDM = HoaDonMuaDAO.Instance.GetHoaDonMua(id);
+            txtGhiChu.Text = HDM.GhiChu1;
+            List<SanPham> SPList = SanPhamDAO.Instance.GetSanPhamByNCCID(HDM.MaNCC1);
             cbTenSP.DataSource = SPList;
             cbTenSP.DisplayMember = "TenSP1";
+            cbTenSP.ValueMember = "Id";
 
         }
 
@@ -69,7 +75,6 @@ namespace GUI
             if (cb.SelectedItem == null)
                 return;
             SanPham selected = cb.SelectedItem as SanPham;
-            txtDonGia.Text = (selected.GiaNhap1).ToString();
             txtTenSP.Text = selected.TenSP1.ToString();
 
 
@@ -80,10 +85,13 @@ namespace GUI
             ComboBox cb = cbTenSP;
             if (cb.SelectedItem == null)
                 return;
+            //SanPham selected = cb.SelectedItem as SanPham;
             SanPham selected = cb.SelectedItem as SanPham;
 
+            ChiTietHoaDonMua CT = ChiTietHoaDonMuaDAO.Instance.GetCTHDMByHDAndSP(int.Parse(txtMaPhieuNhap.Text), selected.Id);
 
-            string SoLuong = (txtSoLuong.Text);
+
+            string SoLuong = (nudSoLuong.Text);
 
             int id = selected.Id;
 
@@ -93,7 +101,7 @@ namespace GUI
             bool added = false;
             try
             {
-                foreach (ListViewItem item in lvSanPham.Items)
+                foreach (ListViewItem item in lvNhapHang.Items)
                 {
                     if (item.SubItems[0].Text == id.ToString())
                     {
@@ -112,14 +120,14 @@ namespace GUI
                         }
                     }
                 }
-                foreach (ListViewItem item in lvSanPham.Items)
+                foreach (ListViewItem item in lvNhapHang.Items)
                 {
                     if (int.Parse(item.SubItems[2].Text) > 0)
                         thanhtien += Double.Parse(item.SubItems[2].Text) * Double.Parse(item.SubItems[3].Text);
                 }
 
                 CultureInfo Culture = new CultureInfo("vi-VN");
-                txtThanhTien.Text = thanhtien.ToString("c", Culture);
+                txtThanhTien1.Text = thanhtien.ToString("c", Culture);
 
 
                 if (!added)
@@ -129,12 +137,12 @@ namespace GUI
                     ListViewItem lsvItem = new ListViewItem(selected.Id.ToString());
                     lsvItem.SubItems.Add(selected.TenSP1.ToString());
                     lsvItem.SubItems.Add(SoLuong.ToString());
-                    lsvItem.SubItems.Add(selected.GiaNhap1.ToString());
+                    lsvItem.SubItems.Add(CT.DG1.ToString());
 
-                    lvSanPham.Items.Add(lsvItem);
+                    lvNhapHang.Items.Add(lsvItem);
 
-                    thanhtien += float.Parse(selected.GiaNhap1.ToString()) * float.Parse(SoLuong);
-                    txtThanhTien.Text = thanhtien.ToString("c", Culture);
+                    thanhtien += float.Parse(CT.DG1.ToString()) * float.Parse(SoLuong);
+                    txtThanhTien1.Text = thanhtien.ToString("c", Culture);
                 }
             }
             catch
@@ -148,27 +156,58 @@ namespace GUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (lvSanPham.Items.Count == 0)
+            if (lvNhapHang.Items.Count == 0)
             {
                 MessageBox.Show("Lỗi");
                 return;
             }
-            if (lvSanPham.Items.Count == 1)
+            if (lvNhapHang.Items.Count == 1)
             {
-                ListViewItem item = lvSanPham.Items[0];
+                ListViewItem item = lvDonDatHang.Items[0];
                 if (int.Parse(item.SubItems[2].Text) == 0)
                 {
                     MessageBox.Show("Lỗi");
                     return;
                 }
             }
+            bool less = false;
+            if (lvNhapHang.Items.Count < lvDonDatHang.Items.Count)
+            {
+                less = true;
+            }
+            else if(lvNhapHang.Items.Count == lvDonDatHang.Items.Count)
+            {
+                for( int i = 0; i < lvNhapHang.Items.Count; i++)
+                {
+                    ListViewItem item1 = lvNhapHang.Items[i];
+                    ListViewItem item2 = lvDonDatHang.Items[i];
+                    if((int.Parse(item1.SubItems[2].Text) < int.Parse(item2.SubItems[2].Text)))
+                    {
+                        less = true;
+                    }
 
-            string SidPN = txtMaPhieuNhap.Text;
-            foreach (ListViewItem item in lvSanPham.Items)
+
+                }
+            }
+            if(less)
+            {
+                MessageBox.Show("Thiếu hàng!");
+                HoaDonMuaDAO.Instance.UpdateHoaDonMuaTrangThai("'Thiếu hàng'", int.Parse(txtMaPhieuNhap.Text));
+            }
+            else
+            {
+                HoaDonMuaDAO.Instance.UpdateHoaDonMuaTrangThai("'Hoàn thành'", int.Parse(txtMaPhieuNhap.Text));
+            }
+            NCC NCC = NCCDAO.Instance.GetNCCByID(int.Parse(txtMaPhieuNhap.Text));
+            DateTime now = DateTime.Now;
+            PhieuNhapDAO.Instance.InsertPN(NCC.Id,now,"");
+
+           
+            foreach (ListViewItem item in lvNhapHang.Items)
             {
                 int idSP = int.Parse(item.SubItems[0].Text);
-                int idPN;
-                int.TryParse(SidPN, out idPN);
+                int idPN = PhieuNhapDAO.Instance.GetMaxIDPN();
+           
                 int SoLuong = int.Parse(item.SubItems[2].Text);
                 double DonGia = double.Parse(item.SubItems[3].Text);
 

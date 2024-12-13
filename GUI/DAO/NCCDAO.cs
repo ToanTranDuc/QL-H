@@ -35,7 +35,7 @@ namespace GUI.DAO
         public NCC GetNCCByID(int id)
         {
             List<NCC> NCCList = new List<NCC>();
-            string query = "Select * from NCC";
+            string query = "Select * from NCC where MaNCC = "+id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow NCC in data.Rows)

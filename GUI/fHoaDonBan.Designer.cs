@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class HoaDonBan
+    partial class fHoaDonBan
     {
         /// <summary>
         /// Required designer variable.
@@ -46,6 +46,10 @@
             this.grbDanhSach = new System.Windows.Forms.GroupBox();
             this.dtgvHoaDon = new System.Windows.Forms.DataGridView();
             this.lbDanhSach = new System.Windows.Forms.Label();
+            this.MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.grbTimKiem.SuspendLayout();
@@ -83,6 +87,7 @@
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Sửa";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnDeleteItem
             // 
@@ -92,6 +97,7 @@
             this.btnDeleteItem.TabIndex = 2;
             this.btnDeleteItem.Text = "Xóa";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btnCreate
             // 
@@ -101,6 +107,7 @@
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Tạo";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click_1);
             // 
             // grbTimKiem
             // 
@@ -119,7 +126,7 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(469, 66);
+            this.dtpEnd.Location = new System.Drawing.Point(469, 50);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(196, 20);
             this.dtpEnd.TabIndex = 10;
@@ -127,7 +134,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(349, 64);
+            this.label1.Location = new System.Drawing.Point(349, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 23);
             this.label1.TabIndex = 9;
@@ -135,7 +142,7 @@
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(138, 67);
+            this.dtpStart.Location = new System.Drawing.Point(138, 51);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(196, 20);
             this.dtpStart.TabIndex = 8;
@@ -148,6 +155,7 @@
             this.btnRefresh.TabIndex = 6;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnTimKiem
             // 
@@ -157,11 +165,12 @@
             this.btnTimKiem.TabIndex = 5;
             this.btnTimKiem.Text = "Tìm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // lbDateStart
             // 
             this.lbDateStart.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lbDateStart.Location = new System.Drawing.Point(23, 66);
+            this.lbDateStart.Location = new System.Drawing.Point(23, 50);
             this.lbDateStart.Name = "lbDateStart";
             this.lbDateStart.Size = new System.Drawing.Size(129, 23);
             this.lbDateStart.TabIndex = 7;
@@ -192,6 +201,11 @@
             this.dtgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgvHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHoaDon,
+            this.NgayLap,
+            this.TongTien,
+            this.GhiChu});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -223,13 +237,45 @@
             this.lbDanhSach.TabIndex = 2;
             this.lbDanhSach.Text = "Danh sách hóa đơn";
             // 
-            // HoaDonBan
+            // MaHoaDon
+            // 
+            this.MaHoaDon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaHoaDon.HeaderText = "Mã hóa đơn";
+            this.MaHoaDon.Name = "MaHoaDon";
+            this.MaHoaDon.ReadOnly = true;
+            this.MaHoaDon.Width = 150;
+            // 
+            // NgayLap
+            // 
+            this.NgayLap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NgayLap.HeaderText = "Ngày lập";
+            this.NgayLap.Name = "NgayLap";
+            this.NgayLap.ReadOnly = true;
+            this.NgayLap.Width = 150;
+            // 
+            // TongTien
+            // 
+            this.TongTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TongTien.HeaderText = "Tổng tiền";
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            this.TongTien.Width = 150;
+            // 
+            // GhiChu
+            // 
+            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GhiChu.HeaderText = "Ghi chú";
+            this.GhiChu.Name = "GhiChu";
+            this.GhiChu.ReadOnly = true;
+            this.GhiChu.Width = 150;
+            // 
+            // fHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Name = "HoaDonBan";
+            this.Name = "fHoaDonBan";
             this.Text = "HoaDonBan";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -259,5 +305,9 @@
         private System.Windows.Forms.GroupBox grbDanhSach;
         private System.Windows.Forms.DataGridView dtgvHoaDon;
         private System.Windows.Forms.Label lbDanhSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
     }
 }
