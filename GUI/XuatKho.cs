@@ -33,7 +33,6 @@ namespace GUI
         private void btnCreate_Click_1(object sender, EventArgs e)
         {
             fTaoChiTietXuat CTNKho = new fTaoChiTietXuat();
-            this.Close();
             CTNKho.ShowDialog();
 
             
