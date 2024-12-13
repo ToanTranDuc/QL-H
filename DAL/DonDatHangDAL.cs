@@ -12,53 +12,32 @@ namespace DAL
     {
         public List<DonDatHang> GetListDonDatHang()
         {
-            var donDatHangList = new List<DonDatHang>();
+            List<DonDatHang> list = new List<DonDatHang>();
+            string query = "SELECT d.ID_DonDatHang, d.NgayDat, d.MaNCC, n.TenNCC, d.GhiChu, d.TongGia, d.TrangThai " +
+                           "FROM tblDonDatHang d " +
+                           "JOIN NCC n ON d.MaNCC = n.MaNCC";
 
             using (SqlConnection conn = SqlConnectionData1.ConnectSP())
             {
-                
-                string query = @"
-                SELECT d.ID_DonDatHang, d.Ngay_Dat, n.TenNCC, n.MaNCC, d.SoLuong, d.TongGia, d.TrangThai, d.MaSP, s.TenSP, s.MoTa, s.GiaNhap, s.HinhAnh, s.MaNCC,
-                FROM tblDonDatHang d
-                JOIN NCC n ON d.MaNCC = n.MaNCC
-                JOIN SanPham s ON d.MaSP = s.MaSP";
-                
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    DonDatHang donDatHang = new DonDatHang
                     {
-                        while (reader.Read())
-                        {
-                            DonDatHang donDatHang = new DonDatHang
-                            {
-                                ID_DonDatHang = Convert.ToInt32(reader["ID_DonDatHang"]),
-                                NgayDat = Convert.ToDateTime(reader["Ngay_Dat"]),
-                                TenNCC = reader["TenNCC"].ToString(),
-                                MaNCC = Convert.ToInt32(reader["MaNCC"]),
-                                MaSP = Convert.ToInt32(reader["MaSP"]),
-                                SoLuong = Convert.ToInt32(reader["SoLuong"]),
-                                TongGia = Convert.ToSingle(reader["TongGia"]),
-                                TrangThai = reader["TrangThai"].ToString(),
-                                SanPham = new SanPham
-                                {
-                                    MaSP = Convert.ToInt32(reader["MaSP"]),
-                                    TenSP = reader["TenSP"].ToString(),
-                                    MoTa = reader["MoTa"].ToString(),
-                                    GiaNhap = Convert.ToSingle(reader["GiaNhap"]),
-                                    HinhAnh = reader["HinhAnh"] != DBNull.Value ? (byte[])reader["HinhAnh"] : null,
-                                    MaNCC = Convert.ToInt32(reader["MaNCC"]),
-                                    
-                                }
-                            };
-                                
-                            donDatHangList.Add(donDatHang);
-                        }
-                    }
+                        ID_DonDatHang = Convert.ToInt32(reader["ID_DonDatHang"]),
+                        NgayDat = Convert.ToDateTime(reader["NgayDat"]),
+                        MaNCC = Convert.ToInt32(reader["MaNCC"]),
+                        TenNCC = reader["TenNCC"].ToString(),
+                        GhiChu = reader["GhiChu"].ToString(),
+                        TongGia = Convert.ToSingle(reader["TongGia"]),
+                        TrangThai = reader["TrangThai"].ToString()
+                    };
+                    list.Add(donDatHang);
                 }
             }
-
-            return donDatHangList;
+            return list;
         }
     }
 }
