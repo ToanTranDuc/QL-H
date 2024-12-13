@@ -67,15 +67,37 @@ namespace GUI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
-
             Form_Load();
-            dtgvPhieuXuat.DataSource = PhieuXuatDAO.Instance.GetPhieuXuat();
+            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuat();
+            dtgvPhieuXuat.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuXuat.Rows.Add
+                        (
+                        row["MaPhieuXuat"],
+                        row["NgayLapPhieuXuat"],
+                        row["LyDoXuat"]
+                        );
+                }
+            }
 
         }
         void LoadPhieuXuat()
         {
-            dtgvPhieuXuat.DataSource = PhieuXuatDAO.Instance.GetPhieuXuat();
+            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuat();
+            dtgvPhieuXuat.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuXuat.Rows.Add
+                        (
+                        row["MaPhieuXuat"],
+                        row["NgayLapPhieuXuat"],
+                        row["LyDoXuat"]
+                        );
+                }
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -83,7 +105,19 @@ namespace GUI
             DateTime? Start = dtpStart.Value;
             DateTime? End = dtpEnd.Value;
 
-            dtgvPhieuXuat.DataSource = PhieuXuatDAO.Instance.GetPhieuXuatByDate(Start, End);
+            DataTable dt = PhieuXuatDAO.Instance.GetPhieuXuatByDate(Start,End);
+            dtgvPhieuXuat.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuXuat.Rows.Add
+                        (
+                        row["MaPhieuXuat"],
+                        row["NgayLapPhieuXuat"],
+                        row["LyDoXuat"]
+                        );
+                }
+            }
         }
 
         private void btnChange_Click(object sender, EventArgs e)

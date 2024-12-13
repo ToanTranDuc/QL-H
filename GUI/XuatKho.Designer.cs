@@ -46,6 +46,9 @@
             this.grbDanhSach = new System.Windows.Forms.GroupBox();
             this.dtgvPhieuXuat = new System.Windows.Forms.DataGridView();
             this.lbDanhSach = new System.Windows.Forms.Label();
+            this.MaPhieuXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LyDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.grbTimKiem.SuspendLayout();
@@ -197,6 +200,10 @@
             this.dtgvPhieuXuat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgvPhieuXuat.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvPhieuXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvPhieuXuat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhieuXuat,
+            this.DateCreate,
+            this.LyDo});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -205,7 +212,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvPhieuXuat.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgvPhieuXuat.Location = new System.Drawing.Point(16, 19);
+            this.dtgvPhieuXuat.Location = new System.Drawing.Point(15, 19);
             this.dtgvPhieuXuat.Name = "dtgvPhieuXuat";
             this.dtgvPhieuXuat.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -227,6 +234,30 @@
             this.lbDanhSach.Size = new System.Drawing.Size(265, 41);
             this.lbDanhSach.TabIndex = 2;
             this.lbDanhSach.Text = "Danh sách phiếu xuất";
+            // 
+            // MaPhieuXuat
+            // 
+            this.MaPhieuXuat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaPhieuXuat.HeaderText = "Mã phiếu xuất";
+            this.MaPhieuXuat.Name = "MaPhieuXuat";
+            this.MaPhieuXuat.ReadOnly = true;
+            this.MaPhieuXuat.Width = 200;
+            // 
+            // DateCreate
+            // 
+            this.DateCreate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DateCreate.HeaderText = "Ngày lập";
+            this.DateCreate.Name = "DateCreate";
+            this.DateCreate.ReadOnly = true;
+            this.DateCreate.Width = 200;
+            // 
+            // LyDo
+            // 
+            this.LyDo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LyDo.HeaderText = "Lý do";
+            this.LyDo.Name = "LyDo";
+            this.LyDo.ReadOnly = true;
+            this.LyDo.Width = 200;
             // 
             // XuatKho
             // 
@@ -265,5 +296,8 @@
         private System.Windows.Forms.GroupBox grbDanhSach;
         private System.Windows.Forms.DataGridView dtgvPhieuXuat;
         private System.Windows.Forms.Label lbDanhSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LyDo;
     }
 }

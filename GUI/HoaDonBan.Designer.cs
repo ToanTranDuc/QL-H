@@ -119,7 +119,7 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(469, 66);
+            this.dtpEnd.Location = new System.Drawing.Point(469, 50);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(196, 20);
             this.dtpEnd.TabIndex = 10;
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(349, 64);
+            this.label1.Location = new System.Drawing.Point(349, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 23);
             this.label1.TabIndex = 9;
@@ -135,7 +135,7 @@
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(138, 67);
+            this.dtpStart.Location = new System.Drawing.Point(138, 51);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(196, 20);
             this.dtpStart.TabIndex = 8;
@@ -161,7 +161,7 @@
             // lbDateStart
             // 
             this.lbDateStart.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lbDateStart.Location = new System.Drawing.Point(23, 66);
+            this.lbDateStart.Location = new System.Drawing.Point(23, 50);
             this.lbDateStart.Name = "lbDateStart";
             this.lbDateStart.Size = new System.Drawing.Size(129, 23);
             this.lbDateStart.TabIndex = 7;

@@ -43,7 +43,20 @@ namespace GUI
         }
         void LoadPhieuNhap()
         {
-            dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhap();
+            DataTable dt = PhieuNhapDAO.Instance.GetPhieuNhap();
+            dtgvPhieuNhap.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuNhap.Rows.Add
+                        (
+                        row["MaPhieuNhap"],
+                        row["NgayLapPhieuNhap"],
+                        row["MaNCC"],
+                        row["GhiChu"]
+                        );
+                }
+            }
         }
         void LoadNCC()
         {
@@ -61,15 +74,42 @@ namespace GUI
             int MaNCC = (int)cbTenNCC.SelectedValue;
 
 
-            dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhapByNCC(MaNCC,Start,End);
-        
+           dtgvPhieuNhap.Rows.Clear();
+            DataTable dt = PhieuNhapDAO.Instance.GetPhieuNhapByNCC(MaNCC,Start,End);
+            
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuNhap.Rows.Add
+                        (
+                        row["MaPhieuNhap"],
+                        row["NgayLapPhieuNhap"],
+                        row["MaNCC"],
+                        row["GhiChu"]
+                        );
+                }
+            }
+
 
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
            
             Form_Load();
-            dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhap();
+            DataTable dt = PhieuNhapDAO.Instance.GetPhieuNhap();
+            dtgvPhieuNhap.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                {
+                    dtgvPhieuNhap.Rows.Add
+                        (
+                        row["MaPhieuNhap"],
+                        row["NgayLapPhieuNhap"],
+                        row["MaNCC"],
+                        row["GhiChu"]
+                        );
+                }
+            }
         }
 
         private void dtgvPhieuNhap_Choose(object sender, DataGridViewCellEventArgs e)
@@ -114,7 +154,7 @@ namespace GUI
             if (dtgvPhieuNhap.SelectedRows.Count > 0)
             {
                 DataGridViewRow rowToDelete = dtgvPhieuNhap.SelectedRows[0];
-                int id = (int)rowToDelete.Cells["id"].Value;
+                int id = (int)rowToDelete.Cells["MaPhieuNhap"].Value;
                 ChiTietPhieuNhapDAO.Instance.DeleteCTNKho(id);
                 PhieuNhapDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());
@@ -124,7 +164,7 @@ namespace GUI
                 DataGridViewCell cellToDelete = dtgvPhieuNhap.SelectedCells[0];
                 int RowIndex = cellToDelete.RowIndex;
                 DataGridViewRow rowToDelete = dtgvPhieuNhap.Rows[RowIndex];
-                int id = (int)rowToDelete.Cells["id"].Value;
+                int id = (int)rowToDelete.Cells["MaPhieuNhap"].Value;
                 ChiTietPhieuNhapDAO.Instance.DeleteCTNKho(id);
                 PhieuNhapDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());

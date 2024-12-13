@@ -71,9 +71,11 @@
     <Compile Include="DanhMucSP.Designer.cs">
       <DependentUpon>DanhMucSP.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ChiTietHoaDonDAO.cs" />
     <Compile Include="DAO\ChiTietNhapKhoDAO.cs" />
     <Compile Include="DAO\ChiTietPhieuXuatDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HoaDonBanDAO.cs" />
     <Compile Include="DAO\NCCDAO.cs" />
     <Compile Include="DAO\PhieuNhapDAO.cs" />
     <Compile Include="DAO\PhieuXuatDAO.cs" />
@@ -84,8 +86,10 @@
     <Compile Include="DSSanPham.Designer.cs">
       <DependentUpon>DSSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ChiTietHoaDonBan.cs" />
     <Compile Include="DTO\ChiTietNhapKho.cs" />
     <Compile Include="DTO\ChiTietPhieuXuat.cs" />
+    <Compile Include="DTO\HoaDonBan.cs" />
     <Compile Include="DTO\NCC.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />

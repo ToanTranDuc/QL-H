@@ -23,7 +23,7 @@ namespace GUI.DAO
 
         public DataTable GetPhieuNhap()
         {
-            string query = "SELECT * FROM PhieuNhap as PN";
+            string query = "SELECT * FROM PhieuNhap";
             return DataProvider.Instance.ExecuteQuery(query);
         }
         public PhieuNhap GetPhieuNhap(int id)
