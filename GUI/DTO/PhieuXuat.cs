@@ -9,21 +9,25 @@ namespace GUI.DTO
 {
     public class PhieuXuat
     {
-        private string id;
+        private int MaPX;
         private DateTime? DateXuat;
+        private string LyDo;
 
-        public string Id { get => id; set => id = value; }
+        public int MaPX1 { get => MaPX; set => MaPX = value; }
         public DateTime? DateXuat1 { get => DateXuat; set => DateXuat = value; }
+        public string LyDo1 { get => LyDo; set => LyDo = value; }
 
-        public PhieuXuat(int id, DateTime? DateXuat)
+        public PhieuXuat(int id, DateTime? DateXuat, string LyDo)
         {
-            this.id = id.ToString();
-            this.DateXuat = DateXuat;
+            this.MaPX = id;
+            this.DateXuat1 = DateXuat;
+            this.LyDo = LyDo; 
         }
         public PhieuXuat(DataRow row)
         {
-            this.id = row["id"].ToString();
-            this.DateXuat = (DateTime?)row["DateCreate"];
+            this.MaPX = (int)row["MaPhieuXuat"];
+            this.DateXuat1 = (DateTime?)row["NgayLapPhieuXuat"];
+            this.LyDo = row["LyDoXuat"].ToString();
         }
     }
 }

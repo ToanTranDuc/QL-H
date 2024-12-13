@@ -28,23 +28,23 @@ namespace GUI.DAO
         }
         public PhieuXuat GetPhieuXuat(int id)
         {
-            string query = "SELECT * FROM dbo.PhieuXuat where PhieuXuat.id ="+id;
+            string query = "SELECT * FROM dbo.PhieuXuat where PhieuXuat.MaPhieuXuat ="+id;
             DataTable Data = DataProvider.Instance.ExecuteQuery(query);
 
             PhieuXuat PN = new PhieuXuat(Data.Rows[0]);
             return PN;
         }
       
-        public void InsertPX(int MaNCC, DateTime? DateCreate)
+        public void InsertPX(string LyDo, DateTime? DateCreate)
         {
-            string query = "EXEC InsertPX @DateCreate";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] {  DateCreate });
+            string query = "EXEC InsertPX @DateCreate , @LyDo ";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { DateCreate , LyDo });
         }
         public int GetMaxIDPX()
         {
             try
             {
-                return (int)DataProvider.Instance.ExecuteScalar("Select Max(id) from dbo.PhieuXuat");
+                return (int)DataProvider.Instance.ExecuteScalar("Select Max(MaPhieuXuat) from dbo.PhieuXuat");
             }
             catch
             {
@@ -53,13 +53,13 @@ namespace GUI.DAO
         }
         public void DeletePX(int idPX)
         {
-            string query = "Delete dbo.PhieuXuat Where id =" + idPX;
+            string query = "Delete dbo.PhieuXuat Where MaPhieuXuat =" + idPX;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         public DataTable GetPhieuXuatByDate( DateTime? Start, DateTime? End)
         {
            
-                string query = "EXEC GetPhieuXuatByNCC  @StartDate , @EndDate";
+                string query = "EXEC GetPhieuXuatByDate  @StartDate , @EndDate";
                 return DataProvider.Instance.ExecuteQuery(query, new object[] { Start, End });
       
         }

@@ -60,6 +60,8 @@
             this.DtpDateCreate = new System.Windows.Forms.DateTimePicker();
             this.txtTenNhaCungCap = new System.Windows.Forms.TextBox();
             this.lbDanhSach = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -287,6 +289,8 @@
             // 
             // grbThongTinChung
             // 
+            this.grbThongTinChung.Controls.Add(this.txtGhiChu);
+            this.grbThongTinChung.Controls.Add(this.label1);
             this.grbThongTinChung.Controls.Add(this.cbTenNCC);
             this.grbThongTinChung.Controls.Add(this.lbDateCreate);
             this.grbThongTinChung.Controls.Add(this.lbTenNhaCungCap);
@@ -370,6 +374,24 @@
             this.lbDanhSach.TabIndex = 2;
             this.lbDanhSach.Text = "Chi tiết phiếu nhập";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(388, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Ghi chú";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtGhiChu.Location = new System.Drawing.Point(474, 69);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(189, 24);
+            this.txtGhiChu.TabIndex = 19;
+            // 
             // fTaoChiTietNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,5 +449,7 @@
         private System.Windows.Forms.TextBox txtTenNhaCungCap;
         private System.Windows.Forms.Label lbDanhSach;
         public System.Windows.Forms.ComboBox cbTenNCC;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtGhiChu;
     }
 }

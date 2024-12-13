@@ -37,11 +37,12 @@ namespace GUI
             float Thanhtien = 0;
             foreach (ChiTietPhieuXuat CTXKho in CTXKhoList)
             {
-                ListViewItem lsvItem = new ListViewItem(CTXKho.Id.ToString());
-                lsvItem.SubItems.Add(CTXKho.SpName.ToString());
-                lsvItem.SubItems.Add(CTXKho.soLuong.ToString());
-                lsvItem.SubItems.Add(CTXKho.Dongia.ToString());
-                Thanhtien += float.Parse(CTXKho.Dongia.ToString()) * float.Parse(CTXKho.soLuong.ToString());
+                SanPham SP = SanPhamDAO.Instance.GetSanPham(CTXKho.MaSP2);
+                ListViewItem lsvItem = new ListViewItem(CTXKho.MaSP2.ToString());
+                lsvItem.SubItems.Add(SP.TenSP1.ToString());
+                lsvItem.SubItems.Add(CTXKho.SL1.ToString());
+                lsvItem.SubItems.Add(CTXKho.DG1.ToString());
+                Thanhtien += float.Parse(CTXKho.TT1.ToString());
 
                 lvSanPham.Items.Add(lsvItem);
             }

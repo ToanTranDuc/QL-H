@@ -26,8 +26,8 @@ namespace GUI
         void Form_Load(int id)
         {
             PhieuNhap PN = PhieuNhapDAO.Instance.GetPhieuNhap(id);
-
-            txtTenNhaCungCap.Text = PN.TenNCC1.ToString();
+            NCC NCC = NCCDAO.Instance.GetNCCByID(id);
+            txtTenNhaCungCap.Text = NCC.NCCName1.ToString();
             txtMaPhieuNhap.Text = id.ToString();
             DtpDateCreate.Value = (DateTime)PN.DateNhap1;
 
@@ -35,15 +35,16 @@ namespace GUI
         }
         void LoadChiTietNhapKho(int id)
         {
-            List<ChiTietNhapKho> CTNKhoList = ChiTietNhapKhoDAO.Instance.GetChiTietNhapKhoByID(id);
+            List<ChiTietPhieuNhap> CTNKhoList = ChiTietPhieuNhapDAO.Instance.GetChiTietPhieuNhapByID(id);
             float Thanhtien = 0;
-            foreach (ChiTietNhapKho CTNKho in CTNKhoList)
+            foreach (ChiTietPhieuNhap CTNKho in CTNKhoList)
             {
-                ListViewItem lsvItem = new ListViewItem(CTNKho.Id.ToString());
-                lsvItem.SubItems.Add(CTNKho.SpName.ToString());
-                lsvItem.SubItems.Add(CTNKho.soLuong.ToString());
-                lsvItem.SubItems.Add(CTNKho.Dongia.ToString());
-                Thanhtien += float.Parse(CTNKho.Dongia.ToString()) * float.Parse(CTNKho.soLuong.ToString());
+                SanPham SP = SanPhamDAO.Instance.GetSanPham(CTNKho.MaSP2);
+                ListViewItem lsvItem = new ListViewItem(CTNKho.MaSP2.ToString());
+                lsvItem.SubItems.Add(SP.TenSP1.ToString());
+                lsvItem.SubItems.Add(CTNKho.SL1.ToString());
+                lsvItem.SubItems.Add(CTNKho.DG1.ToString());
+                Thanhtien += float.Parse(CTNKho.DG1.ToString()) * float.Parse(CTNKho.SL1.ToString());
 
                 lvSanPham.Items.Add(lsvItem);
             }
@@ -171,7 +172,7 @@ namespace GUI
                 int SoLuong = int.Parse(item.SubItems[2].Text);
                 double DonGia = double.Parse(item.SubItems[3].Text);
 
-                ChiTietNhapKhoDAO.Instance.InsertCTNKho(idSP, idPN, SoLuong, DonGia);
+                ChiTietPhieuNhapDAO.Instance.InsertCTNKho(idSP, idPN, SoLuong, DonGia);
                 this.Close();
             }
         }

@@ -7,35 +7,41 @@ using System.Threading.Tasks;
 
 namespace GUI.DTO
 {
-    public class ChiTietNhapKho
+    public class ChiTietPhieuNhap
     {
-        private int id;
-        private int idPhieuNhap;
-        private string SPName;
-        private int SoLuong;
-        private double DonGia;
+        private int MaCTPN;
+        private int MaPN;
+        private int MaSP;
+        private int SL;
+        private double DG;
+        private double TT;
 
-        public int Id { get => id; set => id = value; }
-        public int IdPhieuNhap { get => idPhieuNhap; set => idPhieuNhap = value; }
-        public string SpName { get => SPName; set => SPName = value; }
-        public int soLuong { get => SoLuong; set => SoLuong = value; }
-        public double Dongia { get => DonGia; set => DonGia = value; }
 
-        public ChiTietNhapKho(int id, int idPhieuNhap, string sPName, int soLuong,double DonGia)
+        public int MaCTPN1 { get => MaCTPN; set => MaCTPN = value; }
+        public int MaPN1 { get => MaPN; set => MaPN = value; }
+        public int MaSP2 { get => MaSP; set => MaSP = value; }
+        public int SL1 { get => SL; set => SL = value; }
+        public double DG1 { get => DG; set => DG = value; }
+        public double TT1 { get => TT; set => TT = value; }
+
+        public ChiTietPhieuNhap(int MaCTPN, int MaPN, int MaSP, int SL, double DG)
         {
-            this.id = id;
-            this.idPhieuNhap = idPhieuNhap;
-            this.SPName = sPName;
-            this.SoLuong = soLuong;
-            this.DonGia = Dongia;
+            this.MaSP = MaSP;
+            this.MaCTPN = MaCTPN;
+            this.MaPN = MaPN;
+            this.SL = SL;
+            this.DG = DG;
+            this.TT = SL * DG;
+
         }
-        public ChiTietNhapKho(DataRow row)
+        public ChiTietPhieuNhap(DataRow row)
         {
-            id = (int)row["ID"];
-            idPhieuNhap = (int)row["idPhieuNhap"];
-            SPName = row["TenSP"].ToString();
-            SoLuong = (int)row["SoLuong"];
-            DonGia = double.Parse(row["DonGia"].ToString());
+            this.MaSP = (int)row["MaSanPham"];
+            this.MaCTPN = (int)row["MaChiTietPhieuNhap"];
+            this.MaPN = (int)row["MaPhieuNhap"];
+            this.SL = (int)row["SoLuong"];
+            this.DG = double.Parse(row["DonGia"].ToString());
+            this.TT = SL * DG;
         }
     }
 }

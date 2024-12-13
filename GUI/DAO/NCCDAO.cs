@@ -32,6 +32,20 @@ namespace GUI.DAO
             }
             return NCCList;
         }
+        public NCC GetNCCByID(int id)
+        {
+            List<NCC> NCCList = new List<NCC>();
+            string query = "Select * from NCC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow NCC in data.Rows)
+            {
+                NCC ncc = new NCC(NCC);
+                return ncc;
+            }
+            return null;
+
+        }
     }
     
 }

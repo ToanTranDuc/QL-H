@@ -23,7 +23,7 @@ namespace GUI.DAO
         public List<ChiTietPhieuXuat> GetChiTietPhieuXuatByID(int id)
         {
             List<ChiTietPhieuXuat> CTXKList = new List<ChiTietPhieuXuat>();
-            string query = "Select SP.MaSP as ID, CTPX.idPhieuXuat as [idPhieuXuat], SP.TenSP as [TenSP] , CTPX.count as [SoLuong] , SP.GiaNhap as [DonGia] FROM ChiTietPhieuXuat as CTPX , SanPham as SP WHERE CTPX.idSanPham = SP.MaSP AND CTPX.idPhieuXuat = " + id;
+            string query = "Select * From ChiTietPhieuXuat where ChiTIetPhieuXuat.MaPhieuXuat = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow CTXK in data.Rows)
@@ -40,7 +40,7 @@ namespace GUI.DAO
         }
         public void DeleteCTXKho(int idPX)
         {
-            string query = "Delete dbo.ChiTietPhieuXuat Where idPhieuXuat =" + idPX;
+            string query = "Delete dbo.ChiTietPhieuXuat Where MaPhieuXuat =" + idPX;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

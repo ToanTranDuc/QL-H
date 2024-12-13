@@ -119,6 +119,12 @@
     <Compile Include="GiaoDien.Designer.cs">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoaDonBan.Designer.cs">
+      <DependentUpon>HoaDonBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="InforNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,14 +172,29 @@
     <EmbeddedResource Include="DSSanPham.resx">
       <DependentUpon>DSSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fChiTietNhapKho.resx">
+      <DependentUpon>fChiTietNhapKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fChiTietPhieuXuat.resx">
       <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTaoChiTietNhap.resx">
+      <DependentUpon>fTaoChiTietNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTaoChiTietXuat.resx">
+      <DependentUpon>fTaoChiTietXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien.resx">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonBan.resx">
+      <DependentUpon>HoaDonBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InforNCC.resx">
       <DependentUpon>InforNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapKho.resx">
+      <DependentUpon>NhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

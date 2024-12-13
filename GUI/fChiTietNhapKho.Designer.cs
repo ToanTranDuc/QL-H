@@ -144,7 +144,7 @@
             // txtDonGia
             // 
             this.txtDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtDonGia.Location = new System.Drawing.Point(453, 82);
+            this.txtDonGia.Location = new System.Drawing.Point(455, 79);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(189, 24);
             this.txtDonGia.TabIndex = 13;
@@ -153,7 +153,7 @@
             // 
             this.lbDonGia.AutoSize = true;
             this.lbDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbDonGia.Location = new System.Drawing.Point(371, 85);
+            this.lbDonGia.Location = new System.Drawing.Point(380, 82);
             this.lbDonGia.Name = "lbDonGia";
             this.lbDonGia.Size = new System.Drawing.Size(59, 18);
             this.lbDonGia.TabIndex = 12;
@@ -354,7 +354,7 @@
             // 
             this.lbDanhSach.AutoEllipsis = true;
             this.lbDanhSach.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lbDanhSach.Location = new System.Drawing.Point(366, 15);
+            this.lbDanhSach.Location = new System.Drawing.Point(383, 4);
             this.lbDanhSach.Name = "lbDanhSach";
             this.lbDanhSach.Size = new System.Drawing.Size(254, 44);
             this.lbDanhSach.TabIndex = 2;
@@ -364,7 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 654);
+            this.ClientSize = new System.Drawing.Size(1064, 650);
             this.Controls.Add(this.panel1);
             this.Name = "fChiTietNhapKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

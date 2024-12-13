@@ -1,6 +1,7 @@
 ﻿
 using GUI;
 using GUI.DAO;
+using GUI.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +20,6 @@ namespace GUI
         public NhapKho()
         {
             InitializeComponent();
-            Form_Load();
-            LoadPhieuNhap();
 
         }
         void Form_Load()
@@ -46,19 +45,29 @@ namespace GUI
         {
             dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhap();
         }
+        void LoadNCC()
+        {
+            List<NCC> NCCList = NCCDAO.Instance.GetNCC();
+            cbTenNCC.DataSource = NCCList;
+            cbTenNCC.DisplayMember = "NCCName1";
+            cbTenNCC.ValueMember = "Id";
+        }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string NCCName = txtTimKiem.Text;
+            
             DateTime? Start = dtpStart.Value;
             DateTime? End = dtpEnd.Value;
+            int MaNCC = (int)cbTenNCC.SelectedValue;
 
-            dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhapByNCC(NCCName, Start, End);
+
+            dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhapByNCC(MaNCC,Start,End);
+        
 
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            txtTimKiem.Text = string.Empty;
+           
             Form_Load();
             dtgvPhieuNhap.DataSource = PhieuNhapDAO.Instance.GetPhieuNhap();
         }
@@ -69,7 +78,7 @@ namespace GUI
             {
                 DataGridViewRow row = dtgvPhieuNhap.Rows[e.RowIndex];
 
-                int id = Convert.ToInt32(row.Cells["id"].Value);
+                int id = Convert.ToInt32(row.Cells["MaPhieuNhap"].Value);
 
               
                 fChiTietNhapKho CTNKho = new fChiTietNhapKho(id);
@@ -106,7 +115,7 @@ namespace GUI
             {
                 DataGridViewRow rowToDelete = dtgvPhieuNhap.SelectedRows[0];
                 int id = (int)rowToDelete.Cells["id"].Value;
-                ChiTietNhapKhoDAO.Instance.DeleteCTNKho(id);
+                ChiTietPhieuNhapDAO.Instance.DeleteCTNKho(id);
                 PhieuNhapDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
@@ -116,10 +125,17 @@ namespace GUI
                 int RowIndex = cellToDelete.RowIndex;
                 DataGridViewRow rowToDelete = dtgvPhieuNhap.Rows[RowIndex];
                 int id = (int)rowToDelete.Cells["id"].Value;
-                ChiTietNhapKhoDAO.Instance.DeleteCTNKho(id);
+                ChiTietPhieuNhapDAO.Instance.DeleteCTNKho(id);
                 PhieuNhapDAO.Instance.DeletePN(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
+        }
+
+        private void NhapKho_Load(object sender, EventArgs e)
+        {
+            Form_Load();
+            LoadPhieuNhap();
+            LoadNCC();
         }
     }
 }

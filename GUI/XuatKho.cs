@@ -33,10 +33,8 @@ namespace GUI
         private void btnCreate_Click_1(object sender, EventArgs e)
         {
             fTaoChiTietXuat CTNKho = new fTaoChiTietXuat();
-            this.Close();
             CTNKho.ShowDialog();
-
-            
+        
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -50,7 +48,7 @@ namespace GUI
             if (dtgvPhieuXuat.SelectedRows.Count > 0)
             {
                 DataGridViewRow rowToDelete = dtgvPhieuXuat.SelectedRows[0];
-                int id = (int)rowToDelete.Cells["id"].Value;
+                int id = (int)rowToDelete.Cells["MaPhieuXuat"].Value;
                 ChiTietPhieuXuatDAO.Instance.DeleteCTXKho(id);
                 PhieuXuatDAO.Instance.DeletePX(id);
                 btnRefresh_Click(sender, new EventArgs());
@@ -60,7 +58,7 @@ namespace GUI
                 DataGridViewCell cellToDelete = dtgvPhieuXuat.SelectedCells[0];
                 int RowIndex = cellToDelete.RowIndex;
                 DataGridViewRow rowToDelete = dtgvPhieuXuat.Rows[RowIndex];
-                int id = (int)rowToDelete.Cells["id"].Value;
+                int id = (int)rowToDelete.Cells["MaPhieuXuat"].Value;
                 ChiTietPhieuXuatDAO.Instance.DeleteCTXKho(id);
                 PhieuXuatDAO.Instance.DeletePX(id);
                 btnRefresh_Click(sender, new EventArgs());
@@ -110,7 +108,7 @@ namespace GUI
             {
                 DataGridViewRow row = dtgvPhieuXuat.Rows[e.RowIndex];
 
-                int id = Convert.ToInt32(row.Cells["id"].Value);
+                int id = Convert.ToInt32(row.Cells["MaPhieuXuat"].Value);
 
                 // Create a new form and pass the data
                 fChiTietPhieuXuat CTXKho = new fChiTietPhieuXuat(id);

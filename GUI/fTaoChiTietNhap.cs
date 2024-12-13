@@ -167,7 +167,7 @@ namespace GUI
             items = lvSanPham.Items[0];
             SanPham SP = SanPhamDAO.Instance.GetSanPham(int.Parse(items.SubItems[0].Text));
 
-            PhieuNhapDAO.Instance.InsertPN(SP.IdNCC, DtpDateCreate.Value);
+            PhieuNhapDAO.Instance.InsertPN(SP.IdNCC, DtpDateCreate.Value,txtGhiChu.Text);
 
 
             foreach (ListViewItem item in lvSanPham.Items)
@@ -177,7 +177,7 @@ namespace GUI
                 int SoLuong = int.Parse(item.SubItems[2].Text);
                 double DonGia = double.Parse(item.SubItems[3].Text);
 
-                ChiTietNhapKhoDAO.Instance.InsertCTNKho(idSP, idPN, SoLuong, DonGia);
+                ChiTietPhieuNhapDAO.Instance.InsertCTNKho(idSP, idPN, SoLuong, DonGia);
                 this.Close();
             }
         }

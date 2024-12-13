@@ -10,25 +10,25 @@ using GUI.DTO;
 
 namespace GUI.DAO
 {
-    public class ChiTietNhapKhoDAO
+    public class ChiTietPhieuNhapDAO
     {
-        private static ChiTietNhapKhoDAO instance;
-        public static ChiTietNhapKhoDAO Instance
+        private static ChiTietPhieuNhapDAO instance;
+        public static ChiTietPhieuNhapDAO Instance
         {
-            get { if (instance == null) instance = new ChiTietNhapKhoDAO(); return instance; }
+            get { if (instance == null) instance = new ChiTietPhieuNhapDAO(); return instance; }
             set { instance = value; }
         }
-        private ChiTietNhapKhoDAO() { }
+        private ChiTietPhieuNhapDAO() { }
 
-        public List<ChiTietNhapKho> GetChiTietNhapKhoByID(int id)
+        public List<ChiTietPhieuNhap> GetChiTietPhieuNhapByID(int id)
         {
-            List<ChiTietNhapKho> CTNKList = new List<ChiTietNhapKho> ();
-            string query = "Select SP.MaSP as ID, CTPN.idPhieuNhap as [idPhieuNhap], SP.TenSP as [TenSP] , CTPN.count as [SoLuong] , SP.GiaNhap as [DonGia] FROM ChiTietPhieuNhap as CTPN , SanPham as SP WHERE CTPN.idSanPham = SP.MaSP AND CTPN.idPhieuNhap = " + id;
+            List<ChiTietPhieuNhap> CTNKList = new List<ChiTietPhieuNhap> ();
+            string query = "Select * From ChiTietPhieuNhap as CTPN WHERE CTPN.MaPhieuNhap = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow CTNK in data.Rows)
             {
-                ChiTietNhapKho CT = new ChiTietNhapKho(CTNK);
+                ChiTietPhieuNhap CT = new ChiTietPhieuNhap(CTNK);
                 CTNKList.Add(CT);
             } 
             return CTNKList;

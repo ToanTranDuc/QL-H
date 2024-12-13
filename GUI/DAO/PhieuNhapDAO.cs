@@ -23,38 +23,34 @@ namespace GUI.DAO
 
         public DataTable GetPhieuNhap()
         {
-            string query = "SELECT PN.id , PN.DateCreate , NCC.TenNCC  FROM PhieuNhap as PN , NCC WHERE PN.MaNCC = NCC.MaNCC";
+            string query = "SELECT * FROM PhieuNhap as PN";
             return DataProvider.Instance.ExecuteQuery(query);
         }
         public PhieuNhap GetPhieuNhap(int id)
         {
-            string query = "SELECT PN.MaNCC , PN.DateCreate , NCC.TenNCC FROM PhieuNhap as PN , NCC Where PN.MaNCC = NCC.MaNCC AND PN.id =" + id;
+            string query = "SELECT * From PhieuNhap where MaPhieuNhap = " + id;
             DataTable Data = DataProvider.Instance.ExecuteQuery(query);
 
             PhieuNhap PN = new PhieuNhap(Data.Rows[0]);
             return PN;
         }
-        public DataTable GetPhieuNhapByNCC(string NCCName,DateTime? Start, DateTime? End)
+        public DataTable GetPhieuNhapByNCC(int MaNCC,DateTime? Start, DateTime? End)
         {
             string query = "";
-            if(NCCName == "")
-            {
-                query = "EXEC GetPhieuNhapByNCC @NCCName , @StartDate , @EndDate";
-                return DataProvider.Instance.ExecuteQuery(query, new object[] { NCCName, Start, End });
-            }
-            query = "EXEC GetPhieuNhapByNCC @NCCName , @StartDate , @EndDate" ;
-            return DataProvider.Instance.ExecuteQuery(query, new object[] {NCCName,Start,End});
+           
+            query = "EXEC GetPhieuNhapByNCC @MaNCC , @StartDate , @EndDate" ;
+            return DataProvider.Instance.ExecuteQuery(query, new object[] {MaNCC,Start,End});
         }
-        public void InsertPN(int MaNCC, DateTime? DateCreate)
+        public void InsertPN(int MaNCC, DateTime? DateCreate, string GhiChu)
         {
-            string query = "EXEC InsertPN @MaNCC , @DateCreate";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaNCC, DateCreate});
+            string query = "EXEC InsertPN @MaNCC , @DateCreate , @GhiChu ";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaNCC, DateCreate,GhiChu });
         }
         public int GetMaxIDPN()
         {
             try
             {
-                return (int)DataProvider.Instance.ExecuteScalar("Select Max(id) from dbo.PhieuNhap");
+                return (int)DataProvider.Instance.ExecuteScalar("Select Max(MaPhieuNhap) from dbo.PhieuNhap");
             }
             catch
             {
@@ -63,7 +59,7 @@ namespace GUI.DAO
         }
         public void DeletePN(int idPN)
         {
-            string query = "Delete dbo.PhieuNhap Where id =" + idPN;
+            string query = "Delete dbo.PhieuNhap Where MaPhieuNhap =" + idPN;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

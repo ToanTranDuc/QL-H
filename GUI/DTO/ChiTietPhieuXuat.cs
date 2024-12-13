@@ -9,33 +9,39 @@ namespace GUI.DTO
 {
     public class ChiTietPhieuXuat
     {
-        private int id;
-        private int idPhieuXuat;
-        private string SPName;
-        private int SoLuong;
-        private double DonGia;
+        private int MaCTPX;
+        private int MaPX;
+        private int MaSP;
+        private int SL;
+        private double DG;
+        private double TT;
 
-        public int Id { get => id; set => id = value; }
-        public int IdPhieuXuat { get => idPhieuXuat; set => idPhieuXuat = value; }
-        public string SpName { get => SPName; set => SPName = value; }
-        public int soLuong { get => SoLuong; set => SoLuong = value; }
-        public double Dongia { get => DonGia; set => DonGia = value; }
+     
+        public int MaCTPX1 { get => MaCTPX; set => MaCTPX = value; }
+        public int MaPX1 { get => MaPX; set => MaPX = value; }
+        public int MaSP2 { get => MaSP; set => MaSP = value; }
+        public int SL1 { get => SL; set => SL = value; }
+        public double DG1 { get => DG; set => DG = value; }
+        public double TT1 { get => TT; set => TT = value; }
 
-        public ChiTietPhieuXuat(int id, int idPhieuXuat, string sPName, int soLuong, double DonGia)
+        public ChiTietPhieuXuat(int MaCTPX, int MaPX, int MaSP, int SL, double DG)
         {
-            this.id = id;
-            this.idPhieuXuat = idPhieuXuat;
-            this.SPName = sPName;
-            this.SoLuong = soLuong;
-            this.DonGia = Dongia;
+            this.MaSP = MaSP;
+            this.MaCTPX = MaCTPX;
+            this.MaPX = MaPX;
+            this.SL = SL;
+            this.DG = DG;
+            this.TT = SL * DG;
+
         }
         public ChiTietPhieuXuat(DataRow row)
         {
-            id = (int)row["ID"];
-            idPhieuXuat = (int)row["idPhieuXuat"];
-            SPName = row["TenSP"].ToString();
-            SoLuong = (int)row["SoLuong"];
-            DonGia = double.Parse(row["DonGia"].ToString());
+            this.MaSP = (int)row["MaSanPham"];
+            this.MaCTPX = (int)row["MaChiTietPhieuXuat"];
+            this.MaPX = (int)row["MaPhieuXuat"];
+            this.SL = (int)row["SoLuong"];
+            this.DG = double.Parse(row["DonGia"].ToString());
+            this.TT = SL * DG;
         }
     }
 }

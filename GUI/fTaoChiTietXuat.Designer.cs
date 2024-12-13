@@ -30,6 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtLyDo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbTenNCC = new System.Windows.Forms.ComboBox();
             this.cbTenSP = new System.Windows.Forms.ComboBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -95,6 +97,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1021, 178);
             this.panel4.TabIndex = 7;
+            // 
+            // txtLyDo
+            // 
+            this.txtLyDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtLyDo.Location = new System.Drawing.Point(173, 75);
+            this.txtLyDo.Name = "txtLyDo";
+            this.txtLyDo.Size = new System.Drawing.Size(189, 24);
+            this.txtLyDo.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(25, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Lý do : ";
             // 
             // cbTenNCC
             // 
@@ -297,6 +317,8 @@
             // 
             // grbThongTinChung
             // 
+            this.grbThongTinChung.Controls.Add(this.txtLyDo);
+            this.grbThongTinChung.Controls.Add(this.label1);
             this.grbThongTinChung.Controls.Add(this.lbDateCreate);
             this.grbThongTinChung.Controls.Add(this.txtMaPhieuXuat);
             this.grbThongTinChung.Controls.Add(this.lbMaPhieuXuat);
@@ -414,5 +436,7 @@
         private System.Windows.Forms.TextBox txtTenNhaCungCap;
         private System.Windows.Forms.Label lbDanhSach;
         public System.Windows.Forms.ComboBox cbTenNCC;
+        private System.Windows.Forms.TextBox txtLyDo;
+        private System.Windows.Forms.Label label1;
     }
 }

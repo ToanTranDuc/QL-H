@@ -67,20 +67,6 @@ namespace GUI
             {
                 items = lvSanPham.Items[0];
             }
-
-
-            if (items != null)
-            {
-                SanPham SP = SanPhamDAO.Instance.GetSanPham(int.Parse(items.SubItems[0].Text));
-                if (selectedSP.IdNCC != SP.IdNCC)
-                {
-                    MessageBox.Show("Lỗi");
-                    return;
-                }
-            }
-
-
-
             try
             {
 
@@ -166,9 +152,8 @@ namespace GUI
             ListViewItem items = new ListViewItem();
             items = null;
             items = lvSanPham.Items[0];
-            SanPham SP = SanPhamDAO.Instance.GetSanPham(int.Parse(items.SubItems[0].Text));
 
-            PhieuXuatDAO.Instance.InsertPX(SP.IdNCC, DtpDateCreate.Value);
+            PhieuXuatDAO.Instance.InsertPX(txtLyDo.Text, DtpDateCreate.Value);
 
 
             foreach (ListViewItem item in lvSanPham.Items)
