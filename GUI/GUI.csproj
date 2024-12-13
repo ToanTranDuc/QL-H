@@ -251,6 +251,9 @@
     <EmbeddedResource Include="fChiTietPhieuXuat.resx">
       <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fTaoChiTietNhap.resx">
       <DependentUpon>fTaoChiTietNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-tools-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
