@@ -207,5 +207,14 @@ namespace BLL
             loadsp.XoaCTHopDong(maHopDong);
         }
 
+        private SanPhamDAL sp = new SanPhamDAL();
+        public List<SanPham> GetProductsBySupplier(int maNCC)
+        {
+            return sp.GetProductsBySupplier(maNCC);
+        }
+        public SanPham GetProductById(int maSP)
+        {
+            return sp.GetProductById(maSP);
+        }
     }
 }

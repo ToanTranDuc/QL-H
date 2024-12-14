@@ -23,9 +23,12 @@ namespace GUI
         private TaiKhoanBLL taiKhoanBLL = new TaiKhoanBLL();
         private TaiKhoan User = new TaiKhoan();
 
+
+
         public frmTrangChu()
         {
             InitializeComponent();
+            CurrentUser.User.NhanVien.NhanVienQuyen = taiKhoanBLL.GetUserPermissions(CurrentUser.User.NhanVien.ID_NhanVien);
         }       
 
         private void OpenChildForm(Form childForm)
@@ -58,23 +61,14 @@ namespace GUI
             btnDanhSachSanPham.Enabled = true;
             btnDMChucVu.Enabled = true;
             btnDSNhanVien.Enabled = true;
-
             btnTaiKhoan.Enabled = true;
-            btnTonKho.Enabled = true;
-            btnBanHang.Enabled = true;
-            btnNhapKho.Enabled = true;
-            btnDonDatHang.Enabled = true;
-            btnXuatKho.Enabled = true;
+            LoadQuyen();
+
         }
         
        
-
-        private void frmTrangChu_Load(object sender, EventArgs e)
+        private void LoadQuyen()
         {
-            CurrentUser.User.NhanVien.NhanVienQuyen = taiKhoanBLL.GetUserPermissions(CurrentUser.User.NhanVien.ID_NhanVien);
-            User = CurrentUser.User;
-            //Phan quyen
-            lblChaoMung.Text = $"Xin chào: {User.NhanVien.Ho_Ten}\nChức vụ: {CurrentUser.TenChucVu}";
             if (User.NhanVien.NhanVienQuyen != null)
             {
                 var danhSachQuyen = User.NhanVien.NhanVienQuyen.Select(q => q.Quyen.TenQuyen).ToList();
@@ -85,26 +79,26 @@ namespace GUI
                 else
                 {
                     btnDanhMucSanPham.Enabled = false;
-                    btnDanhSachSanPham.Enabled = false ;
-                    btnDMChucVu.Enabled = false ;
-                    btnDSNhanVien.Enabled = false ;
-                    btnTonKho.Enabled = false ;
+                    btnDanhSachSanPham.Enabled = false;
+                    btnDMChucVu.Enabled = false;
+                    btnDSNhanVien.Enabled = false;
+                    btnTonKho.Enabled = false;
                     btnXuatKho.Enabled = false;
-                    btnNhapKho.Enabled = false ;
-                    btnDonDatHang.Enabled = false ;
-                    btnBanHang.Enabled = false ;
-                    btnThongKe.Enabled = false ;
+                    btnNhapKho.Enabled = false;
+                    btnDonDatHang.Enabled = false;
+                    btnBanHang.Enabled = false;
+                    btnThongKe.Enabled = false;
                 }
                 if (danhSachQuyen.Contains("Kho"))
                 {
-                    btnTonKho.Enabled = true ;
-                    btnXuatKho.Enabled=true ;
-                    btnNhapKho.Enabled=true;
-                    btnDonDatHang.Enabled=true ;
+                    btnTonKho.Enabled = true;
+                    btnXuatKho.Enabled = true;
+                    btnNhapKho.Enabled = true;
+                    btnDonDatHang.Enabled = true;
                 }
                 if (danhSachQuyen.Contains("Bán hàng"))
                 {
-                    btnBanHang.Enabled = true ;
+                    btnBanHang.Enabled = true;
                 }
                 if (danhSachQuyen.Contains("Sản phẩm"))
                 {
@@ -112,6 +106,14 @@ namespace GUI
                     btnDanhSachSanPham.Enabled = true;
                 }
             }
+        }
+
+        private void frmTrangChu_Load(object sender, EventArgs e)
+        {
+            User = CurrentUser.User;
+            //Phan quyen
+            lblChaoMung.Text = $"Xin chào: {User.NhanVien.Ho_Ten}\nChức vụ: {CurrentUser.TenChucVu}";
+            LoadQuyen();
         }
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -266,8 +268,20 @@ namespace GUI
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmTaiKhoan());
-            lblTitle.Text = btnTaiKhoan.Text;
+                var danhSachQuyen = User.NhanVien.NhanVienQuyen.Select(q => q.Quyen.TenQuyen).ToList();
+                if (danhSachQuyen.Contains("Quản trị tối cao"))
+                {
+                    OpenChildForm(new frmTaiKhoan());
+                    lblTitle.Text = btnTaiKhoan.Text;
+                    return;
+                }
+                else
+                {
+                    OpenChildForm(new frmTaiKhoanCaNhan(CurrentUser.User.NhanVien.ID_NhanVien));
+                lblTitle.Text = "Trang tài khoản cá nhân";
+                    return;
+                }
+                
         }
 
         private void btnNhapKho_Click(object sender, EventArgs e)
