@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace DAL
 {
     public class LoadSP
     {
-        private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-
+        //private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
+        private string connectionString = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True;";
         public List<XuatXu> LayTatCaXuatXu()
         {
             List<XuatXu> danhSachXuatXu = new List<XuatXu>();

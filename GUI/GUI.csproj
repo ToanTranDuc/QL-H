@@ -250,6 +250,12 @@
     <Compile Include="ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="TonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TonKho.Designer.cs">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="XuatKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     <EmbeddedResource Include="ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TonKho.resx">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XuatKho.resx">
       <DependentUpon>XuatKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +420,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Dong-ho-treo-tuong-17-711x400.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hinh-anh-dong-ho-dep-cho-nam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipart3441939.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clock-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shop-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-product-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-person-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-house-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bar-chart-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-industrial-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

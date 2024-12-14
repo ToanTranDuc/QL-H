@@ -15,15 +15,15 @@ namespace DAL
         public static SqlConnection Connect()
         {
             
-            //string strcon = @"Data Source=beetinhtinhte\mssqlsever1;Initial Catalog=QLCuaHangDH;Integrated Security=True;";
-            string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
+            string strcon = @"Data Source=beetinhtinhte\mssqlsever1;Initial Catalog=QLCuaHangDH;Integrated Security=True;";
+            //string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
             SqlConnection conn = new SqlConnection(strcon);
             return conn;
         }
         public static SqlConnection ConnectSP()
         {
-            //string strcon = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True;";
-            string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
+            string strcon = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True;";
+            //string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
             SqlConnection conn = new SqlConnection(strcon);
             return conn;
         }
