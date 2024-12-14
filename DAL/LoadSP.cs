@@ -14,8 +14,7 @@ namespace DAL
     public class LoadSP
     {
         //private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-        private string connectionString =
-           @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True;";
+        private string connectionString = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLDongHo;Integrated Security=True;";
         public List<XuatXu> LayTatCaXuatXu()
         {
             List<XuatXu> danhSachXuatXu = new List<XuatXu>();
