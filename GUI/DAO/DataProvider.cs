@@ -14,7 +14,7 @@ namespace GUI.DAO
         private static DataProvider instance; 
         private static string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
         //private static string connectionSTR = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-        private static string connectionSTR = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLDongHo;Integrated Security=True;";
+        //private static string connectionSTR = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLDongHo;Integrated Security=True;";
 
         internal static DataProvider Instance 
         { 
