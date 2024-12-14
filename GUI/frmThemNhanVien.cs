@@ -156,10 +156,10 @@ namespace GUI
                     nhanVien.ID_DangNhap = tkBLL.InsertAccount(taiKhoan); // tao tk mới trả về ID
                 }
                 int ID_NV = nvBLL.InsertEmployee(nhanVien); // Thêm nhân viên
+                MessageBox.Show(ID_NV.ToString());
                 if (ID_NV != -1)
                 {
-                    nhanVien.ID_NhanVien = ID_NV;
-                    nhanVienBLL.UpdatePermissions(nhanVien.ID_NhanVien, nhanVien.NhanVienQuyen); //Cấp quyền
+                    nhanVienBLL.UpdatePermissions(ID_NV, nhanVien.NhanVienQuyen); //Cấp quyền
                     MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
                     this.Close();
                 }
