@@ -23,7 +23,7 @@ namespace GUI.DAO
         public List<ChiTietHoaDon> GetChiTietHoaDonByID(int id)
         {
             List<ChiTietHoaDon> CTNKList = new List<ChiTietHoaDon>();
-            string query = "Select * From ChiTietHoaDon as CTPN WHERE CTPN.MaPhieuNhap = " + id;
+            string query = "Select * From ChiTietHoaDon as CTPN WHERE CTPN.MaHoaDon = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow CTNK in data.Rows)
@@ -34,13 +34,13 @@ namespace GUI.DAO
             return CTNKList;
 
         }
-        public void InsertCTNKho(int idSP, int idPN, int SoLuong, double DonGia)
+        public void InsertCTHDB(int idSP, int idPN, int SoLuong, double DonGia)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC InsertCTNK @idSanPham , @idPhieuNhap , @SoLuong , @DonGia ", new object[] { idSP, idPN, SoLuong, DonGia });
+            DataProvider.Instance.ExecuteNonQuery("EXEC InsertCTHDB @idSanPham , @idHoaDon , @SoLuong , @DonGia ", new object[] { idSP, idPN, SoLuong, DonGia });
         }
-        public void DeleteCTNKho(int idPN)
+        public void DeleteCTHDB(int idPN)
         {
-            string query = "Delete dbo.ChiTietHoaDon Where MaPhieuNhap =" + idPN;
+            string query = "Delete dbo.ChiTietHoaDon Where MaHoaDon =" + idPN;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

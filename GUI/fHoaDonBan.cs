@@ -32,8 +32,8 @@ namespace GUI
         }
         private void btnCreate_Click_1(object sender, EventArgs e)
         {
-            fTaoChiTietXuat CTNKho = new fTaoChiTietXuat();
-            CTNKho.ShowDialog();
+            fTaoChiTietHoaDon CTHD = new fTaoChiTietHoaDon();
+            CTHD.Show();
 
         }
 
@@ -49,8 +49,8 @@ namespace GUI
             {
                 DataGridViewRow rowToDelete = dtgvHoaDon.SelectedRows[0];
                 int id = (int)rowToDelete.Cells["MaHoaDon"].Value;
-                ChiTietHoaDonDAO.Instance.DeleteCTNKho(id);
-                HoaDonBanDAO.Instance.DeletePN(id);
+                ChiTietHoaDonDAO.Instance.DeleteCTHDB(id);
+                HoaDonBanDAO.Instance.DeleteHDB(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
             else if (dtgvHoaDon.SelectedCells.Count > 0)
@@ -59,8 +59,8 @@ namespace GUI
                 int RowIndex = cellToDelete.RowIndex;
                 DataGridViewRow rowToDelete = dtgvHoaDon.Rows[RowIndex];
                 int id = (int)rowToDelete.Cells["MaHoaDon"].Value;
-                ChiTietHoaDonDAO.Instance.DeleteCTNKho(id);
-                HoaDonBanDAO.Instance.DeletePN(id);
+                ChiTietHoaDonDAO.Instance.DeleteCTHDB(id);
+                HoaDonBanDAO.Instance.DeleteHDB(id);
                 btnRefresh_Click(sender, new EventArgs());
             }
         }
@@ -75,9 +75,10 @@ namespace GUI
                 {
                     dtgvHoaDon.Rows.Add
                         (
-                        row["MaHoaDon"],
+                            row["MaHoaDon"],
                         row["NgayLapHoaDon"],
-                        row["LyDoXuat"]
+                        row["TongTien"],
+                        row["GhiChu"]
                         );
                 }
             }
@@ -94,7 +95,8 @@ namespace GUI
                         (
                         row["MaHoaDon"],
                         row["NgayLapHoaDon"],
-                        row["LyDoXuat"]
+                        row["TongTien"],
+                        row["GhiChu"]
                         );
                 }
             }
@@ -114,7 +116,8 @@ namespace GUI
                         (
                         row["MaHoaDon"],
                         row["NgayLapHoaDon"],
-                        row["LyDoXuat"]
+                        row["TongTien"],
+                        row["GhiChu"]
                         );
                 }
             }
@@ -124,7 +127,6 @@ namespace GUI
         {
             if (dtgvHoaDon.SelectedRows.Count > 0)
             {
-
                 dtgvHoaDon_Choose(sender, new DataGridViewCellEventArgs(0, dtgvHoaDon.SelectedRows[0].Index));
             }
             else if (dtgvHoaDon.SelectedCells.Count > 0)

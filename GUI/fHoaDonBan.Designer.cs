@@ -45,11 +45,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.grbDanhSach = new System.Windows.Forms.GroupBox();
             this.dtgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.lbDanhSach = new System.Windows.Forms.Label();
             this.MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbDanhSach = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.grbTimKiem.SuspendLayout();
@@ -85,7 +85,7 @@
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(75, 28);
             this.btnChange.TabIndex = 1;
-            this.btnChange.Text = "Sửa";
+            this.btnChange.Text = "Xem";
             this.btnChange.UseVisualStyleBackColor = true;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
@@ -228,15 +228,6 @@
             this.dtgvHoaDon.Size = new System.Drawing.Size(723, 154);
             this.dtgvHoaDon.TabIndex = 0;
             // 
-            // lbDanhSach
-            // 
-            this.lbDanhSach.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lbDanhSach.Location = new System.Drawing.Point(264, 1);
-            this.lbDanhSach.Name = "lbDanhSach";
-            this.lbDanhSach.Size = new System.Drawing.Size(265, 41);
-            this.lbDanhSach.TabIndex = 2;
-            this.lbDanhSach.Text = "Danh sách hóa đơn";
-            // 
             // MaHoaDon
             // 
             this.MaHoaDon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -268,6 +259,15 @@
             this.GhiChu.Name = "GhiChu";
             this.GhiChu.ReadOnly = true;
             this.GhiChu.Width = 150;
+            // 
+            // lbDanhSach
+            // 
+            this.lbDanhSach.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lbDanhSach.Location = new System.Drawing.Point(264, 1);
+            this.lbDanhSach.Name = "lbDanhSach";
+            this.lbDanhSach.Size = new System.Drawing.Size(265, 41);
+            this.lbDanhSach.TabIndex = 2;
+            this.lbDanhSach.Text = "Danh sách hóa đơn";
             // 
             // fHoaDonBan
             // 
