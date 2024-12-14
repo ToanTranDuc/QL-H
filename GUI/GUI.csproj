@@ -82,6 +82,7 @@
     <Compile Include="DAO\PhieuNhapDAO.cs" />
     <Compile Include="DAO\PhieuXuatDAO.cs" />
     <Compile Include="DAO\SanPhamDAO.cs" />
+    <Compile Include="DAO\TonKhoDAO.cs" />
     <Compile Include="DSSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,7 @@
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
     <Compile Include="DTO\SanPham.cs" />
+    <Compile Include="DTO\TonKho.cs" />
     <Compile Include="fChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>

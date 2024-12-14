@@ -48,6 +48,18 @@ namespace GUI.DAO
             return null;
             
         }
+        public SanPham GetSanPham()
+        {
+            string query = "SELECT * FROM SanPham";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow SP in data.Rows)
+            {
+                SanPham S = new SanPham(SP);
+                return S;
+            }
+            return null;
+
+        }
         public List<SanPham> GetSanPhamByName(string Text)
         {
             List<SanPham> SPList = new List<SanPham>();
