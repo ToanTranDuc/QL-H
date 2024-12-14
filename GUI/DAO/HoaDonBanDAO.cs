@@ -34,33 +34,34 @@ namespace GUI.DAO
             HoaDonBan HD = new HoaDonBan(Data.Rows[0]);
             return HD;
         }
-        public void InsertPN(int MaNCC, DateTime? DateCreate, string GhiChu)
+        public void InsertHDB(double TongTien, DateTime? DateCreate, string GhiChu)
         {
-            string query = "EXEC InsertPN @MaNCC , @DateCreate , @GhiChu ";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaNCC, DateCreate, GhiChu });
+            string query = "EXEC InsertHDB  @DateCreate , @GhiChu , @TongTien ";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { DateCreate, GhiChu , TongTien});
         }
-        public int GetMaxIDPN()
+        public int GetMaxIDHDB()
         {
             try
             {
-                return (int)DataProvider.Instance.ExecuteScalar("Select Max(MaHoaDonBan) from dbo.HoaDonBan");
+                return (int)DataProvider.Instance.ExecuteScalar("Select Max(MaHoaDon) from dbo.HoaDonBan");
             }
             catch
             {
                 return 1;
             }
         }
-        public void DeletePN(int idPN)
+        public void DeleteHDB(int idHDB)
         {
-            string query = "Delete dbo.HoaDonBan Where MaHoaDonBan =" + idPN;
+            string query = "Delete dbo.HoaDonBan Where MaHoaDon =" + idHDB;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         public DataTable GetHoaDonByDate(DateTime? Start, DateTime? End)
         {
 
-            string query = "EXEC GetPhieuXuatByDate  @StartDate , @EndDate";
+            string query = "EXEC GetHoaDonByDate  @StartDate , @EndDate";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { Start, End });
 
         }
+      
     }
 }

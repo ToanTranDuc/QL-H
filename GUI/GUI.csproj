@@ -271,6 +271,9 @@
     <EmbeddedResource Include="DSSanPham.resx">
       <DependentUpon>DSSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fChiTietHoaDon.resx">
+      <DependentUpon>fChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fChiTietNhapKho.resx">
       <DependentUpon>fChiTietNhapKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTaoChiTietHoaDon.resx">
+      <DependentUpon>fTaoChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTaoChiTietNhap.resx">
       <DependentUpon>fTaoChiTietNhap.cs</DependentUpon>
