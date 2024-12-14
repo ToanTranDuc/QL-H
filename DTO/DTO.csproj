@@ -45,6 +45,7 @@
     <Compile Include="ChucVu.cs" />
     <Compile Include="DonDatHang.cs" />
     <Compile Include="Hang.cs" />
+    <Compile Include="HopDong.cs" />
     <Compile Include="KieuDang.cs" />
     <Compile Include="MauSac.cs" />
     <Compile Include="NCC.cs" />

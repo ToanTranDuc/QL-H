@@ -284,7 +284,8 @@ namespace GUI
 
         private void btnTonKho_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = btnTaiKhoan.Text;
+            OpenChildForm(new TonKho());
+            lblTitle.Text = btnTonKho.Text;
         }
 
         private void btnDonDatHang_Click(object sender, EventArgs e)
@@ -297,6 +298,12 @@ namespace GUI
         {
             OpenChildForm(new InforNCC());
             lblTitle.Text = btnNCC.Text;
+        }
+
+        private void btnBanHang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fHoaDonBan());
+            lblTitle.Text = btnBanHang.Text;
         }
     }
 }

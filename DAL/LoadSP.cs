@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
 using System.Collections.ObjectModel;
-using System.Globalization;
 
 namespace DAL
 {
@@ -133,7 +132,7 @@ namespace DAL
             }
             return danhSachThongTinNCC;
         }
-        public List<NCC> LayTrangThaiNCC() 
+        public List<NCC> LayTrangThaiNCC()
         {
             List<NCC> danhSachTTNCC = new List<NCC>();
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -477,7 +476,7 @@ namespace DAL
                 var result = cmd.ExecuteScalar();
 
                 // Kiểm tra result có null không
-                return result != null && result != DBNull.Value ? (int)result : -1; 
+                return result != null && result != DBNull.Value ? (int)result : -1;
             }
         }
         public int LayMaHangTheoTen(string tenHang)
@@ -719,7 +718,7 @@ namespace DAL
                 SqlCommand cmdDelete = new SqlCommand(queryDelete, conn);
                 cmdDelete.Parameters.AddWithValue("@MaNCC", maNCC);
                 cmdDelete.ExecuteNonQuery();
-                return true; 
+                return true;
             }
         }
 
@@ -783,5 +782,185 @@ namespace DAL
                 cmd.ExecuteNonQuery();
             }
         }
+        public DataTable LayDanhSachHopDong()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+        SELECT 
+            hd.MaHopDong,
+            ncc.TenNCC AS 'Tên nhà cung cấp',
+            hd.TenHopDong,
+            hd.NgayKy,
+            hd.NguoiKy,
+            hd.MoTa,
+            hd.NgayHieuLuc,
+            hd.NgayHetHan,
+            hd.GiaTri,
+            hd.TrangThai
+        FROM 
+            HopDong hd
+        JOIN 
+            NCC ncc ON hd.MaNCC = ncc.MaNCC";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                adapter.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable TimKiemHopDong(string keyword)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+                SELECT * FROM HopDong
+                WHERE TenHopDong LIKE @keyword OR
+                      MoTa LIKE @keyword";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        public string LayTrangThaiHopDong(int maHopDong)
+        {
+            string trangThai = string.Empty;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT TrangThai FROM HopDong WHERE MaHopDong = @MaHopDong";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        trangThai = result.ToString();
+                    }
+                }
+            }
+            return trangThai;
+        }
+
+        public void XoaHopDong(int maHopDong)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM HopDong WHERE MaHopDong = @MaHopDong";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public DataTable LayChiTietHopDong(int maHopDong)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+                SELECT 
+                    MaHopDong,
+                    TenHopDong,
+                    MoTa,
+                    NgayKy,
+                    NguoiKy,
+                    NgayHieuLuc,
+                    NgayHetHan,
+                    GiaTri,
+                    TrangThai,
+                    (SELECT TenNCC FROM NCC WHERE MaNCC = HopDong.MaNCC) AS TenNCC
+                FROM 
+                    HopDong
+                WHERE 
+                    MaHopDong = @MaHopDong";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        public void CapNhatHopDong(HopDong hopDong)
+        {
+            int maNCC = 1 ;//LayMaNCCTheoTen(int.Parse(hopDong.MaNCC); // Lấy mã NCC từ tên
+
+            if (maNCC == -1)
+            {
+                throw new ArgumentException("Tên nhà cung cấp không hợp lệ."); // Kiểm tra nếu tên NCC không tồn tại
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            UPDATE HopDong
+            SET TenHopDong = @TenHopDong,
+                MoTa = @MoTa,
+                NgayKy = @NgayKy,
+                NguoiKy = @NguoiKy,
+                NgayHieuLuc = @NgayHieuLuc,
+                NgayHetHan = @NgayHetHan,
+                GiaTri = @GiaTri,
+                TrangThai = @TrangThai,
+                MaNCC = @MaNCC
+            WHERE MaHopDong = @MaHopDong";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaHopDong", hopDong.MaHopDong);
+                cmd.Parameters.AddWithValue("@TenHopDong", hopDong.TenHopDong);
+                cmd.Parameters.AddWithValue("@MoTa", hopDong.MoTa);
+                cmd.Parameters.AddWithValue("@NgayKy", hopDong.NgayKy);
+                cmd.Parameters.AddWithValue("@NguoiKy", hopDong.NguoiKy);
+                cmd.Parameters.AddWithValue("@NgayHieuLuc", hopDong.NgayHieuLuc);
+                cmd.Parameters.AddWithValue("@NgayHetHan", hopDong.NgayHetHan);
+                cmd.Parameters.AddWithValue("@GiaTri", hopDong.GiaTri);
+                cmd.Parameters.AddWithValue("@TrangThai", hopDong.TrangThai);
+                cmd.Parameters.AddWithValue("@MaNCC", maNCC); // Sử dụng mã NCC
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void XoaCTHopDong(int maHopDong)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Kiểm tra trạng thái của hợp đồng trước khi xóa
+                string queryCheck = "SELECT TrangThai FROM HopDong WHERE MaHopDong = @MaHopDong";
+                SqlCommand cmdCheck = new SqlCommand(queryCheck, conn);
+                cmdCheck.Parameters.AddWithValue("@MaHopDong", maHopDong);
+
+                conn.Open();
+                var trangThai = cmdCheck.ExecuteScalar();
+
+                if (trangThai != null && trangThai.ToString() == "Ngừng hoạt động")
+                {
+                    string queryDelete = "DELETE FROM HopDong WHERE MaHopDong = @MaHopDong";
+                    SqlCommand cmdDelete = new SqlCommand(queryDelete, conn);
+                    cmdDelete.Parameters.AddWithValue("@MaHopDong", maHopDong);
+                    cmdDelete.ExecuteNonQuery();
+                }
+                else
+                {
+                    throw new InvalidOperationException("Hợp đồng không thể xóa vì không ở trạng thái 'Ngừng hoạt động'.");
+                }
+            }
+        }
+
     }
 }
