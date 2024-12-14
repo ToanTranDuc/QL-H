@@ -227,16 +227,16 @@ namespace GUI
             nhanVien.ID_NhanVien = selectedTaiKhoan.NhanVien.ID_NhanVien;
             if (rdbQuanLy.Checked)
             {
-                nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 0 }); // Quản trị tối cao
+                nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 1 }); // Quản trị tối cao
             }
             else if (rdbNhanVien.Checked)
             {
                 if (ckbKho.Checked)
-                    nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 1 });
-                if (ckbBanHang.Checked)
                     nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 2 });
-                if (ckbSanPham.Checked)
+                if (ckbBanHang.Checked)
                     nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 3 });
+                if (ckbSanPham.Checked)
+                    nhanVien.NhanVienQuyen.Add(new NhanVien_Quyen { ID_Quyen = 4 });
 
                 // Kiểm tra xem có quyền nào được chọn không
                 if (!nhanVien.NhanVienQuyen.Any())

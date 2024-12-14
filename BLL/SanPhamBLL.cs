@@ -1,6 +1,7 @@
 ﻿using DAL;
 using DTO;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BLL
     public class SanPhamBLL
     {
         private LoadSP loadsp = new LoadSP();
-       
+
 
 
         // Phương thức lấy tất cả xuất xứ
@@ -39,12 +40,12 @@ namespace BLL
             return loadsp.LayTatCaNCC();
         }
 
-        public List<NCC> LayThongTinNCC() 
-        { 
+        public List<NCC> LayThongTinNCC()
+        {
             return loadsp.LayThongTinNCC();
         }
 
-        public List<NCC> LayTrangThaiNCC() 
+        public List<NCC> LayTrangThaiNCC()
         {
             return loadsp.LayTrangThaiNCC();
         }
@@ -76,7 +77,7 @@ namespace BLL
             return loadsp.LayDanhSachSanPham();
         }
 
-       
+
         public DataTable TimKiemSanPham(string column, string keyword)
         {
             return loadsp.TimKiemSanPham(column, keyword);
@@ -127,19 +128,19 @@ namespace BLL
         }
         public int LayMaHangTheoTen(string tenHang)
         {
-            return loadsp.LayMaHangTheoTen(tenHang); 
+            return loadsp.LayMaHangTheoTen(tenHang);
         }
 
         public void XoaSanPham(int maSP)
         {
-            loadsp.XoaSanPham(maSP); 
+            loadsp.XoaSanPham(maSP);
         }
-      
+
         public void ThemSanPham(SanPham sp, string pathToImage)
         {
             if (!string.IsNullOrEmpty(pathToImage))
             {
-                sp.HinhAnh = System.IO.File.ReadAllBytes(pathToImage); 
+                sp.HinhAnh = System.IO.File.ReadAllBytes(pathToImage);
             }
             else
             {
@@ -160,7 +161,7 @@ namespace BLL
 
         public bool XoaNCC(int maNCC)
         {
-           return loadsp.XoaNCC(maNCC); // Gọi phương thức từ DAL
+            return loadsp.XoaNCC(maNCC); // Gọi phương thức từ DAL
         }
 
         public bool XoaCTNCC(int maNCC)
@@ -174,5 +175,37 @@ namespace BLL
             var dal = new LoadSP(); // Hoặc sử dụng Dependency Injection
             dal.CapNhatNCC(ncc);
         }
+
+        public DataTable LayDanhSachHopDong()
+        {
+            return loadsp.LayDanhSachHopDong(); // Gọi phương thức từ DAL
+        }
+        public DataTable TimKiemHopDong(string keyword)
+        {
+            // Gọi tới DAL để lấy danh sách hợp đồng dựa trên từ khóa
+            return new LoadSP().TimKiemHopDong(keyword);
+        }
+        public string LayTrangThaiHopDong(int maHopDong)
+        {
+            return loadsp.LayTrangThaiHopDong(maHopDong);
+        }
+
+        public void XoaHopDong(int maHopDong)
+        {
+            loadsp.XoaHopDong(maHopDong);
+        }
+        public DataTable LayChiTietHopDong(int maHopDong)
+        {
+            return loadsp.LayChiTietHopDong(maHopDong);
+        }
+        public void CapNhatHopDong(HopDong hopDong)
+        {
+            loadsp.CapNhatHopDong(hopDong);
+        }
+        public void XoaCTHopDong(int maHopDong)
+        {
+            loadsp.XoaCTHopDong(maHopDong);
+        }
+
     }
 }

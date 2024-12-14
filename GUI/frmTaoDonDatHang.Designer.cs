@@ -46,12 +46,12 @@
             this.btnDatHang = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dtgMain = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.lblTongGia = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
@@ -235,24 +235,6 @@
             this.dtgMain.Size = new System.Drawing.Size(843, 189);
             this.dtgMain.TabIndex = 46;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblTongGia);
-            this.panel2.Controls.Add(this.dtgMain);
-            this.panel2.Controls.Add(this.cbbNCC);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.btnThoat);
-            this.panel2.Controls.Add(this.btnHuy);
-            this.panel2.Controls.Add(this.btnDatHang);
-            this.panel2.Controls.Add(this.btnThem);
-            this.panel2.Controls.Add(this.txtGhiChu);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(1, 88);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1101, 773);
-            this.panel2.TabIndex = 47;
-            // 
             // ID
             // 
             this.ID.HeaderText = "ID chi tiết đơn";
@@ -283,6 +265,24 @@
             this.Gia.MinimumWidth = 8;
             this.Gia.Name = "Gia";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblTongGia);
+            this.panel2.Controls.Add(this.dtgMain);
+            this.panel2.Controls.Add(this.cbbNCC);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.btnThoat);
+            this.panel2.Controls.Add(this.btnHuy);
+            this.panel2.Controls.Add(this.btnDatHang);
+            this.panel2.Controls.Add(this.btnThem);
+            this.panel2.Controls.Add(this.txtGhiChu);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Location = new System.Drawing.Point(1, 88);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1101, 773);
+            this.panel2.TabIndex = 47;
+            // 
             // lblTongGia
             // 
             this.lblTongGia.AutoSize = true;
@@ -303,6 +303,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmTaoDonDatHang";
             this.Text = "frmTaoDonDatHang";
+            this.Load += new System.EventHandler(this.frmTaoDonDatHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).EndInit();
