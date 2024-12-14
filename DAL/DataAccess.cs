@@ -13,7 +13,7 @@ namespace DAL
         public static SqlConnection Connect()
 
         {
-            string sql = @"Data Source=beetinhtinhte\mssqlsever1;Initial Catalog=QLCuaHangDH;Integrated Security=True;";
+            string sql = @"Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
             //string sql = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
             SqlConnection conn = new SqlConnection(sql);
             return conn;
