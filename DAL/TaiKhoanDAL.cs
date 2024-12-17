@@ -14,15 +14,9 @@ namespace DAL
     {
         public static SqlConnection Connect()
         {
-            
-            string strcon = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
-            //string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(strcon);
-            return conn;
-        }
-        public static SqlConnection ConnectSP()
-        {
-            string strcon = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
+
+            string strcon = @"Data Source=BEETINHTINHTE\MSSQLSEVER1;Initial Catalog=QLDongHo;Integrated Security=True;";
+            //string strcon = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
             //string strcon = "Data Source=TK\\SQLEXPRESS;Initial Catalog=QuanLyBanDongHo;Integrated Security=True;";
             SqlConnection conn = new SqlConnection(strcon);
             return conn;

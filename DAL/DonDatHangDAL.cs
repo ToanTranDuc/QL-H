@@ -17,7 +17,7 @@ namespace DAL
                            "FROM tblDonDatHang d " +
                            "JOIN NCC n ON d.MaNCC = n.MaNCC";
 
-            using (SqlConnection conn = SqlConnectionData1.ConnectSP())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
