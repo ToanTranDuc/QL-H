@@ -18,7 +18,7 @@ namespace DAL
                            "JOIN SanPham sp ON ct.MaSP = sp.MaSP " +
                            "WHERE ct.ID_DonDatHang = @ID_DonDatHang";
 
-            using (SqlConnection conn = SqlConnectionData1.ConnectSP())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@ID_DonDatHang", idDonDatHang);

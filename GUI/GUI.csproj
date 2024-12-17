@@ -226,12 +226,6 @@
     <Compile Include="fHoaDonBan.Designer.cs">
       <DependentUpon>fHoaDonBan.cs</DependentUpon>
     </Compile>
-    <Compile Include="InforNCC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InforNCC.Designer.cs">
-      <DependentUpon>InforNCC.cs</DependentUpon>
-    </Compile>
     <Compile Include="NhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,9 +329,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fHoaDonBan.resx">
       <DependentUpon>fHoaDonBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InforNCC.resx">
-      <DependentUpon>InforNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
@@ -473,6 +464,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-logout-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1343087913-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dong-ho-5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adsaf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
