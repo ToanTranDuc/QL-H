@@ -49,6 +49,7 @@
     <Compile Include="NCCDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SanPhamDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
   </ItemGroup>
   <ItemGroup>

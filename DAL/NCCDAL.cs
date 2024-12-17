@@ -13,10 +13,10 @@ namespace DAL
         {
             List<NCC> danhSachNCC = new List<NCC>();
 
-            using (SqlConnection conn = SqlConnectionData1.ConnectSP())
+            using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
-                string query = "SELECT MaNCC, TenNCC";
+                string query = "SELECT MaNCC, TenNCC FROM NCC";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -26,8 +26,8 @@ namespace DAL
                         {
                             NCC ncc = new NCC
                             {
-                                MaNCC = reader.GetInt32(0),
-                                TenNCC = reader.GetString(1),
+                                MaNCC = (int)reader["MaNCC"],
+                                TenNCC = reader["TenNCC"].ToString()
                             };
                             danhSachNCC.Add(ncc);
                         }

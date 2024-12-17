@@ -16,5 +16,10 @@ namespace BLL
         {
             return donDatHangDAL.GetListDonDatHang();
         }
+        public void SaveDonDatHang(DonDatHang donDatHang, List<ChiTietDonDatHang> chiTietDonDatHangs)
+        {
+            donDatHangDAL.SaveDonDatHang(donDatHang, chiTietDonDatHangs);
+  
+        }
     }
 }

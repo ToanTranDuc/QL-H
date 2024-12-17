@@ -222,6 +222,9 @@ namespace GUI
                 if (e.RowIndex >= 0) // Kiểm tra nếu nhấp vào hàng hợp lệ
                 {
                     DataGridViewRow selectedRow = dgvDanhSachSP.Rows[e.RowIndex];
+                    
+                    dgvDanhSachSP.ClearSelection();
+                    dgvDanhSachSP.CurrentCell = null;
                     int maSP = (int)selectedRow.Cells["MaSP"].Value; // Lấy mã sản phẩm
 
                     // Lấy hình ảnh từ sản phẩm

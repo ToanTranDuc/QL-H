@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +20,15 @@ namespace GUI
         {
             InitializeComponent();
             LoadData();
+            dgvHDDSNCC.CellClick += dgvHDDSNCC_CellContentClick;
         }
         private void LoadData()
         {
             DataTable dt = bll.LayDanhSachHopDong(); // Gọi từ BLL
             dgvHDDSNCC.DataSource = dt;
 
-
+            dgvHDDSNCC.ClearSelection();
+            dgvHDDSNCC.CurrentCell = null;
 
             var columnNames = new Dictionary<string, string>
              {
@@ -66,10 +69,17 @@ namespace GUI
                 DataGridViewRow row = dgvHDDSNCC.Rows[e.RowIndex];
 
                 // Gán giá trị từ các cột vào các textbox
-                txtHDMHD.Text = row.Cells["MaHopDong"].Value.ToString();
-                txtHDTenHD.Text = row.Cells["TenHopDong"].Value.ToString();
-                txtHDNgayKy.Text = row.Cells["NgayKy"].Value.ToString();
-                txtHDNguoiKy.Text = row.Cells["NguoiKy"].Value.ToString();
+                if (row.Cells["MaHopDong"].Value != null)
+                    txtHDMHD.Text = row.Cells["MaHopDong"].Value.ToString();
+
+                if (row.Cells["TenHopDong"].Value != null)
+                    txtHDTenHD.Text = row.Cells["TenHopDong"].Value.ToString();
+
+                if (row.Cells["NgayKy"].Value != null)
+                    txtHDNgayKy.Text = row.Cells["NgayKy"].Value.ToString();
+
+                if (row.Cells["NguoiKy"].Value != null)
+                    txtHDNguoiKy.Text = row.Cells["NguoiKy"].Value.ToString();
             }
         }
 
@@ -143,5 +153,24 @@ namespace GUI
         {
 
         }
+
+        private void btnHDThem_Click(object sender, EventArgs e)
+        {
+            ThemHopDong formThemHD = new ThemHopDong();
+            formThemHD.FormClosing += FormThemHD_FormClosing;
+            formThemHD.Show();
+        }
+        private void FormThemHD_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult.Yes != MessageBox.Show("Bạn có chắc chắn muốn hủy lưu không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                LoadData();
+            }
+        }
+
     }
 }

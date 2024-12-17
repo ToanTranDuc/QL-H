@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.grbHDTTCoBan = new System.Windows.Forms.GroupBox();
-            this.btnHDThem = new System.Windows.Forms.Button();
             this.btnHDTim = new System.Windows.Forms.Button();
-            this.btnHDReset = new System.Windows.Forms.Button();
-            this.btnHDXoa = new System.Windows.Forms.Button();
             this.txtHDNguoiKy = new System.Windows.Forms.TextBox();
             this.txtHDNgayKy = new System.Windows.Forms.TextBox();
             this.txtHDTimKiem = new System.Windows.Forms.TextBox();
@@ -46,6 +43,9 @@
             this.grbHDNCC = new System.Windows.Forms.GroupBox();
             this.dgvHDDSNCC = new System.Windows.Forms.DataGridView();
             this.btnHDChiTiet = new System.Windows.Forms.Button();
+            this.btnHDThem = new System.Windows.Forms.Button();
+            this.btnHDReset = new System.Windows.Forms.Button();
+            this.btnHDXoa = new System.Windows.Forms.Button();
             this.grbHDTTCoBan.SuspendLayout();
             this.grbHDNCC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDDSNCC)).BeginInit();
@@ -74,17 +74,6 @@
             this.grbHDTTCoBan.TabStop = false;
             this.grbHDTTCoBan.Text = "Thông tin cơ bản ";
             // 
-            // btnHDThem
-            // 
-            this.btnHDThem.Image = global::GUI.Properties.Resources.icons8_add_list_24;
-            this.btnHDThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHDThem.Location = new System.Drawing.Point(715, 50);
-            this.btnHDThem.Name = "btnHDThem";
-            this.btnHDThem.Size = new System.Drawing.Size(110, 52);
-            this.btnHDThem.TabIndex = 2;
-            this.btnHDThem.Text = "   Thêm";
-            this.btnHDThem.UseVisualStyleBackColor = true;
-            // 
             // btnHDTim
             // 
             this.btnHDTim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -96,63 +85,39 @@
             this.btnHDTim.UseVisualStyleBackColor = true;
             this.btnHDTim.Click += new System.EventHandler(this.btnHDTim_Click);
             // 
-            // btnHDReset
-            // 
-            this.btnHDReset.Image = global::GUI.Properties.Resources.icons8_refresh_32;
-            this.btnHDReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHDReset.Location = new System.Drawing.Point(713, 181);
-            this.btnHDReset.Name = "btnHDReset";
-            this.btnHDReset.Size = new System.Drawing.Size(110, 52);
-            this.btnHDReset.TabIndex = 2;
-            this.btnHDReset.Text = "    Reset";
-            this.btnHDReset.UseVisualStyleBackColor = true;
-            this.btnHDReset.Click += new System.EventHandler(this.btnHDReset_Click);
-            // 
-            // btnHDXoa
-            // 
-            this.btnHDXoa.Image = global::GUI.Properties.Resources.icons8_remove_24;
-            this.btnHDXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHDXoa.Location = new System.Drawing.Point(713, 114);
-            this.btnHDXoa.Name = "btnHDXoa";
-            this.btnHDXoa.Size = new System.Drawing.Size(110, 52);
-            this.btnHDXoa.TabIndex = 2;
-            this.btnHDXoa.Text = "Xóa";
-            this.btnHDXoa.UseVisualStyleBackColor = true;
-            this.btnHDXoa.Click += new System.EventHandler(this.btnHDXoa_Click);
-            // 
             // txtHDNguoiKy
             // 
             this.txtHDNguoiKy.Location = new System.Drawing.Point(505, 111);
             this.txtHDNguoiKy.Name = "txtHDNguoiKy";
-            this.txtHDNguoiKy.Size = new System.Drawing.Size(192, 35);
+            this.txtHDNguoiKy.Size = new System.Drawing.Size(192, 30);
             this.txtHDNguoiKy.TabIndex = 1;
             // 
             // txtHDNgayKy
             // 
             this.txtHDNgayKy.Location = new System.Drawing.Point(505, 57);
             this.txtHDNgayKy.Name = "txtHDNgayKy";
-            this.txtHDNgayKy.Size = new System.Drawing.Size(192, 35);
+            this.txtHDNgayKy.Size = new System.Drawing.Size(192, 30);
             this.txtHDNgayKy.TabIndex = 1;
             // 
             // txtHDTimKiem
             // 
             this.txtHDTimKiem.Location = new System.Drawing.Point(198, 188);
             this.txtHDTimKiem.Name = "txtHDTimKiem";
-            this.txtHDTimKiem.Size = new System.Drawing.Size(192, 35);
+            this.txtHDTimKiem.Size = new System.Drawing.Size(192, 30);
             this.txtHDTimKiem.TabIndex = 1;
             // 
             // txtHDTenHD
             // 
             this.txtHDTenHD.Location = new System.Drawing.Point(198, 111);
             this.txtHDTenHD.Name = "txtHDTenHD";
-            this.txtHDTenHD.Size = new System.Drawing.Size(192, 35);
+            this.txtHDTenHD.Size = new System.Drawing.Size(192, 30);
             this.txtHDTenHD.TabIndex = 1;
             // 
             // txtHDMHD
             // 
             this.txtHDMHD.Location = new System.Drawing.Point(198, 62);
             this.txtHDMHD.Name = "txtHDMHD";
-            this.txtHDMHD.Size = new System.Drawing.Size(192, 35);
+            this.txtHDMHD.Size = new System.Drawing.Size(192, 30);
             this.txtHDMHD.TabIndex = 1;
             // 
             // label4
@@ -160,7 +125,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(414, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 27);
+            this.label4.Size = new System.Drawing.Size(85, 22);
             this.label4.TabIndex = 0;
             this.label4.Text = "Người ký";
             // 
@@ -169,7 +134,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(414, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 27);
+            this.label3.Size = new System.Drawing.Size(75, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Ngày ký";
             // 
@@ -178,7 +143,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(63, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 27);
+            this.label5.Size = new System.Drawing.Size(85, 22);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tìm kiếm";
             // 
@@ -187,7 +152,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(63, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 27);
+            this.label2.Size = new System.Drawing.Size(118, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên hợp đồng";
             // 
@@ -196,7 +161,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(63, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 27);
+            this.label1.Size = new System.Drawing.Size(114, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã hợp đồng";
             // 
@@ -236,9 +201,45 @@
             this.btnHDChiTiet.UseVisualStyleBackColor = true;
             this.btnHDChiTiet.Click += new System.EventHandler(this.btnHDChiTiet_Click);
             // 
+            // btnHDThem
+            // 
+            this.btnHDThem.Image = global::GUI.Properties.Resources.icons8_add_list_24;
+            this.btnHDThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHDThem.Location = new System.Drawing.Point(715, 50);
+            this.btnHDThem.Name = "btnHDThem";
+            this.btnHDThem.Size = new System.Drawing.Size(110, 52);
+            this.btnHDThem.TabIndex = 2;
+            this.btnHDThem.Text = "   Thêm";
+            this.btnHDThem.UseVisualStyleBackColor = true;
+            this.btnHDThem.Click += new System.EventHandler(this.btnHDThem_Click);
+            // 
+            // btnHDReset
+            // 
+            this.btnHDReset.Image = global::GUI.Properties.Resources.icons8_refresh_32;
+            this.btnHDReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHDReset.Location = new System.Drawing.Point(713, 181);
+            this.btnHDReset.Name = "btnHDReset";
+            this.btnHDReset.Size = new System.Drawing.Size(110, 52);
+            this.btnHDReset.TabIndex = 2;
+            this.btnHDReset.Text = "    Reset";
+            this.btnHDReset.UseVisualStyleBackColor = true;
+            this.btnHDReset.Click += new System.EventHandler(this.btnHDReset_Click);
+            // 
+            // btnHDXoa
+            // 
+            this.btnHDXoa.Image = global::GUI.Properties.Resources.icons8_remove_24;
+            this.btnHDXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHDXoa.Location = new System.Drawing.Point(713, 114);
+            this.btnHDXoa.Name = "btnHDXoa";
+            this.btnHDXoa.Size = new System.Drawing.Size(110, 52);
+            this.btnHDXoa.TabIndex = 2;
+            this.btnHDXoa.Text = "Xóa";
+            this.btnHDXoa.UseVisualStyleBackColor = true;
+            this.btnHDXoa.Click += new System.EventHandler(this.btnHDXoa_Click);
+            // 
             // Contract
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 656);
             this.Controls.Add(this.btnHDChiTiet);
@@ -247,6 +248,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Contract";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hợp đồng";
             this.Load += new System.EventHandler(this.Contract_Load);
             this.grbHDTTCoBan.ResumeLayout(false);

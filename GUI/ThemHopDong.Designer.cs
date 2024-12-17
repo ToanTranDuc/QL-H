@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class ChiTietHopDong
+    partial class ThemHopDong
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grbCTHopDong = new System.Windows.Forms.GroupBox();
-            this.cmbCTTrangThai = new System.Windows.Forms.ComboBox();
+            this.btnCTDong = new System.Windows.Forms.Button();
             this.dtpCTHDNHH = new System.Windows.Forms.DateTimePicker();
             this.dtpCTHDNgayKy = new System.Windows.Forms.DateTimePicker();
             this.dtpCTHDNHL = new System.Windows.Forms.DateTimePicker();
-            this.btnCTHDSua = new System.Windows.Forms.Button();
             this.btnCTHDHuy = new System.Windows.Forms.Button();
-            this.btnCTHDXoa = new System.Windows.Forms.Button();
             this.txtCTHDNCC = new System.Windows.Forms.TextBox();
             this.txtCTHDNguoiKy = new System.Windows.Forms.TextBox();
             this.txtCTHDGiaTri = new System.Windows.Forms.TextBox();
@@ -53,49 +50,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnCTDong = new System.Windows.Forms.Button();
+            this.grbCTHopDong = new System.Windows.Forms.GroupBox();
+            this.cmbTTrangThai = new System.Windows.Forms.ComboBox();
+            this.btnTHD = new System.Windows.Forms.Button();
             this.grbCTHopDong.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grbCTHopDong
+            // btnCTDong
             // 
-            this.grbCTHopDong.Controls.Add(this.cmbCTTrangThai);
-            this.grbCTHopDong.Controls.Add(this.dtpCTHDNHH);
-            this.grbCTHopDong.Controls.Add(this.dtpCTHDNgayKy);
-            this.grbCTHopDong.Controls.Add(this.dtpCTHDNHL);
-            this.grbCTHopDong.Controls.Add(this.btnCTHDSua);
-            this.grbCTHopDong.Controls.Add(this.btnCTHDHuy);
-            this.grbCTHopDong.Controls.Add(this.btnCTHDXoa);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDNCC);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDNguoiKy);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDGiaTri);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDMoTa);
-            this.grbCTHopDong.Controls.Add(this.label10);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDTenHD);
-            this.grbCTHopDong.Controls.Add(this.label8);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDMHD);
-            this.grbCTHopDong.Controls.Add(this.label7);
-            this.grbCTHopDong.Controls.Add(this.label9);
-            this.grbCTHopDong.Controls.Add(this.label4);
-            this.grbCTHopDong.Controls.Add(this.label6);
-            this.grbCTHopDong.Controls.Add(this.label3);
-            this.grbCTHopDong.Controls.Add(this.label5);
-            this.grbCTHopDong.Controls.Add(this.label2);
-            this.grbCTHopDong.Controls.Add(this.label1);
-            this.grbCTHopDong.Location = new System.Drawing.Point(12, 35);
-            this.grbCTHopDong.Name = "grbCTHopDong";
-            this.grbCTHopDong.Size = new System.Drawing.Size(868, 337);
-            this.grbCTHopDong.TabIndex = 0;
-            this.grbCTHopDong.TabStop = false;
-            this.grbCTHopDong.Text = "Thông tin chi tiết hợp đồng";
-            // 
-            // cmbCTTrangThai
-            // 
-            this.cmbCTTrangThai.FormattingEnabled = true;
-            this.cmbCTTrangThai.Location = new System.Drawing.Point(472, 204);
-            this.cmbCTTrangThai.Name = "cmbCTTrangThai";
-            this.cmbCTTrangThai.Size = new System.Drawing.Size(188, 30);
-            this.cmbCTTrangThai.TabIndex = 13;
+            this.btnCTDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCTDong.Location = new System.Drawing.Point(783, 377);
+            this.btnCTDong.Name = "btnCTDong";
+            this.btnCTDong.Size = new System.Drawing.Size(110, 52);
+            this.btnCTDong.TabIndex = 12;
+            this.btnCTDong.Text = "Đóng";
+            this.btnCTDong.UseVisualStyleBackColor = true;
+            this.btnCTDong.Click += new System.EventHandler(this.btnCTDong_Click);
             // 
             // dtpCTHDNHH
             // 
@@ -118,41 +88,17 @@
             this.dtpCTHDNHL.Size = new System.Drawing.Size(200, 30);
             this.dtpCTHDNHL.TabIndex = 12;
             // 
-            // btnCTHDSua
-            // 
-            this.btnCTHDSua.Image = global::GUI.Properties.Resources.icons8_tools_24;
-            this.btnCTHDSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTHDSua.Location = new System.Drawing.Point(730, 192);
-            this.btnCTHDSua.Name = "btnCTHDSua";
-            this.btnCTHDSua.Size = new System.Drawing.Size(110, 52);
-            this.btnCTHDSua.TabIndex = 10;
-            this.btnCTHDSua.Text = "Sửa";
-            this.btnCTHDSua.UseVisualStyleBackColor = true;
-            this.btnCTHDSua.Click += new System.EventHandler(this.btnCTHDSua_Click);
-            // 
             // btnCTHDHuy
             // 
             this.btnCTHDHuy.Image = global::GUI.Properties.Resources.icons8_cancel_32;
             this.btnCTHDHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTHDHuy.Location = new System.Drawing.Point(730, 115);
+            this.btnCTHDHuy.Location = new System.Drawing.Point(439, 377);
             this.btnCTHDHuy.Name = "btnCTHDHuy";
             this.btnCTHDHuy.Size = new System.Drawing.Size(110, 52);
             this.btnCTHDHuy.TabIndex = 10;
             this.btnCTHDHuy.Text = "   Hủy";
             this.btnCTHDHuy.UseVisualStyleBackColor = true;
             this.btnCTHDHuy.Click += new System.EventHandler(this.btnCTHDHuy_Click);
-            // 
-            // btnCTHDXoa
-            // 
-            this.btnCTHDXoa.Image = global::GUI.Properties.Resources.icons8_remove_24;
-            this.btnCTHDXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTHDXoa.Location = new System.Drawing.Point(730, 48);
-            this.btnCTHDXoa.Name = "btnCTHDXoa";
-            this.btnCTHDXoa.Size = new System.Drawing.Size(110, 52);
-            this.btnCTHDXoa.TabIndex = 11;
-            this.btnCTHDXoa.Text = "Xóa";
-            this.btnCTHDXoa.UseVisualStyleBackColor = true;
-            this.btnCTHDXoa.Click += new System.EventHandler(this.btnCTHDXoa_Click);
             // 
             // txtCTHDNCC
             // 
@@ -165,14 +111,14 @@
             // 
             this.txtCTHDNguoiKy.Location = new System.Drawing.Point(468, 94);
             this.txtCTHDNguoiKy.Name = "txtCTHDNguoiKy";
-            this.txtCTHDNguoiKy.Size = new System.Drawing.Size(192, 30);
+            this.txtCTHDNguoiKy.Size = new System.Drawing.Size(200, 30);
             this.txtCTHDNguoiKy.TabIndex = 6;
             // 
             // txtCTHDGiaTri
             // 
             this.txtCTHDGiaTri.Location = new System.Drawing.Point(468, 150);
             this.txtCTHDGiaTri.Name = "txtCTHDGiaTri";
-            this.txtCTHDGiaTri.Size = new System.Drawing.Size(192, 30);
+            this.txtCTHDGiaTri.Size = new System.Drawing.Size(200, 30);
             this.txtCTHDGiaTri.TabIndex = 7;
             // 
             // txtCTHDMoTa
@@ -286,29 +232,69 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Mã hợp đồng";
             // 
-            // btnCTDong
+            // grbCTHopDong
             // 
-            this.btnCTDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTDong.Location = new System.Drawing.Point(753, 592);
-            this.btnCTDong.Name = "btnCTDong";
-            this.btnCTDong.Size = new System.Drawing.Size(110, 52);
-            this.btnCTDong.TabIndex = 10;
-            this.btnCTDong.Text = "Đóng";
-            this.btnCTDong.UseVisualStyleBackColor = true;
-            this.btnCTDong.Click += new System.EventHandler(this.btnCTDong_Click);
+            this.grbCTHopDong.Controls.Add(this.cmbTTrangThai);
+            this.grbCTHopDong.Controls.Add(this.dtpCTHDNHH);
+            this.grbCTHopDong.Controls.Add(this.dtpCTHDNgayKy);
+            this.grbCTHopDong.Controls.Add(this.dtpCTHDNHL);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDNCC);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDNguoiKy);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDGiaTri);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDMoTa);
+            this.grbCTHopDong.Controls.Add(this.label10);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDTenHD);
+            this.grbCTHopDong.Controls.Add(this.label8);
+            this.grbCTHopDong.Controls.Add(this.txtCTHDMHD);
+            this.grbCTHopDong.Controls.Add(this.label7);
+            this.grbCTHopDong.Controls.Add(this.label9);
+            this.grbCTHopDong.Controls.Add(this.label4);
+            this.grbCTHopDong.Controls.Add(this.label6);
+            this.grbCTHopDong.Controls.Add(this.label3);
+            this.grbCTHopDong.Controls.Add(this.label5);
+            this.grbCTHopDong.Controls.Add(this.label2);
+            this.grbCTHopDong.Controls.Add(this.label1);
+            this.grbCTHopDong.Location = new System.Drawing.Point(25, 12);
+            this.grbCTHopDong.Name = "grbCTHopDong";
+            this.grbCTHopDong.Size = new System.Drawing.Size(868, 337);
+            this.grbCTHopDong.TabIndex = 11;
+            this.grbCTHopDong.TabStop = false;
+            this.grbCTHopDong.Text = "Thông tin chi tiết hợp đồng";
             // 
-            // ChiTietHopDong
+            // cmbTTrangThai
+            // 
+            this.cmbTTrangThai.FormattingEnabled = true;
+            this.cmbTTrangThai.Location = new System.Drawing.Point(468, 199);
+            this.cmbTTrangThai.Name = "cmbTTrangThai";
+            this.cmbTTrangThai.Size = new System.Drawing.Size(200, 30);
+            this.cmbTTrangThai.TabIndex = 13;
+            // 
+            // btnTHD
+            // 
+            this.btnTHD.Image = global::GUI.Properties.Resources.icons8_add_list_24;
+            this.btnTHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTHD.Location = new System.Drawing.Point(602, 377);
+            this.btnTHD.Name = "btnTHD";
+            this.btnTHD.Size = new System.Drawing.Size(110, 52);
+            this.btnTHD.TabIndex = 10;
+            this.btnTHD.Text = "Lưu";
+            this.btnTHD.UseVisualStyleBackColor = true;
+            this.btnTHD.Click += new System.EventHandler(this.btnTHD_Click);
+            // 
+            // ThemHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 656);
+            this.ClientSize = new System.Drawing.Size(918, 551);
             this.Controls.Add(this.btnCTDong);
             this.Controls.Add(this.grbCTHopDong);
+            this.Controls.Add(this.btnTHD);
+            this.Controls.Add(this.btnCTHDHuy);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ChiTietHopDong";
+            this.Name = "ThemHopDong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chi tiết hợp đồng";
+            this.Text = "Thêm hợp đồng";
             this.grbCTHopDong.ResumeLayout(false);
             this.grbCTHopDong.PerformLayout();
             this.ResumeLayout(false);
@@ -317,8 +303,11 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grbCTHopDong;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnCTDong;
+        private System.Windows.Forms.DateTimePicker dtpCTHDNHH;
+        private System.Windows.Forms.DateTimePicker dtpCTHDNgayKy;
+        private System.Windows.Forms.DateTimePicker dtpCTHDNHL;
+        private System.Windows.Forms.Button btnCTHDHuy;
         private System.Windows.Forms.TextBox txtCTHDNCC;
         private System.Windows.Forms.TextBox txtCTHDNguoiKy;
         private System.Windows.Forms.TextBox txtCTHDGiaTri;
@@ -335,13 +324,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCTHDHuy;
-        private System.Windows.Forms.Button btnCTHDXoa;
-        private System.Windows.Forms.DateTimePicker dtpCTHDNHH;
-        private System.Windows.Forms.DateTimePicker dtpCTHDNHL;
-        private System.Windows.Forms.Button btnCTDong;
-        private System.Windows.Forms.Button btnCTHDSua;
-        private System.Windows.Forms.DateTimePicker dtpCTHDNgayKy;
-        private System.Windows.Forms.ComboBox cmbCTTrangThai;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox grbCTHopDong;
+        private System.Windows.Forms.Button btnTHD;
+        private System.Windows.Forms.ComboBox cmbTTrangThai;
     }
 }

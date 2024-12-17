@@ -33,6 +33,8 @@ namespace GUI
             //{
                 // Lấy danh sách nhà cung cấp
                 var danhSachThongTinNCC = sanPhamBLL.LayThongTinNCC();
+                dgvDanhSachNCC.ClearSelection();
+                dgvDanhSachNCC.CurrentCell = null;
 
                 if (danhSachThongTinNCC == null || danhSachThongTinNCC.Count == 0)
                 {
@@ -48,15 +50,15 @@ namespace GUI
                 // Đặt tên tiêu đề cho các cột
                 dgvDanhSachNCC.Columns["MaNCC"].HeaderText = "Mã NCC";
                 dgvDanhSachNCC.Columns["TenNCC"].HeaderText = "Tên NCC";
-            dgvDanhSachNCC.Columns["MST"].HeaderText = "Mã số thuế";
-            dgvDanhSachNCC.Columns["DienThoai"].HeaderText = "Điện thoại";
-            dgvDanhSachNCC.Columns["Email"].HeaderText = "Email";
-            dgvDanhSachNCC.Columns["DiaChi"].HeaderText = "Địa chỉ";
-            dgvDanhSachNCC.Columns["NguoiTao"].HeaderText = "Người tạo";
-            dgvDanhSachNCC.Columns["NgayCapNhat"].HeaderText = "Ngày cập nhật";
-            dgvDanhSachNCC.Columns["NguoiCapNhat"].HeaderText = "Người cập nhật";
-            dgvDanhSachNCC.Columns["NgayTao"].HeaderText = "Ngày tạo";
-            dgvDanhSachNCC.Columns["TrangThai"].HeaderText = "Trạng thái";
+                dgvDanhSachNCC.Columns["MST"].HeaderText = "Mã số thuế";
+                dgvDanhSachNCC.Columns["DienThoai"].HeaderText = "Điện thoại";
+                dgvDanhSachNCC.Columns["Email"].HeaderText = "Email";
+                dgvDanhSachNCC.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                dgvDanhSachNCC.Columns["NguoiTao"].HeaderText = "Người tạo";
+                dgvDanhSachNCC.Columns["NgayCapNhat"].HeaderText = "Ngày cập nhật";
+                dgvDanhSachNCC.Columns["NguoiCapNhat"].HeaderText = "Người cập nhật";
+                dgvDanhSachNCC.Columns["NgayTao"].HeaderText = "Ngày tạo";
+                dgvDanhSachNCC.Columns["TrangThai"].HeaderText = "Trạng thái";
             //}
             //catch (Exception ex)
             //{

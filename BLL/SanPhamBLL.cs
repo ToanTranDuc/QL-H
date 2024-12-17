@@ -206,6 +206,22 @@ namespace BLL
         {
             loadsp.XoaCTHopDong(maHopDong);
         }
+        public void ThemHopDong(HopDong hopDong, string tenNhaCungCap)
+        {
+            // Tìm mã nhà cung cấp
+            int maNCC = loadsp.LayMaNCCTheoTen(tenNhaCungCap);
 
+            if (maNCC == -1)
+            {
+                throw new Exception("Tên nhà cung cấp không tồn tại.");
+            }
+
+            hopDong.MaNCC = maNCC; // Gán mã nhà cung cấp vào đối tượng hợp đồng
+            loadsp.ThemHopDong(hopDong);
+        }
+        private bool KiemTraMaHopDongTonTai(int maHopDong)
+        {
+            return loadsp.KiemTraMaHopDongTonTai(maHopDong);
+        }
     }
 }

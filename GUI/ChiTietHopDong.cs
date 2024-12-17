@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,8 @@ namespace GUI
             InitializeComponent();
             this.maHopDong = maHopDong;
             LoadChiTietHopDong();
+            LoadComboBox_TrangThai();
+            SetFieldsEnabled(isEditing);
         }
 
         private void btnCTDong_Click(object sender, EventArgs e)
@@ -41,7 +44,7 @@ namespace GUI
             dtpCTHDNgayKy.Enabled = isEnabled;
             txtCTHDNguoiKy.Enabled = isEnabled;
             txtCTHDGiaTri.Enabled = isEnabled;
-            txtCTHDTrangThai.Enabled = isEnabled;
+            cmbCTTrangThai.Enabled = isEnabled;
             txtCTHDNCC.Enabled = isEnabled;
         }
         private void btnCTHDSua_Click(object sender, EventArgs e)
@@ -50,29 +53,30 @@ namespace GUI
             {
                 SetFieldsEnabled(true); // Kích hoạt các trường để sửa
                 btnCTHDSua.Text = "Cập nhật"; // Thay đổi nút thành "Cập nhật"
-                btnCTHDSua.Image = Image.FromFile(@"Resources/icons8-update-done-24.png");
                 isEditing = true; // Đánh dấu là đang sửa
             }
             else
             {
-                // Cập nhật thông tin
+                // Cập nhật thông tin mà không kiểm tra điều kiện
                 HopDong hopDong = new HopDong
                 {
-                    MaHopDong = Convert.ToInt32(txtCTHDMHD.Text),
+                    MaHopDong = maHopDong, // Cần mã hợp đồng
                     TenHopDong = txtCTHDTenHD.Text,
                     MoTa = txtCTHDMoTa.Text,
                     NgayHieuLuc = dtpCTHDNHL.Value,
                     NgayHetHan = dtpCTHDNHH.Value,
                     NgayKy = dtpCTHDNgayKy.Value,
                     NguoiKy = txtCTHDNguoiKy.Text,
-                    GiaTri = Convert.ToDecimal(txtCTHDGiaTri.Text),
-                    TrangThai = txtCTHDTrangThai.Text,
-                    MaNCC = Convert.ToInt32(txtCTHDNCC.Text)
+                    GiaTri = decimal.TryParse(txtCTHDGiaTri.Text, out decimal giaTri) ? giaTri : 0, // Gán giá trị mặc định nếu không hợp lệ
+                    TrangThai = cmbCTTrangThai.Text,
+                    MaNCC = int.TryParse(txtCTHDNCC.Text, out int maNCC) ? maNCC : 0 // Gán giá trị mặc định nếu không hợp lệ
                 };
 
-
-                // Gọi phương thức cập nhật (giả sử bạn có phương thức UpdateHopDong)
+                // Gọi phương thức cập nhật
                 bll.CapNhatHopDong(hopDong);
+
+                // Hiển thị thông báo thành công
+                MessageBox.Show("Cập nhật hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Đặt lại trạng thái form
                 SetFieldsEnabled(false);
@@ -94,8 +98,9 @@ namespace GUI
                 dtpCTHDNgayKy.Text = row["NgayKy"].ToString();
                 txtCTHDNguoiKy.Text = row["NguoiKy"].ToString();
                 txtCTHDGiaTri.Text = row["GiaTri"].ToString();
-                txtCTHDTrangThai.Text = row["TrangThai"].ToString();
+                cmbCTTrangThai.Text = row["TrangThai"].ToString();
                 txtCTHDNCC.Text = row["TenNCC"].ToString();
+                cmbCTTrangThai.Items.Add(row["TrangThai"].ToString());
             }
         }
 
@@ -129,5 +134,30 @@ namespace GUI
                 this.Close();
             }
         }
+
+        void LoadComboBox_TrangThai()
+        {
+            try
+            {
+                cmbCTTrangThai.Items.Clear();
+
+                // Thêm các trạng thái cố định vào ComboBox
+                cmbCTTrangThai.Items.Add("Đang hoạt động");
+                cmbCTTrangThai.Items.Add("Ngừng hoạt động");
+
+                // Chọn trạng thái đầu tiên mặc định
+                if (cmbCTTrangThai.Items.Count > 0)
+                {
+                    cmbCTTrangThai.SelectedIndex = 0; // Chọn "Đang hoạt động" là trạng thái mặc định
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi load trạng thái: {ex.Message}");
+            }
+        }
+
+
+
     }
 }

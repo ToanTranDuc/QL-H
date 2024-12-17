@@ -13,8 +13,8 @@ namespace DAL
 {
     public class LoadSP
     {
-        //private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLSP;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-        private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
+        private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLBanDongHo;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
+        //private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
         public List<XuatXu> LayTatCaXuatXu()
         {
             List<XuatXu> danhSachXuatXu = new List<XuatXu>();
@@ -832,24 +832,25 @@ namespace DAL
 
         public string LayTrangThaiHopDong(int maHopDong)
         {
-            string trangThai = string.Empty;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT TrangThai FROM HopDong WHERE MaHopDong = @MaHopDong";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                string query = "SELECT DISTINCT TrangThai FROM HopDong WHERE MaHopDong = @MaHopDong";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
+
+                conn.Open(); // Đảm bảo rằng kết nối đã được mở
+                var result = cmd.ExecuteScalar();
+
+                if (result != null) // Kiểm tra xem result có null không
                 {
-                    cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
-                    conn.Open();
-                    var result = cmd.ExecuteScalar();
-                    if (result != DBNull.Value)
-                    {
-                        trangThai = result.ToString();
-                    }
+                    return result.ToString(); // Trả về giá trị trang thái
+                }
+                else
+                {
+                    throw new Exception("Không tìm thấy trạng thái hợp đồng với mã hợp đồng đã cho.");
                 }
             }
-            return trangThai;
         }
-
         public void XoaHopDong(int maHopDong)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -897,39 +898,32 @@ namespace DAL
 
         public void CapNhatHopDong(HopDong hopDong)
         {
-            int maNCC = 1 ;//LayMaNCCTheoTen(int.Parse(hopDong.MaNCC); // Lấy mã NCC từ tên
-
-            if (maNCC == -1)
-            {
-                throw new ArgumentException("Tên nhà cung cấp không hợp lệ."); // Kiểm tra nếu tên NCC không tồn tại
-            }
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
             UPDATE HopDong
             SET TenHopDong = @TenHopDong,
                 MoTa = @MoTa,
-                NgayKy = @NgayKy,
-                NguoiKy = @NguoiKy,
                 NgayHieuLuc = @NgayHieuLuc,
                 NgayHetHan = @NgayHetHan,
+                NgayKy = @NgayKy,
+                NguoiKy = @NguoiKy,
                 GiaTri = @GiaTri,
                 TrangThai = @TrangThai,
                 MaNCC = @MaNCC
             WHERE MaHopDong = @MaHopDong";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@MaHopDong", hopDong.MaHopDong);
                 cmd.Parameters.AddWithValue("@TenHopDong", hopDong.TenHopDong);
                 cmd.Parameters.AddWithValue("@MoTa", hopDong.MoTa);
-                cmd.Parameters.AddWithValue("@NgayKy", hopDong.NgayKy);
-                cmd.Parameters.AddWithValue("@NguoiKy", hopDong.NguoiKy);
                 cmd.Parameters.AddWithValue("@NgayHieuLuc", hopDong.NgayHieuLuc);
                 cmd.Parameters.AddWithValue("@NgayHetHan", hopDong.NgayHetHan);
+                cmd.Parameters.AddWithValue("@NgayKy", hopDong.NgayKy);
+                cmd.Parameters.AddWithValue("@NguoiKy", hopDong.NguoiKy);
                 cmd.Parameters.AddWithValue("@GiaTri", hopDong.GiaTri);
                 cmd.Parameters.AddWithValue("@TrangThai", hopDong.TrangThai);
-                cmd.Parameters.AddWithValue("@MaNCC", maNCC); // Sử dụng mã NCC
+                cmd.Parameters.AddWithValue("@MaNCC", hopDong.MaNCC);
+                cmd.Parameters.AddWithValue("@MaHopDong", hopDong.MaHopDong); // Thêm mã hợp đồng
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -959,6 +953,51 @@ namespace DAL
                 {
                     throw new InvalidOperationException("Hợp đồng không thể xóa vì không ở trạng thái 'Ngừng hoạt động'.");
                 }
+            }
+        }
+
+        public void ThemHopDong(HopDong hopDong)
+        {
+            // Đảm bảo MaHopDong có giá trị hợp lệ trước khi chèn
+            if (hopDong.MaHopDong <= 0) // Hoặc bất kỳ điều kiện nào phù hợp với logic của bạn
+            {
+                throw new ArgumentException("Giá trị MaHopDong không hợp lệ.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+        INSERT INTO HopDong (MaHopDong, TenHopDong, MoTa, NgayKy, NguoiKy, NgayHieuLuc, NgayHetHan, GiaTri, TrangThai, MaNCC)
+        VALUES (@MaHopDong, @TenHopDong, @MoTa, @NgayKy, @NguoiKy, @NgayHieuLuc, @NgayHetHan, @GiaTri, @TrangThai, @MaNCC)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaHopDong", hopDong.MaHopDong); // Thêm mã hợp đồng
+                cmd.Parameters.AddWithValue("@TenHopDong", hopDong.TenHopDong);
+                cmd.Parameters.AddWithValue("@MoTa", hopDong.MoTa);
+                cmd.Parameters.AddWithValue("@NgayKy", hopDong.NgayKy);
+                cmd.Parameters.AddWithValue("@NguoiKy", hopDong.NguoiKy);
+                cmd.Parameters.AddWithValue("@NgayHieuLuc", hopDong.NgayHieuLuc);
+                cmd.Parameters.AddWithValue("@NgayHetHan", hopDong.NgayHetHan);
+                cmd.Parameters.AddWithValue("@GiaTri", hopDong.GiaTri);
+                cmd.Parameters.AddWithValue("@TrangThai", hopDong.TrangThai);
+                cmd.Parameters.AddWithValue("@MaNCC", hopDong.MaNCC);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public bool KiemTraMaHopDongTonTai(int maHopDong)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM HopDong WHERE MaHopDong = @MaHopDong";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaHopDong", maHopDong);
+
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+
+                return count > 0; // Trả về true nếu mã hợp đồng đã tồn tại
             }
         }
 
