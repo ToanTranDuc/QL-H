@@ -81,6 +81,9 @@
             this.NhanVienTimer = new System.Windows.Forms.Timer(this.components);
             this.KhoTimer = new System.Windows.Forms.Timer(this.components);
             this.NCCTimer = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.NCCTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlBody = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -700,6 +703,31 @@
             // 
             this.KhoTimer.Interval = 10;
             this.KhoTimer.Tick += new System.EventHandler(this.KhoTimer_Tick);
+            // 
+            // NCCTimer
+            // 
+            this.NCCTimer.Interval = 10;
+            this.NCCTimer.Tick += new System.EventHandler(this.NCCTimer_Tick);
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(3, 554);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(272, 521);
+            this.panel3.TabIndex = 0;
+            // 
+            // pnlBody
+            // 
+            this.pnlBody.AutoSize = true;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnlBody.BackgroundImage = global::GUI.Properties.Resources.adsaf;
+            this.pnlBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBody.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlBody.Location = new System.Drawing.Point(304, 100);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(1114, 676);
+            this.pnlBody.TabIndex = 2;
             // 
             // NCCTimer
             // 
