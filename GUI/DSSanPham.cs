@@ -47,6 +47,8 @@ namespace GUI
 
             DataTable dt = sanPhamBLL.LayDanhSachSanPham();
             dgvDanhSachSP.DataSource = dt;
+            dgvDanhSachSP.ClearSelection();
+            dgvDanhSachSP.CurrentCell = null;
 
             if (dt.Columns.Contains("HinhAnh"))
             {

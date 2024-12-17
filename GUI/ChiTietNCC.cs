@@ -83,8 +83,8 @@ namespace GUI
                 txtCTNguoiCapNhat.Text = row["NguoiCapNhat"].ToString();
                 dtpCTNgayTao.Value = Convert.ToDateTime(row["NgayTao"]);
                 cmbCTTrangThai.Text = row["TrangThai"].ToString();
-             
-                
+
+                SetFieldsEnabled(false);
             }
         }
 
@@ -102,13 +102,15 @@ namespace GUI
                 txtCTDiaChi.Enabled = true;
                 txtCTNguoiCapNhat.Enabled = true;
                 cmbCTTrangThai.Enabled = true;
-
+                dtpCTNgayTao.Enabled = true;
+                dtpCTNgayCapNhat.Enabled = true;
+                txtCTNguoiTao.Enabled = true;
                 // Thay đổi tên nút
                 btnCTSua.Text = "Cập nhật";
             }
             else
             {
-               
+
                 try
                 {
                     NCC updatedNCC = new NCC
@@ -123,10 +125,10 @@ namespace GUI
                         NguoiCapNhat = txtCTNguoiCapNhat.Text,
                         NgayTao = dtpCTNgayTao.Value,
                         TrangThai = cmbCTTrangThai.Text,
-                        NgayCapNhat = dtpCTNgayCapNhat.Value 
+                        NgayCapNhat = dtpCTNgayCapNhat.Value
                     };
 
-                    
+
                     sanPhamBLL.CapNhatNCC(updatedNCC);
 
                     MessageBox.Show("Cập nhật thông tin nhà cung cấp thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -167,6 +169,20 @@ namespace GUI
         private void btnCTDong_Click(object sender, EventArgs e)
         {
             this.Close();   
+        }
+
+        private void SetFieldsEnabled(bool isEnabled)
+        {
+            txtCTTenNCC.Enabled = isEnabled;
+            txtCTMST.Enabled = isEnabled;
+            txtCTDienThoai.Enabled = isEnabled;
+            txtCTEmail.Enabled = isEnabled;
+            txtCTDiaChi.Enabled = isEnabled;
+            txtCTNguoiCapNhat.Enabled = isEnabled;
+            cmbCTTrangThai.Enabled = isEnabled;
+            txtCTNguoiTao.Enabled = isEnabled;
+            dtpCTNgayCapNhat.Enabled = isEnabled;
+            dtpCTNgayTao.Enabled = isEnabled;
         }
 
         private void btnCTHuy_Click(object sender, EventArgs e)

@@ -59,6 +59,7 @@ namespace GUI
                     ptbCTAnh.Image = null;
                 }
             }
+            EnableTextBoxes(false);
         }
 
          void ChiTietSP_Load(object sender, EventArgs e)
@@ -102,6 +103,8 @@ namespace GUI
             txtCTNCC.Enabled = enable;
             txtCTXuatXu.Enabled = enable;
             txtCTTheLoai.Enabled = enable;  
+            txtCTTrangThai.Enabled = enable;    
+            txtCTSoLuong.Enabled = enable;
         }
 
         private void UpdateSanPham()
