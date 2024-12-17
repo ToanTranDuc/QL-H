@@ -88,7 +88,8 @@ namespace GUI
 
         private void btnTaoDonDatHang_Click(object sender, EventArgs e)
         {
-
+            frmTaoDonDatHang frm = new frmTaoDonDatHang();
+            frm.ShowDialog();
         }
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)

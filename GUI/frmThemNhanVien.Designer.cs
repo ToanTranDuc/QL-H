@@ -44,7 +44,6 @@
             this.dtpNgayCap = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTaiAnh = new System.Windows.Forms.Button();
-            this.ptbAnh = new System.Windows.Forms.PictureBox();
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,13 +73,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtXacThucMK = new System.Windows.Forms.TextBox();
+            this.ptbAnh = new System.Windows.Forms.PictureBox();
             this.pnlThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.grbQuyen.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAnh)).BeginInit();
             this.pnlTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlThongTin
@@ -292,18 +292,6 @@
             this.btnTaiAnh.Text = "Tải ảnh";
             this.btnTaiAnh.UseVisualStyleBackColor = true;
             this.btnTaiAnh.Click += new System.EventHandler(this.btnTaiAnh_Click);
-            // 
-            // ptbAnh
-            // 
-            this.ptbAnh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbAnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ptbAnh.Image = global::GUI.Properties.Resources.user;
-            this.ptbAnh.Location = new System.Drawing.Point(3, 3);
-            this.ptbAnh.Name = "ptbAnh";
-            this.ptbAnh.Size = new System.Drawing.Size(231, 282);
-            this.ptbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbAnh.TabIndex = 0;
-            this.ptbAnh.TabStop = false;
             // 
             // cbbGioiTinh
             // 
@@ -555,6 +543,18 @@
             this.txtXacThucMK.Size = new System.Drawing.Size(292, 26);
             this.txtXacThucMK.TabIndex = 2;
             // 
+            // ptbAnh
+            // 
+            this.ptbAnh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbAnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ptbAnh.Image = global::GUI.Properties.Resources.user1;
+            this.ptbAnh.Location = new System.Drawing.Point(3, 3);
+            this.ptbAnh.Name = "ptbAnh";
+            this.ptbAnh.Size = new System.Drawing.Size(231, 282);
+            this.ptbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbAnh.TabIndex = 0;
+            this.ptbAnh.TabStop = false;
+            // 
             // frmThemNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -573,9 +573,9 @@
             this.grbQuyen.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAnh)).EndInit();
             this.pnlTaiKhoan.ResumeLayout(false);
             this.pnlTaiKhoan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAnh)).EndInit();
             this.ResumeLayout(false);
 
         }

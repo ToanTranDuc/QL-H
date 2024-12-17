@@ -75,6 +75,7 @@
             this.btnThem.TabIndex = 39;
             this.btnThem.Text = "Thêm sản phẩm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label3
             // 
@@ -123,6 +124,7 @@
             this.cbbSanPham.Name = "cbbSanPham";
             this.cbbSanPham.Size = new System.Drawing.Size(290, 28);
             this.cbbSanPham.TabIndex = 43;
+            this.cbbSanPham.SelectedIndexChanged += new System.EventHandler(this.cbbSanPham_SelectedIndexChanged);
             // 
             // cbbNCC
             // 
@@ -132,6 +134,7 @@
             this.cbbNCC.Name = "cbbNCC";
             this.cbbNCC.Size = new System.Drawing.Size(242, 28);
             this.cbbNCC.TabIndex = 43;
+            this.cbbNCC.SelectedIndexChanged += new System.EventHandler(this.cbbNCC_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -202,6 +205,7 @@
             this.btnDatHang.TabIndex = 39;
             this.btnDatHang.Text = "Đặt hàng";
             this.btnDatHang.UseVisualStyleBackColor = true;
+            this.btnDatHang.Click += new System.EventHandler(this.btnDatHang_Click);
             // 
             // btnThoat
             // 

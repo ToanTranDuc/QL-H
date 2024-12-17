@@ -19,6 +19,7 @@ namespace GUI
         bool sanPhamCollap;
         bool nhanVienCollap;
         bool khoCollap;
+        bool nccCollap;
         private Form currentFormChild;
         private TaiKhoanBLL taiKhoanBLL = new TaiKhoanBLL();
         private TaiKhoan User = new TaiKhoan();
@@ -44,6 +45,8 @@ namespace GUI
             btnNhapKho.Enabled = false;
             btnDonDatHang.Enabled = false;
             btnXuatKho.Enabled = false;
+            btnNCC.Enabled = false;
+            btnHopDong.Enabled = false;
 
             if (currentFormChild != null)
             {
@@ -71,13 +74,42 @@ namespace GUI
         {
             if (User.NhanVien.NhanVienQuyen != null)
             {
-                var danhSachQuyen = User.NhanVien.NhanVienQuyen.Select(q => q.Quyen.TenQuyen).ToList();
-                if (danhSachQuyen.Contains("Quản trị tối cao"))
+                var danhSachQuyen = User.NhanVien.NhanVienQuyen.Select(q => q.Quyen.ID_Quyen).ToList();
+                if (danhSachQuyen.Contains(1))//Quan ly
                 {
-                    return;
+                    pnlBanHang.Visible = true;
+                    NCCContainer.Visible = true;
+                    SanPhamContainer.Visible = true;
+                    NhanVienContainer.Visible = true;
+                    KhoContainer.Visible = true;
+
+                    btnDSNhanVien.Enabled = true;
+                    btnTaiKhoan.Enabled = true;
+                    btnDMChucVu.Enabled = true;
+
+                    btnDanhMucSanPham.Enabled = true;
+                    btnDanhSachSanPham.Enabled = true;
+
+                    btnNhapKho.Enabled= true;
+                    btnXuatKho.Enabled = true;
+                    btnDonDatHang.Enabled = true;
+                    btnTonKho.Enabled = true;
+
+                    btnNCC.Enabled = true;
+                    btnHopDong.Enabled = true;
                 }
                 else
                 {
+                    pnlBanHang.Visible = false;
+                    NCCContainer.Visible = false;
+                    SanPhamContainer.Visible = false;
+                    KhoContainer.Visible = false;
+
+                    NhanVienContainer.Visible = true;
+                    btnDSNhanVien.Enabled = false;
+                    btnTaiKhoan.Enabled = true;
+                    btnDMChucVu.Enabled = false;
+
                     btnDanhMucSanPham.Enabled = false;
                     btnDanhSachSanPham.Enabled = false;
                     btnDMChucVu.Enabled = false;
@@ -89,19 +121,21 @@ namespace GUI
                     btnBanHang.Enabled = false;
                     btnThongKe.Enabled = false;
                 }
-                if (danhSachQuyen.Contains("Kho"))
+                if (danhSachQuyen.Contains(2))//Kho
                 {
                     btnTonKho.Enabled = true;
                     btnXuatKho.Enabled = true;
                     btnNhapKho.Enabled = true;
                     btnDonDatHang.Enabled = true;
                 }
-                if (danhSachQuyen.Contains("Bán hàng"))
+                if (danhSachQuyen.Contains(3))//Ban Hang
                 {
                     btnBanHang.Enabled = true;
                 }
-                if (danhSachQuyen.Contains("Sản phẩm"))
+                if (danhSachQuyen.Contains(4))//SanPham
                 {
+                    SanPhamContainer.Visible = true;
+
                     btnDanhMucSanPham.Enabled = true;
                     btnDanhSachSanPham.Enabled = true;
                 }
@@ -210,7 +244,10 @@ namespace GUI
             KhoTimer.Start();
 
         }
-
+        private void btnNhaCungCap_Click(object sender, EventArgs e)
+        {
+            NCCTimer.Start();
+        }
         private void KhoTimer_Tick(object sender, EventArgs e)
         {
             if (khoCollap)
@@ -232,7 +269,27 @@ namespace GUI
                 }
             }
         }
-
+        private void NCCTimer_Tick(object sender, EventArgs e)
+        {
+            if (nccCollap)
+            {
+                NCCContainer.Height += 10;
+                if(NCCContainer.Height == NCCContainer.MaximumSize.Height)
+                {
+                    nccCollap = false;
+                    NCCTimer.Stop();
+                }
+            }
+            else
+            {
+                NCCContainer.Height -= 10;
+                if(NCCContainer.Height == NCCContainer.MinimumSize.Height)
+                {
+                    nccCollap= true;
+                    NCCTimer.Stop();
+                }
+            }
+        }
         private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
             CurrentUser.User = null;
@@ -308,16 +365,30 @@ namespace GUI
             lblTitle.Text = btnDonDatHang.Text;
         }
 
-        private void btnNCC_Click(object sender, EventArgs e)
+        private void btnBanHang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fHoaDonBan());
+            lblTitle.Text = btnBanHang.Text;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+                lblTitle.Text = "Trang chủ";
+            }
+        }
+
+        private void btnNCC_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new InforNCC());
             lblTitle.Text = btnNCC.Text;
         }
 
-        private void btnBanHang_Click(object sender, EventArgs e)
+        private void btnHopDong_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fHoaDonBan());
-            lblTitle.Text = btnBanHang.Text;
+
         }
     }
 }
