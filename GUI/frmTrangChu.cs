@@ -119,7 +119,6 @@ namespace GUI
                     btnNhapKho.Enabled = false;
                     btnDonDatHang.Enabled = false;
                     btnBanHang.Enabled = false;
-                    btnThongKe.Enabled = false;
                 }
                 if (danhSachQuyen.Contains(2))//Kho
                 {
@@ -146,7 +145,7 @@ namespace GUI
         {
             User = CurrentUser.User;
             //Phan quyen
-            lblChaoMung.Text = $"Xin chào: {User.NhanVien.Ho_Ten}\nChức vụ: {CurrentUser.TenChucVu}";
+            //lblChaoMung.Text = $"Xin chào: {User.NhanVien.Ho_Ten}\nChức vụ: {CurrentUser.TenChucVu}";
             LoadQuyen();
         }
 

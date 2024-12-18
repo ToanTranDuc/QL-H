@@ -49,10 +49,10 @@ namespace GUI
         }
         private void LoadSanPham(int maNCC)
         {
-            var products = spBLL.GetProductsBySupplier(maNCC);
-            cbbSanPham.DataSource = products;
-            cbbSanPham.DisplayMember = "TenSP";
-            cbbSanPham.ValueMember = "MaSP";
+            //var products = spBLL.GetProductsBySupplier(maNCC);
+            //cbbSanPham.DataSource = products;
+            //cbbSanPham.DisplayMember = "TenSP";
+            //cbbSanPham.ValueMember = "MaSP";
         }
         private void cbbNCC_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -64,57 +64,57 @@ namespace GUI
 
         private void cbbSanPham_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbSanPham.SelectedValue != null && int.TryParse(cbbSanPham.SelectedValue.ToString(), out int maSP))
-            {
-                var selectedProduct = spBLL.GetProductById(maSP);
+            //if (cbbSanPham.SelectedValue != null && int.TryParse(cbbSanPham.SelectedValue.ToString(), out int maSP))
+            //{
+            //    var selectedProduct = spBLL.LayChiTietSanPham(maSP);
 
-                if (selectedProduct != null)
-                {
-                    txtGia.Text = selectedProduct.GiaNhap.ToString("N0") + " VND"; // Định dạng số
-                }
-            }
+            //    if (selectedProduct != null)
+            //    {
+            //        txtGia.Text = selectedProduct.GiaNhap.ToString("N0") + " VND"; // Định dạng số
+            //    }
+            //}
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (cbbSanPham.SelectedValue != null
-                && int.TryParse(cbbSanPham.SelectedValue.ToString(), out int maSP)
-                && !string.IsNullOrWhiteSpace(txtSoLuong.Text)
-                && int.TryParse(txtSoLuong.Text, out int soLuong))
-            {
-                var selectedProduct = spBLL.GetProductById(maSP);
+            //if (cbbSanPham.SelectedValue != null
+            //    && int.TryParse(cbbSanPham.SelectedValue.ToString(), out int maSP)
+            //    && !string.IsNullOrWhiteSpace(txtSoLuong.Text)
+            //    && int.TryParse(txtSoLuong.Text, out int soLuong))
+            //{
+            //    var selectedProduct = spBLL.LayChiTietSanPham(maSP);
 
-                if (selectedProduct != null)
-                {
-                    float giaNhap = selectedProduct.GiaNhap;
-                    float tongGia = soLuong * giaNhap;
+            //    if (selectedProduct != null)
+            //    {
+            //        float giaNhap = selectedProduct.GiaNhap;
+            //        float tongGia = soLuong * giaNhap;
 
-                    dtgMain.Rows.Add(new object[]
-                    {
-                dtgMain.Rows.Count + 1,
-                selectedProduct.MaSP,
-                selectedProduct.TenSP,
-                soLuong,
-                giaNhap.ToString("N0") + " VND"
-                    });
+            //        dtgMain.Rows.Add(new object[]
+            //        {
+            //    dtgMain.Rows.Count + 1,
+            //    selectedProduct.MaSP,
+            //    selectedProduct.TenSP,
+            //    soLuong,
+            //    giaNhap.ToString("N0") + " VND"
+            //        });
 
-                    // Cập nhật tổng giá trị đơn đặt hàng
-                    float tongDonDat = 0;
-                    foreach (DataGridViewRow row in dtgMain.Rows)
-                    {
-                        int sl = int.Parse(row.Cells["SoLuong"].Value.ToString());
-                        float gia = float.Parse(row.Cells["GiaNhap"].Value.ToString().Replace(" VND", "").Replace(",", ""));
-                        tongDonDat += sl * gia;
-                    }
+            //        // Cập nhật tổng giá trị đơn đặt hàng
+            //        float tongDonDat = 0;
+            //        foreach (DataGridViewRow row in dtgMain.Rows)
+            //        {
+            //            int sl = int.Parse(row.Cells["SoLuong"].Value.ToString());
+            //            float gia = float.Parse(row.Cells["GiaNhap"].Value.ToString().Replace(" VND", "").Replace(",", ""));
+            //            tongDonDat += sl * gia;
+            //        }
 
-                    lblTongGia.Text = "Tổng giá trị đơn đặt: " + tongDonDat.ToString("N0") + " VND";
-                    LoadForm();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm và nhập số lượng hợp lệ!");
-            }
+            //        lblTongGia.Text = "Tổng giá trị đơn đặt: " + tongDonDat.ToString("N0") + " VND";
+            //        LoadForm();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn sản phẩm và nhập số lượng hợp lệ!");
+            //}
         }
 
         private void btnDatHang_Click(object sender, EventArgs e)
