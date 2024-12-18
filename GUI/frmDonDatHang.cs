@@ -33,6 +33,7 @@ namespace GUI
                     donDat.NgayDat.ToShortDateString(),
                     donDat.MaNCC,
                     donDat.TenNCC,
+                    donDat.GhiChu,
                     donDat.TongGia.ToString("N0") + " VND",
                     donDat.TrangThai
                 );
@@ -62,27 +63,29 @@ namespace GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string tuKhoa = txtTuKhoa.Text.Trim().ToLower(); // Lấy từ khóa tìm kiếm
-            var ketQuaTimKiem = donDatHangList
-                .Where(don => don.ID_DonDatHang.ToString() == tuKhoa ||
-                              don.NgayDat.ToString() == tuKhoa ||
-                              don.TrangThai.Contains(tuKhoa) ||
-                              don.MaNCC.ToString() == tuKhoa ||
-                              don.TenNCC.Contains(tuKhoa))
-                .ToList(); // Tìm kiếm trong danh sách
+            string tuKhoa = txtTuKhoa.Text.Trim().ToLower(); 
+            DateTime ngayDat;
+            bool isDate = DateTime.TryParse(tuKhoa, out ngayDat); 
 
-            dtgMain.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            var ketQuaTimKiem = donDatHangList
+                .Where(don => don.ID_DonDatHang.ToString().Equals(tuKhoa, StringComparison.OrdinalIgnoreCase) ||
+                              (isDate && don.NgayDat.Date == ngayDat.Date) || 
+                              don.TrangThai.IndexOf(tuKhoa, StringComparison.OrdinalIgnoreCase) >= 0 || 
+                              don.MaNCC.ToString().Equals(tuKhoa, StringComparison.OrdinalIgnoreCase) ||
+                              don.TenNCC.IndexOf(tuKhoa, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList(); 
+
+            dtgMain.Rows.Clear(); 
 
             if (ketQuaTimKiem.Count > 0)
             {
-                // Nếu có kết quả tìm kiếm, hiển thị chúng
                 LoadDataToGrid(ketQuaTimKiem);
+                lblTongSo.Text = $"Tổng số: {ketQuaTimKiem.Count} bản ghi"; 
             }
             else
             {
-                // Nếu không có kết quả tìm kiếm
                 MessageBox.Show("Không tìm thấy đơn đặt hàng nào với từ khóa: " + txtTuKhoa.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblTongSo.Text = "Tổng số: 0 bản ghi"; // Cập nhật tổng số
+                lblTongSo.Text = "Tổng số: 0 bản ghi"; 
             }
         }
 

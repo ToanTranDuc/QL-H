@@ -45,32 +45,28 @@ namespace DAL
         }
         public SanPham GetProductById(int maSP)
         {
-            SanPham product = null;
-            string query = "SELECT MaSP, TenSP, MoTa, GiaNhap, GiaBan, NgayNhap, HinhAnh, SoLuong FROM SanPham WHERE MaSP = @MaSP";
-
             using (SqlConnection conn = SqlConnectionData1.Connect())
             {
                 conn.Open();
-                using (SqlCommand command = new SqlCommand(query, conn))
+                string query = "SELECT MaSP, TenSP, GiaNhap FROM SanPham WHERE MaSP = @MaSP";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@MaSP", maSP);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    cmd.Parameters.AddWithValue("@MaSP", maSP);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            product = new SanPham
+                            return new SanPham
                             {
-                                MaSP = (int)reader["MaSP"],
-                                TenSP = reader["TenSP"].ToString(),
-                                GiaNhap = (float)reader["GiaNhap"],
-                                // Thêm các thuộc tính khác nếu cần
-                                SoLuong = (int)reader["SoLuong"] // Nếu bạn cũng muốn lấy số lượng
+                                MaSP = reader.GetInt32(0),
+                                TenSP = reader.GetString(1),
+                                GiaNhap = Convert.ToSingle(reader["GiaNhap"])
                             };
                         }
                     }
                 }
             }
-            return product;
+            return null; // Nếu không tìm thấy, trả về null
         }
     }
 }

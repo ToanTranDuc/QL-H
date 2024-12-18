@@ -29,7 +29,7 @@ namespace GUI
         public frmTrangChu()
         {
             InitializeComponent();
-            CurrentUser.User.NhanVien.NhanVienQuyen = taiKhoanBLL.GetUserPermissions(CurrentUser.User.NhanVien.ID_NhanVien);
+            CurrentUser.User.NhanVien.NhanVienQuyen = taiKhoanBLL.GetUserPermissions(CurrentUser.User.NhanVien.ID_NhanVien);    
         }
 
         private void OpenChildForm(Form childForm)
@@ -65,6 +65,13 @@ namespace GUI
             btnDMChucVu.Enabled = true;
             btnDSNhanVien.Enabled = true;
             btnTaiKhoan.Enabled = true;
+            btnTonKho.Enabled = true;
+            btnBanHang.Enabled = true;
+            btnNhapKho.Enabled = true;
+            btnDonDatHang.Enabled = true;
+            btnXuatKho.Enabled = true;
+            btnNCC.Enabled = true;
+            btnHopDong.Enabled = true;
             LoadQuyen();
 
         }
@@ -118,8 +125,6 @@ namespace GUI
                     btnXuatKho.Enabled = false;
                     btnNhapKho.Enabled = false;
                     btnDonDatHang.Enabled = false;
-                    btnBanHang.Enabled = false;
-                    btnThongKe.Enabled = false;
                 }
                 if (danhSachQuyen.Contains(2))//Kho
                 {
@@ -130,7 +135,7 @@ namespace GUI
                 }
                 if (danhSachQuyen.Contains(3))//Ban Hang
                 {
-                    btnBanHang.Enabled = true;
+                    pnlBanHang.Visible = true;
                 }
                 if (danhSachQuyen.Contains(4))//SanPham
                 {
@@ -294,8 +299,18 @@ namespace GUI
         {
             CurrentUser.User = null;
             this.Hide();
-            frmDangNhap loginForm = new frmDangNhap();
-            loginForm.ShowDialog();
+            frmDangNhap loginForm = Application.OpenForms.OfType<frmDangNhap>().FirstOrDefault();
+
+            if (loginForm == null)
+            {
+                loginForm = new frmDangNhap();
+            }
+            else
+            {
+                loginForm.ResetFields();
+            }
+            loginForm.Show();
+            loginForm.BringToFront(); 
             this.Close();
         }
 
@@ -371,16 +386,7 @@ namespace GUI
             lblTitle.Text = btnBanHang.Text;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            if (currentFormChild != null)
-            {
-                currentFormChild.Close();
-                lblTitle.Text = "Trang chủ";
-            }
-        }
-
-        private void btnNCC_Click_1(object sender, EventArgs e)
+        private void btnNCC_Click(object sender, EventArgs e)
         {
             OpenChildForm(new InforNCC());
             lblTitle.Text = btnNCC.Text;
@@ -388,7 +394,17 @@ namespace GUI
 
         private void btnHopDong_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new Contract());
+            lblTitle.Text = btnHopDong.Text;
+        }
 
+        private void lblMENU_Click(object sender, EventArgs e)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+                lblTitle.Text = "Trang chủ";
+            }
         }
     }
 }

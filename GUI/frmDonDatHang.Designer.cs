@@ -42,6 +42,7 @@
             this.NgayDat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
@@ -58,13 +59,14 @@
             this.NgayDat,
             this.MaNCC,
             this.TenNCC,
+            this.GhiChu,
             this.TongGia,
             this.TrangThai});
             this.dtgMain.Location = new System.Drawing.Point(16, 153);
             this.dtgMain.Name = "dtgMain";
             this.dtgMain.RowHeadersWidth = 62;
             this.dtgMain.RowTemplate.Height = 28;
-            this.dtgMain.Size = new System.Drawing.Size(1094, 368);
+            this.dtgMain.Size = new System.Drawing.Size(1351, 561);
             this.dtgMain.TabIndex = 32;
             this.dtgMain.SelectionChanged += new System.EventHandler(this.dtgMain_SelectionChanged);
             // 
@@ -106,7 +108,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Location = new System.Drawing.Point(16, 527);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(16, 735);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(134, 79);
             this.btnXemChiTiet.TabIndex = 37;
@@ -116,7 +118,7 @@
             // 
             // btnTaoDonDatHang
             // 
-            this.btnTaoDonDatHang.Location = new System.Drawing.Point(839, 527);
+            this.btnTaoDonDatHang.Location = new System.Drawing.Point(1037, 735);
             this.btnTaoDonDatHang.Name = "btnTaoDonDatHang";
             this.btnTaoDonDatHang.Size = new System.Drawing.Size(271, 79);
             this.btnTaoDonDatHang.TabIndex = 38;
@@ -155,6 +157,12 @@
             this.TenNCC.MinimumWidth = 8;
             this.TenNCC.Name = "TenNCC";
             // 
+            // GhiChu
+            // 
+            this.GhiChu.HeaderText = "Ghi chú";
+            this.GhiChu.MinimumWidth = 8;
+            this.GhiChu.Name = "GhiChu";
+            // 
             // TongGia
             // 
             this.TongGia.HeaderText = "Tổng giá";
@@ -172,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1126, 676);
+            this.ClientSize = new System.Drawing.Size(1379, 826);
             this.Controls.Add(this.dtgMain);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.label5);
@@ -204,6 +212,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayDat;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
