@@ -9,10 +9,15 @@ namespace BLL
 {
     public class NCCBLL
     {
-        private NCCDAL ncc = new NCCDAL();
+        private NCCDAL nCC = new NCCDAL();
         public List<NCC> GetListNCC()
         {
-            return ncc.GetListNCC();
+            return nCC.GetListNCC();
+        }
+        public List<SanPham> GetProductsBySupplier(int maNCC)
+        {
+            return nCC.GetProductsBySupplier(maNCC);
         }
     }
+    
 }

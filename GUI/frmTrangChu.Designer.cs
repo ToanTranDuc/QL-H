@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMENU = new System.Windows.Forms.Label();
             this.picMenu = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.NhanVienContainer = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnNhanVien = new System.Windows.Forms.Button();
@@ -49,8 +49,6 @@
             this.btnDanhSachSanPham = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnDanhMucSanPham = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnNCC = new System.Windows.Forms.Button();
             this.KhoContainer = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.btnKho = new System.Windows.Forms.Button();
@@ -67,10 +65,10 @@
             this.NCCContainer = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnNhaCungCap = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnHopDong = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnNCC = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnHopDong = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -82,9 +80,6 @@
             this.SanPhamTimer = new System.Windows.Forms.Timer(this.components);
             this.NhanVienTimer = new System.Windows.Forms.Timer(this.components);
             this.KhoTimer = new System.Windows.Forms.Timer(this.components);
-            this.NCCTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pnlBody = new System.Windows.Forms.Panel();
             this.NCCTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlBody = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
@@ -99,7 +94,6 @@
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.KhoContainer.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -109,8 +103,8 @@
             this.pnlBanHang.SuspendLayout();
             this.NCCContainer.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -139,13 +133,24 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblMENU);
             this.panel2.Controls.Add(this.picMenu);
-            this.panel2.Controls.Add(this.lblHome);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(326, 100);
             this.panel2.TabIndex = 1;
+            // 
+            // lblMENU
+            // 
+            this.lblMENU.AutoSize = true;
+            this.lblMENU.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMENU.Location = new System.Drawing.Point(109, 25);
+            this.lblMENU.Name = "lblMENU";
+            this.lblMENU.Size = new System.Drawing.Size(115, 37);
+            this.lblMENU.TabIndex = 2;
+            this.lblMENU.Text = "MENU";
+            this.lblMENU.Click += new System.EventHandler(this.lblMENU_Click);
             // 
             // picMenu
             // 
@@ -157,16 +162,6 @@
             this.picMenu.TabIndex = 1;
             this.picMenu.TabStop = false;
             this.picMenu.Click += new System.EventHandler(this.picMenu_Click);
-            // 
-            // lblHome
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Menu";
             // 
             // NhanVienContainer
             // 
@@ -281,91 +276,6 @@
             this.btnDSNhanVien.Click += new System.EventHandler(this.btnDSNhanVien_Click);
             // 
             // SanPhamContainer
-            // 
-            this.SanPhamContainer.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.SanPhamContainer.Controls.Add(this.panel1);
-            this.SanPhamContainer.Controls.Add(this.panel8);
-            this.SanPhamContainer.Controls.Add(this.panel7);
-            this.SanPhamContainer.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.SanPhamContainer.Location = new System.Drawing.Point(3, 179);
-            this.SanPhamContainer.MaximumSize = new System.Drawing.Size(301, 206);
-            this.SanPhamContainer.MinimumSize = new System.Drawing.Size(301, 70);
-            this.SanPhamContainer.Name = "SanPhamContainer";
-            this.SanPhamContainer.Size = new System.Drawing.Size(301, 70);
-            this.SanPhamContainer.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.btnSanPham);
-            this.panel1.Location = new System.Drawing.Point(-3, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 70);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnSanPham
-            // 
-            this.btnSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSanPham.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSanPham.Image = global::GUI.Properties.Resources.icons8_product_32;
-            this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPham.Location = new System.Drawing.Point(-17, -13);
-            this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSanPham.Size = new System.Drawing.Size(360, 104);
-            this.btnSanPham.TabIndex = 1;
-            this.btnSanPham.Text = "Quản lý sản phẩm";
-            this.btnSanPham.UseVisualStyleBackColor = true;
-            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnDanhSachSanPham);
-            this.panel8.Location = new System.Drawing.Point(-1, 134);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(323, 70);
-            this.panel8.TabIndex = 2;
-            // 
-            // btnDanhSachSanPham
-            // 
-            this.btnDanhSachSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhSachSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDanhSachSanPham.Image = global::GUI.Properties.Resources.icons8_menu_16;
-            this.btnDanhSachSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhSachSanPham.Location = new System.Drawing.Point(-17, -13);
-            this.btnDanhSachSanPham.Name = "btnDanhSachSanPham";
-            this.btnDanhSachSanPham.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnDanhSachSanPham.Size = new System.Drawing.Size(360, 104);
-            this.btnDanhSachSanPham.TabIndex = 1;
-            this.btnDanhSachSanPham.Text = "Danh sách sản phẩm";
-            this.btnDanhSachSanPham.UseVisualStyleBackColor = true;
-            this.btnDanhSachSanPham.Click += new System.EventHandler(this.btnDanhSachSanPham_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnDanhMucSanPham);
-            this.panel7.Location = new System.Drawing.Point(-3, 67);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(323, 70);
-            this.panel7.TabIndex = 2;
-            // 
-            // btnDanhMucSanPham
-            // 
-            this.btnDanhMucSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhMucSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDanhMucSanPham.Image = global::GUI.Properties.Resources.icons8_menu_16;
-            this.btnDanhMucSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhMucSanPham.Location = new System.Drawing.Point(-17, -13);
-            this.btnDanhMucSanPham.Name = "btnDanhMucSanPham";
-            this.btnDanhMucSanPham.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnDanhMucSanPham.Size = new System.Drawing.Size(360, 104);
-            this.btnDanhMucSanPham.TabIndex = 1;
-            this.btnDanhMucSanPham.Text = "Danh mục sản phẩm";
-            this.btnDanhMucSanPham.UseVisualStyleBackColor = true;
-            this.btnDanhMucSanPham.Click += new System.EventHandler(this.btnDanhMucSanPham_Click);
-            // 
-            // panel3
             // 
             this.SanPhamContainer.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.SanPhamContainer.Controls.Add(this.panel1);
@@ -616,8 +526,8 @@
             // 
             this.NCCContainer.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.NCCContainer.Controls.Add(this.panel5);
-            this.NCCContainer.Controls.Add(this.panel6);
             this.NCCContainer.Controls.Add(this.panel15);
+            this.NCCContainer.Controls.Add(this.panel6);
             this.NCCContainer.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.NCCContainer.Location = new System.Drawing.Point(3, 402);
             this.NCCContainer.MaximumSize = new System.Drawing.Size(301, 206);
@@ -651,34 +561,10 @@
             this.btnNhaCungCap.UseVisualStyleBackColor = true;
             this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnHopDong);
-            this.panel6.Location = new System.Drawing.Point(-1, 134);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(323, 70);
-            this.panel6.TabIndex = 2;
-            // 
-            // btnHopDong
-            // 
-            this.btnHopDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHopDong.ForeColor = System.Drawing.Color.Navy;
-            this.btnHopDong.Image = global::GUI.Properties.Resources.icons8_menu_16;
-            this.btnHopDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHopDong.Location = new System.Drawing.Point(-17, -13);
-            this.btnHopDong.Name = "btnHopDong";
-            this.btnHopDong.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnHopDong.Size = new System.Drawing.Size(360, 104);
-            this.btnHopDong.TabIndex = 1;
-            this.btnHopDong.Text = "Hợp đồng";
-            this.btnHopDong.UseVisualStyleBackColor = true;
-            this.btnHopDong.Click += new System.EventHandler(this.btnHopDong_Click);
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.btnNCC);
-            this.panel15.Location = new System.Drawing.Point(-3, 67);
+            this.panel15.Location = new System.Drawing.Point(2, 72);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(323, 70);
             this.panel15.TabIndex = 2;
@@ -690,14 +576,38 @@
             this.btnNCC.ForeColor = System.Drawing.Color.Navy;
             this.btnNCC.Image = global::GUI.Properties.Resources.icons8_menu_16;
             this.btnNCC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNCC.Location = new System.Drawing.Point(-17, -13);
+            this.btnNCC.Location = new System.Drawing.Point(-30, -20);
             this.btnNCC.Name = "btnNCC";
             this.btnNCC.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnNCC.Size = new System.Drawing.Size(360, 104);
             this.btnNCC.TabIndex = 1;
-            this.btnNCC.Text = "Quản lý nhà cung cấp";
+            this.btnNCC.Text = "Nhà cung cấp";
             this.btnNCC.UseVisualStyleBackColor = true;
-            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click_1);
+            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnHopDong);
+            this.panel6.Location = new System.Drawing.Point(3, 129);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(323, 70);
+            this.panel6.TabIndex = 2;
+            // 
+            // btnHopDong
+            // 
+            this.btnHopDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHopDong.ForeColor = System.Drawing.Color.Navy;
+            this.btnHopDong.Image = global::GUI.Properties.Resources.icons8_menu_16;
+            this.btnHopDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHopDong.Location = new System.Drawing.Point(-30, -20);
+            this.btnHopDong.Name = "btnHopDong";
+            this.btnHopDong.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnHopDong.Size = new System.Drawing.Size(360, 104);
+            this.btnHopDong.TabIndex = 1;
+            this.btnHopDong.Text = "Hợp đồng";
+            this.btnHopDong.UseVisualStyleBackColor = true;
+            this.btnHopDong.Click += new System.EventHandler(this.btnHopDong_Click);
             // 
             // panel4
             // 
@@ -726,7 +636,7 @@
             // 
             this.panel3.Location = new System.Drawing.Point(3, 554);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(272, 521);
+            this.panel3.Size = new System.Drawing.Size(301, 382);
             this.panel3.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -748,14 +658,14 @@
             this.lblChaoMung.Location = new System.Drawing.Point(3, 0);
             this.lblChaoMung.Name = "lblChaoMung";
             this.lblChaoMung.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.lblChaoMung.Size = new System.Drawing.Size(114, 40);
+            this.lblChaoMung.Size = new System.Drawing.Size(134, 45);
             this.lblChaoMung.TabIndex = 0;
             this.lblChaoMung.Text = "Chào mừng";
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.lblTitle);
-            this.panel14.Location = new System.Drawing.Point(123, 3);
+            this.panel14.Location = new System.Drawing.Point(143, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(559, 91);
             this.panel14.TabIndex = 1;
@@ -767,7 +677,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblTitle.Location = new System.Drawing.Point(212, 17);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(145, 31);
+            this.lblTitle.Size = new System.Drawing.Size(172, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Trang chủ";
             // 
@@ -790,31 +700,6 @@
             // 
             this.KhoTimer.Interval = 10;
             this.KhoTimer.Tick += new System.EventHandler(this.KhoTimer_Tick);
-            // 
-            // NCCTimer
-            // 
-            this.NCCTimer.Interval = 10;
-            this.NCCTimer.Tick += new System.EventHandler(this.NCCTimer_Tick);
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(3, 554);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(272, 521);
-            this.panel3.TabIndex = 0;
-            // 
-            // pnlBody
-            // 
-            this.pnlBody.AutoSize = true;
-            this.pnlBody.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnlBody.BackgroundImage = global::GUI.Properties.Resources.adsaf;
-            this.pnlBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBody.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlBody.Location = new System.Drawing.Point(304, 100);
-            this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(1114, 676);
-            this.pnlBody.TabIndex = 2;
             // 
             // NCCTimer
             // 
@@ -859,7 +744,6 @@
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.KhoContainer.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -869,8 +753,8 @@
             this.pnlBanHang.ResumeLayout(false);
             this.NCCContainer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -932,9 +816,10 @@
         private System.Windows.Forms.Button btnNhaCungCap;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnHopDong;
+        private System.Windows.Forms.Timer NCCTimer;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button btnNCC;
-        private System.Windows.Forms.Timer NCCTimer;
+        private System.Windows.Forms.Label lblMENU;
         private System.Windows.Forms.Panel panel3;
     }
 }

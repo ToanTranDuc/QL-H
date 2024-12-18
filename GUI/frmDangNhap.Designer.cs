@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDangNhap = new System.Windows.Forms.Label();
+            this.lblEye = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,21 @@
             this.lblDangNhap.TabIndex = 43;
             this.lblDangNhap.Text = "Đăng nhập hệ thống cửa hàng đồng hồ";
             // 
+            // lblEye
+            // 
+            this.lblEye.AutoSize = true;
+            this.lblEye.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblEye.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblEye.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEye.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEye.Location = new System.Drawing.Point(855, 342);
+            this.lblEye.Name = "lblEye";
+            this.lblEye.Size = new System.Drawing.Size(42, 20);
+            this.lblEye.TabIndex = 48;
+            this.lblEye.Text = "Hiện";
+            this.lblEye.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEye.Click += new System.EventHandler(this.lblEye_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.profile;
@@ -121,6 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 567);
+            this.Controls.Add(this.lblEye);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);
@@ -131,6 +148,7 @@
             this.Controls.Add(this.lblDangNhap);
             this.Name = "frmDangNhap";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,6 +165,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDangNhap;
+        private System.Windows.Forms.Label lblEye;
     }
 }
 

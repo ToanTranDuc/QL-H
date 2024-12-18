@@ -4,6 +4,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -222,6 +223,11 @@ namespace BLL
         private bool KiemTraMaHopDongTonTai(int maHopDong)
         {
             return loadsp.KiemTraMaHopDongTonTai(maHopDong);
+        }
+        private SanPhamDAL sp = new SanPhamDAL();
+        public SanPham GetProductById(int maSP)
+        {
+            return sp.GetProductById(maSP);
         }
     }
 }

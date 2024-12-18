@@ -67,7 +67,7 @@
             this.dtgMain.Name = "dtgMain";
             this.dtgMain.RowHeadersWidth = 62;
             this.dtgMain.RowTemplate.Height = 28;
-            this.dtgMain.Size = new System.Drawing.Size(1094, 368);
+            this.dtgMain.Size = new System.Drawing.Size(1315, 685);
             this.dtgMain.TabIndex = 25;
             this.dtgMain.SelectionChanged += new System.EventHandler(this.dtgMain_SelectionChanged);
             // 
@@ -164,7 +164,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Location = new System.Drawing.Point(33, 515);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(33, 832);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(134, 79);
             this.btnXemChiTiet.TabIndex = 30;
@@ -174,7 +174,7 @@
             // 
             // btnThemNhanVien
             // 
-            this.btnThemNhanVien.Location = new System.Drawing.Point(856, 515);
+            this.btnThemNhanVien.Location = new System.Drawing.Point(1077, 832);
             this.btnThemNhanVien.Name = "btnThemNhanVien";
             this.btnThemNhanVien.Size = new System.Drawing.Size(271, 79);
             this.btnThemNhanVien.TabIndex = 31;
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1161, 653);
+            this.ClientSize = new System.Drawing.Size(1385, 923);
             this.Controls.Add(this.dtgMain);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.label5);

@@ -80,7 +80,7 @@
             this.dtgMain.Name = "dtgMain";
             this.dtgMain.RowHeadersWidth = 62;
             this.dtgMain.RowTemplate.Height = 28;
-            this.dtgMain.Size = new System.Drawing.Size(580, 627);
+            this.dtgMain.Size = new System.Drawing.Size(713, 627);
             this.dtgMain.TabIndex = 53;
             this.dtgMain.SelectionChanged += new System.EventHandler(this.dtgMain_SelectionChanged);
             // 
@@ -180,7 +180,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(1152, 537);
+            this.btnThoat.Location = new System.Drawing.Point(1285, 537);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(105, 38);
             this.btnThoat.TabIndex = 4;
@@ -190,7 +190,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(1152, 83);
+            this.btnSua.Location = new System.Drawing.Point(1285, 83);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(105, 38);
             this.btnSua.TabIndex = 1;
@@ -212,7 +212,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(606, 83);
+            this.panel1.Location = new System.Drawing.Point(739, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(540, 627);
             this.panel1.TabIndex = 0;
@@ -349,7 +349,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(1152, 224);
+            this.btnHuy.Location = new System.Drawing.Point(1285, 224);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(105, 38);
             this.btnHuy.TabIndex = 2;
@@ -375,12 +375,11 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(365, 35);
             this.txtTuKhoa.TabIndex = 44;
-            this.txtTuKhoa.Text = "Tìm kiếm tài khoản";
             this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // btnGhi
             // 
-            this.btnGhi.Location = new System.Drawing.Point(1152, 268);
+            this.btnGhi.Location = new System.Drawing.Point(1285, 268);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(105, 38);
             this.btnGhi.TabIndex = 3;
@@ -402,7 +401,7 @@
             // 
             this.btnThongTinCaNhan.BackColor = System.Drawing.Color.DarkCyan;
             this.btnThongTinCaNhan.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnThongTinCaNhan.Location = new System.Drawing.Point(989, 26);
+            this.btnThongTinCaNhan.Location = new System.Drawing.Point(1122, 26);
             this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
             this.btnThongTinCaNhan.Size = new System.Drawing.Size(268, 35);
             this.btnThongTinCaNhan.TabIndex = 54;
@@ -415,7 +414,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1283, 725);
+            this.ClientSize = new System.Drawing.Size(1403, 791);
             this.Controls.Add(this.btnThongTinCaNhan);
             this.Controls.Add(this.dtgMain);
             this.Controls.Add(this.btnThoat);

@@ -41,9 +41,6 @@ namespace DAL
         }
         public void SaveDonDatHang(DonDatHang donDatHang, List<ChiTietDonDatHang> chiTietDonDatHangs)
         {
-            // Lưu thông tin đơn đặt hàng
-            // Giả sử bạn đã có lớp DAL để thực hiện các thao tác với cơ sở dữ liệu
-
             using (var connection = SqlConnectionData1.Connect())
             {
                 connection.Open();
@@ -52,11 +49,14 @@ namespace DAL
                     try
                     {
                         // Lưu đơn đặt hàng
-                        string queryInsertDonDatHang = "INSERT INTO tblDonDatHang (MaNCC, NgayDat, TongGia, TrangThai) VALUES (@MaNCC, @NgayDat, @TongGia, @TrangThai); SELECT SCOPE_IDENTITY();";
+                        string queryInsertDonDatHang = "INSERT INTO tblDonDatHang (MaNCC, NgayDat, TongGia, GhiChu, TrangThai) " +
+                                                        "VALUES (@MaNCC, @NgayDat, @TongGia, @GhiChu, @TrangThai); " +
+                                                        "SELECT SCOPE_IDENTITY();";
                         var cmd = new SqlCommand(queryInsertDonDatHang, connection, transaction);
                         cmd.Parameters.AddWithValue("@MaNCC", donDatHang.MaNCC);
                         cmd.Parameters.AddWithValue("@NgayDat", donDatHang.NgayDat);
                         cmd.Parameters.AddWithValue("@TongGia", donDatHang.TongGia);
+                        cmd.Parameters.AddWithValue("@GhiChu", donDatHang.GhiChu ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@TrangThai", donDatHang.TrangThai);
 
                         // Lấy ID của đơn đặt hàng vừa tạo
@@ -65,22 +65,24 @@ namespace DAL
                         // Lưu chi tiết đơn đặt hàng
                         foreach (var chiTiet in chiTietDonDatHangs)
                         {
-                            string queryInsertChiTiet = "INSERT INTO tblChiTietDonDatHang (ID_DonDatHang, MaSP, SoLuong) VALUES (@ID_DonDatHang, @MaSP, @SoLuong)";
+                            string queryInsertChiTiet = "INSERT INTO tblChiTietDonDatHang (ID_DonDatHang, MaSP, SoLuong, Gia) " +
+                                                         "VALUES (@ID_DonDatHang, @MaSP, @SoLuong, @Gia)";
                             var cmdChiTiet = new SqlCommand(queryInsertChiTiet, connection, transaction);
                             cmdChiTiet.Parameters.AddWithValue("@ID_DonDatHang", donDatHang.ID_DonDatHang);
                             cmdChiTiet.Parameters.AddWithValue("@MaSP", chiTiet.MaSP);
                             cmdChiTiet.Parameters.AddWithValue("@SoLuong", chiTiet.SoLuong);
+                            cmdChiTiet.Parameters.AddWithValue("@Gia", chiTiet.GiaNhap); // Thêm giá sản phẩm
                             cmdChiTiet.ExecuteNonQuery();
                         }
 
                         // Cam kết giao dịch
                         transaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         // Nếu có lỗi, hoàn tác giao dịch
                         transaction.Rollback();
-                        throw;
+                        throw new Exception("Lỗi khi lưu đơn đặt hàng: " + ex.Message);
                     }
                 }
             }

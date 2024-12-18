@@ -51,6 +51,7 @@
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTongGia = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -66,6 +67,7 @@
             this.btnHuy.TabIndex = 38;
             this.btnHuy.Text = "Hủy bỏ";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnThem
             // 
@@ -75,7 +77,7 @@
             this.btnThem.TabIndex = 39;
             this.btnThem.Text = "Thêm sản phẩm";
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label3
             // 
@@ -231,7 +233,8 @@
             this.MaSP,
             this.TenSP,
             this.SoLuong,
-            this.Gia});
+            this.Gia,
+            this.TongGia});
             this.dtgMain.Location = new System.Drawing.Point(133, 300);
             this.dtgMain.Name = "dtgMain";
             this.dtgMain.RowHeadersWidth = 62;
@@ -268,6 +271,12 @@
             this.Gia.HeaderText = "Giá nhập";
             this.Gia.MinimumWidth = 8;
             this.Gia.Name = "Gia";
+            // 
+            // TongGia
+            // 
+            this.TongGia.HeaderText = "Tổng giá";
+            this.TongGia.MinimumWidth = 8;
+            this.TongGia.Name = "TongGia";
             // 
             // panel2
             // 
@@ -307,7 +316,6 @@
             this.Controls.Add(this.label2);
             this.Name = "frmTaoDonDatHang";
             this.Text = "frmTaoDonDatHang";
-            this.Load += new System.EventHandler(this.frmTaoDonDatHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).EndInit();
@@ -338,11 +346,12 @@
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.DataGridView dtgMain;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblTongGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
-        private System.Windows.Forms.Label lblTongGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongGia;
     }
 }
