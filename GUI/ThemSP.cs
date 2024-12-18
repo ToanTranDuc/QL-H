@@ -231,8 +231,13 @@ namespace GUI
             float giaBan = float.Parse(txtTMGiaBan.Text.Trim());
             DateTime ngayNhap = dtpTMNgayNhap.Value;
             string trangThai = cmbTMTrangThai.Text.Trim();
-           // int maMauSac = int.Parse(cmbTMMauSac.Text.Trim());
-            int soLuong = int.Parse(txtTMSoLuong.Text.Trim());
+            // int maMauSac = int.Parse(cmbTMMauSac.Text.Trim());
+            if (string.IsNullOrEmpty(txtTMSoLuong.Text.Trim()))
+            {
+                MessageBox.Show("Vui lòng nhập số lượng sản phẩm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
       
 
             string imagePath = txtTMPath.Text.Trim();
@@ -247,7 +252,7 @@ namespace GUI
                 MaTheLoai = maTheLoai,
                 MaXuatXu = maXuatXu,
                 TrangThai = trangThai,
-                SoLuong = soLuong,
+                SoLuong = int.Parse(txtTMSoLuong.Text.Trim()),
                 MaKieuDang = maKieuDang,
                 GiaBan = giaBan,
                 GiaNhap = giaNhap,

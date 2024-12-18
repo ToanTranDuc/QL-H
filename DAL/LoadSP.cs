@@ -13,8 +13,8 @@ namespace DAL
 {
     public class LoadSP
     {
-        //private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLBanDongHo;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
-        private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
+        private string connectionString = @"Data Source=LAPTOP\SQLEXPRESS1;Initial Catalog=QLBanDongHo;Integrated Security=True;TrustServerCertificate=True; Encrypt=True;";
+        //private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=QLDH;Integrated Security=True;";
         public List<XuatXu> LayTatCaXuatXu()
         {
             List<XuatXu> danhSachXuatXu = new List<XuatXu>();
@@ -958,20 +958,13 @@ namespace DAL
 
         public void ThemHopDong(HopDong hopDong)
         {
-            // Đảm bảo MaHopDong có giá trị hợp lệ trước khi chèn
-            if (hopDong.MaHopDong <= 0) // Hoặc bất kỳ điều kiện nào phù hợp với logic của bạn
-            {
-                throw new ArgumentException("Giá trị MaHopDong không hợp lệ.");
-            }
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-        INSERT INTO HopDong (MaHopDong, TenHopDong, MoTa, NgayKy, NguoiKy, NgayHieuLuc, NgayHetHan, GiaTri, TrangThai, MaNCC)
-        VALUES (@MaHopDong, @TenHopDong, @MoTa, @NgayKy, @NguoiKy, @NgayHieuLuc, @NgayHetHan, @GiaTri, @TrangThai, @MaNCC)";
+                INSERT INTO HopDong (TenHopDong, MoTa, NgayKy, NguoiKy, NgayHieuLuc, NgayHetHan, GiaTri, TrangThai, MaNCC)
+                VALUES (@TenHopDong, @MoTa, @NgayKy, @NguoiKy, @NgayHieuLuc, @NgayHetHan, @GiaTri, @TrangThai, @MaNCC)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@MaHopDong", hopDong.MaHopDong); // Thêm mã hợp đồng
                 cmd.Parameters.AddWithValue("@TenHopDong", hopDong.TenHopDong);
                 cmd.Parameters.AddWithValue("@MoTa", hopDong.MoTa);
                 cmd.Parameters.AddWithValue("@NgayKy", hopDong.NgayKy);
@@ -986,7 +979,7 @@ namespace DAL
                 cmd.ExecuteNonQuery();
             }
         }
-        public bool KiemTraMaHopDongTonTai(int maHopDong)
+            public bool KiemTraMaHopDongTonTai(int maHopDong)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
