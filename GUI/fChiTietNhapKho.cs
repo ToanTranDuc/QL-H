@@ -170,34 +170,7 @@ namespace GUI
                     return;
                 }
             }
-            bool less = false;
-            if (lvNhapHang.Items.Count < lvDonDatHang.Items.Count)
-            {
-                less = true;
-            }
-            else if(lvNhapHang.Items.Count == lvDonDatHang.Items.Count)
-            {
-                for( int i = 0; i < lvNhapHang.Items.Count; i++)
-                {
-                    ListViewItem item1 = lvNhapHang.Items[i];
-                    ListViewItem item2 = lvDonDatHang.Items[i];
-                    if((int.Parse(item1.SubItems[2].Text) < int.Parse(item2.SubItems[2].Text)))
-                    {
-                        less = true;
-                    }
-
-
-                }
-            }
-            if(less)
-            {
-                MessageBox.Show("Thiếu hàng!");
-                HoaDonMuaDAO.Instance.UpdateHoaDonMuaTrangThai("'Thiếu hàng'", int.Parse(txtMaPhieuNhap.Text));
-            }
-            else
-            {
-                HoaDonMuaDAO.Instance.UpdateHoaDonMuaTrangThai("'Hoàn thành'", int.Parse(txtMaPhieuNhap.Text));
-            }
+            HoaDonMuaDAO.Instance.UpdateHoaDonMuaTrangThai("'Hoàn thành'", int.Parse(txtMaPhieuNhap.Text));
             NCC NCC = NCCDAO.Instance.GetNCCByID(int.Parse(txtMaPhieuNhap.Text));
             DateTime now = DateTime.Now;
             PhieuNhapDAO.Instance.InsertPN(NCC.Id,now,"");
@@ -223,10 +196,7 @@ namespace GUI
 
         private void fChiTietNhapKho_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (MessageBox.Show("Bạn có muốn hủy?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            //{
-            //    e.Cancel = true;
-            //}
+         
         }
     }
 }

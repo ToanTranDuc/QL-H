@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GUI.DTO;
 
+
 namespace GUI.DAO
 {
     public class TonKhoDAO
@@ -39,9 +40,22 @@ namespace GUI.DAO
             return data;
 
         }
+        public Tonkho GetTonkho(int id)
+        {
+            string query = "Select * From ton_kho where MaSP = " + id;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            Tonkho tk = new Tonkho(data.Rows[0]);
+            return tk;
+
+        }
         public void UpdateTK(int MaSP, int SoLuong)
         {
             string query = "Update dbo.ton_kho Set SoLuong =" + SoLuong + " Where MaSP =" + MaSP;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
+        public void UpdateTKnum(int MaSP , int SoLuong)
+        {
+            string query = "Update dbo.ton_kho Set SoLuong = SoLuong " + SoLuong + " Where MaSP =" + MaSP;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         

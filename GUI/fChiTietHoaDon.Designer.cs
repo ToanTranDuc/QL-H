@@ -39,6 +39,7 @@
             this.lbDonGia = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnIn = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.DtpDateCreate = new System.Windows.Forms.DateTimePicker();
             this.txtTenNhaCungCap = new System.Windows.Forms.TextBox();
             this.lbDanhSach = new System.Windows.Forms.Label();
-            this.btnIn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,6 +180,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1027, 44);
             this.panel2.TabIndex = 1;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(833, 11);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(91, 30);
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnCancel
             // 
@@ -363,16 +373,6 @@
             this.lbDanhSach.TabIndex = 2;
             this.lbDanhSach.Text = "Chi tiết hóa đơn";
             // 
-            // btnIn
-            // 
-            this.btnIn.Location = new System.Drawing.Point(833, 11);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(91, 30);
-            this.btnIn.TabIndex = 2;
-            this.btnIn.Text = "In";
-            this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
             // fChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +380,7 @@
             this.ClientSize = new System.Drawing.Size(1060, 654);
             this.Controls.Add(this.panel1);
             this.Name = "fChiTietHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fChiTietHoaDon";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

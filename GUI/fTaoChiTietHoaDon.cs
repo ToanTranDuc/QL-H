@@ -29,31 +29,18 @@ namespace GUI
             SanPham selected = cb.SelectedItem as SanPham;
             txtDonGia.Text = (selected.GiaNhap1).ToString();
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-
             ComboBox cb = cbTenSP;
             if (cb.SelectedItem == null)
                 return;
             SanPham selectedSP = cb.SelectedItem as SanPham;
 
-            ListViewItem items = new ListViewItem();
-            items = null;
-            if (lvSanPham.Items.Count != 0)
-            {
-                items = lvSanPham.Items[0];
-            }
             try
             {
-
-
                 string SoLuong = (txtSoLuong.Text);
                 int id = selectedSP.Id;
-
                 double thanhtien = 0;
-
 
                 bool added = false;
                 foreach (ListViewItem item in lvSanPham.Items)
@@ -61,7 +48,6 @@ namespace GUI
                     if (item.SubItems[0].Text == id.ToString())
                     {
                         int TotalCount = int.Parse(SoLuong) + int.Parse(item.SubItems[2].Text);
-
 
                         if (TotalCount > 0)
                         {
@@ -75,7 +61,6 @@ namespace GUI
                         }
                     }
                 }
-
                 foreach (ListViewItem item in lvSanPham.Items)
                 {
                     if (int.Parse(item.SubItems[2].Text) > 0)
@@ -84,8 +69,6 @@ namespace GUI
 
                 CultureInfo Culture = new CultureInfo("vi-VN");
                 txtThanhTien.Text = thanhtien.ToString("c", Culture);
-
-
                 if (!added)
                 {
                     if (int.Parse(SoLuong) < 1) return;
@@ -127,17 +110,27 @@ namespace GUI
                 return;
             }
 
-            ListViewItem items = new ListViewItem();
-            items = null;
-            items = lvSanPham.Items[0];
-            SanPham SP = SanPhamDAO.Instance.GetSanPham(int.Parse(items.SubItems[0].Text));
-
             string ThanhTien = txtThanhTien.Text.Replace(".", "").Replace(",", "").Replace("₫", "");
             double ThanhTiend = double.Parse(ThanhTien);
             ThanhTiend /= 100;
-            HoaDonBanDAO.Instance.InsertHDB( ThanhTiend,DtpDateCreate.Value, txtGhiChu.Text);
+     
 
 
+
+            foreach (ListViewItem item in lvSanPham.Items)
+            {
+                int idSP = int.Parse(item.SubItems[0].Text);
+                int SoLuong = int.Parse(item.SubItems[2].Text);
+
+                SanPham SP = SanPhamDAO.Instance.GetSanPham(idSP);
+                if (SP.SoLuong1 < SoLuong)
+                {
+                    MessageBox.Show("Hết hàng");
+                    return;
+                }
+            }
+
+            HoaDonBanDAO.Instance.InsertHDB(ThanhTiend, DtpDateCreate.Value, txtGhiChu.Text);
             foreach (ListViewItem item in lvSanPham.Items)
             {
                 int idSP = int.Parse(item.SubItems[0].Text);
@@ -145,6 +138,13 @@ namespace GUI
                 int SoLuong = int.Parse(item.SubItems[2].Text);
                 double DonGia = double.Parse(item.SubItems[3].Text);
 
+                SanPham SP = SanPhamDAO.Instance.GetSanPham(idSP);
+                if( SP.SoLuong1 < SoLuong)
+                {
+                    MessageBox.Show("Hết hàng");
+                    return;
+                }
+                SanPhamDAO.Instance.UpdateSlSP(idSP, -SoLuong);
                 ChiTietHoaDonDAO.Instance.InsertCTHDB(idSP, idPN, SoLuong, DonGia);
                 this.Close();
             }

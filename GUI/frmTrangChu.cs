@@ -128,6 +128,7 @@ namespace GUI
                 }
                 if (danhSachQuyen.Contains(2))//Kho
                 {
+                    KhoContainer.Visible = true;
                     btnTonKho.Enabled = true;
                     btnXuatKho.Enabled = true;
                     btnNhapKho.Enabled = true;

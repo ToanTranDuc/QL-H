@@ -60,6 +60,24 @@ namespace GUI
                 
             }
         }
+        void LoadPhieuNhap()
+        {
+            DataTable dt = PhieuNhapDAO.Instance.GetPhieuNhap();
+
+            dtgvPhieuNhap.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+
+                    dtgvPhieuNhap.Rows.Add
+                        (
+                        row["MaPhieuNhap"],
+                        row["NgayLapPhieuNhap"],
+                        row["MaNCC"],
+                        row["GhiChu"]
+                  
+                        ); 
+            }
+        }
         void LoadNCC()
         {
             List<NCC> NCCList = NCCDAO.Instance.GetNCC();
@@ -96,7 +114,21 @@ namespace GUI
                         row["TrangThai"]
                         );
                 }
+            }
+            dt = PhieuNhapDAO.Instance.GetPhieuNhapByNCC(MaNCC,Start,End);
 
+            dtgvPhieuNhap.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+
+                dtgvPhieuNhap.Rows.Add
+                    (
+                    row["MaPhieuNhap"],
+                    row["NgayLapPhieuNhap"],
+                    row["MaNCC"],
+                    row["GhiChu"]
+
+                    );
             }
 
 
@@ -107,25 +139,9 @@ namespace GUI
             Form_Load();
             DataTable dt = HoaDonMuaDAO.Instance.GetHoaDonMua();
             dtgvDonDatHang.Rows.Clear();
-            foreach (DataRow row in dt.Rows)
-            {
-                if (row["TrangThai"].ToString().Equals("Hoàn thành"))
-                {
-                    continue;
-                }
-                else
-                {
-                    dtgvDonDatHang.Rows.Add
-                        (
-                        row["ID_DonDatHang"],
-                        row["NgayDat"],
-                        row["MaNCC"],
-                        row["GhiChu"],
-                        row["TrangThai"]
-                        );
-                }
-
-            }
+            LoadDonDatHang();
+            dtgvPhieuNhap.Rows.Clear();
+            LoadPhieuNhap();
         }
 
         private void dtgvDonDatHang_Choose(object sender, DataGridViewCellEventArgs e)
@@ -155,7 +171,6 @@ namespace GUI
             else if (dtgvDonDatHang.SelectedCells.Count > 0)
             {
                 dtgvDonDatHang_Choose(sender, new DataGridViewCellEventArgs(0, dtgvDonDatHang.SelectedCells[0].RowIndex));
-
             }
         }
 
@@ -166,6 +181,45 @@ namespace GUI
             Form_Load();
             LoadDonDatHang();
             LoadNCC();
+            LoadPhieuNhap();
+        }
+
+        private void dtpEnd_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if (dtgvPhieuNhap.SelectedRows.Count > 0)
+            {
+                // Trigger the row selection event to navigate to the detail form
+                dtgvDonDatHang_Choose(sender, new DataGridViewCellEventArgs(0, dtgvPhieuNhap.SelectedRows[0].Index));
+            }
+            else if (dtgvPhieuNhap.SelectedCells.Count > 0)
+            {
+                dtgvPhieuNhap_Choose(sender, new DataGridViewCellEventArgs(0, dtgvPhieuNhap.SelectedCells[0].RowIndex));
+            }
+        }
+        private void dtgvPhieuNhap_Choose(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dtgvPhieuNhap.Rows[e.RowIndex];
+
+                int id = Convert.ToInt32(row.Cells["MaPN"].Value);
+
+
+                fPhieuNhapChiTiet CTNKho = new fPhieuNhapChiTiet(id);
+                CTNKho.Show();
+
+
+            }
         }
     }
 }

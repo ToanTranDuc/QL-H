@@ -147,7 +147,7 @@
             this.lblMENU.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMENU.Location = new System.Drawing.Point(109, 25);
             this.lblMENU.Name = "lblMENU";
-            this.lblMENU.Size = new System.Drawing.Size(115, 37);
+            this.lblMENU.Size = new System.Drawing.Size(81, 26);
             this.lblMENU.TabIndex = 2;
             this.lblMENU.Text = "MENU";
             this.lblMENU.Click += new System.EventHandler(this.lblMENU_Click);
@@ -658,14 +658,14 @@
             this.lblChaoMung.Location = new System.Drawing.Point(3, 0);
             this.lblChaoMung.Name = "lblChaoMung";
             this.lblChaoMung.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.lblChaoMung.Size = new System.Drawing.Size(134, 45);
+            this.lblChaoMung.Size = new System.Drawing.Size(100, 37);
             this.lblChaoMung.TabIndex = 0;
             this.lblChaoMung.Text = "Chào mừng";
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.lblTitle);
-            this.panel14.Location = new System.Drawing.Point(143, 3);
+            this.panel14.Location = new System.Drawing.Point(109, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(559, 91);
             this.panel14.TabIndex = 1;
@@ -677,7 +677,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblTitle.Location = new System.Drawing.Point(212, 17);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(172, 37);
+            this.lblTitle.Size = new System.Drawing.Size(117, 26);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Trang chủ";
             // 

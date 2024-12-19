@@ -39,11 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtgMain = new System.Windows.Forms.DataGridView();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             this.txtTuKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTuKhoa.ForeColor = System.Drawing.Color.Black;
             this.txtTuKhoa.Location = new System.Drawing.Point(101, 22);
-            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(2);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(245, 26);
             this.txtTuKhoa.TabIndex = 61;
@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(421, 72);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 409);
             this.panel1.TabIndex = 55;
@@ -88,7 +88,7 @@
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(105, 76);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(173, 20);
             this.txtSoLuong.TabIndex = 3;
@@ -96,7 +96,7 @@
             // txtTenSP
             // 
             this.txtTenSP.Location = new System.Drawing.Point(105, 40);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenSP.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(173, 20);
             this.txtTenSP.TabIndex = 0;
@@ -104,7 +104,7 @@
             // txtMaSP
             // 
             this.txtMaSP.Location = new System.Drawing.Point(105, 9);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.Size = new System.Drawing.Size(173, 20);
             this.txtMaSP.TabIndex = 2;
@@ -158,7 +158,7 @@
             this.TenSP,
             this.SoLuongTon});
             this.dtgMain.Location = new System.Drawing.Point(30, 72);
-            this.dtgMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgMain.Margin = new System.Windows.Forms.Padding(2);
             this.dtgMain.Name = "dtgMain";
             this.dtgMain.RowHeadersWidth = 62;
             this.dtgMain.RowTemplate.Height = 28;
@@ -166,28 +166,6 @@
             this.dtgMain.TabIndex = 63;
             this.dtgMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMain_CellContentClick);
             this.dtgMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMain_CellContentClick);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(785, 456);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(70, 25);
-            this.btnThoat.TabIndex = 59;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Location = new System.Drawing.Point(786, 427);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(70, 25);
-            this.btnSua.TabIndex = 56;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // MaSanPham
             // 
@@ -211,6 +189,28 @@
             this.SoLuongTon.Name = "SoLuongTon";
             this.SoLuongTon.Width = 150;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(785, 456);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(70, 25);
+            this.btnThoat.TabIndex = 59;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(786, 427);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(70, 25);
+            this.btnSua.TabIndex = 56;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // TonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,7 +223,7 @@
             this.Controls.Add(this.dtgMain);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TonKho";
             this.Text = "TonKho";
             this.Load += new System.EventHandler(this.TonKho_Load);

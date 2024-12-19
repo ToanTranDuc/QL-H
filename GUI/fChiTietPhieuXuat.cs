@@ -164,6 +164,7 @@ namespace GUI
                 double DonGia = double.Parse(item.SubItems[3].Text);
 
                 ChiTietPhieuXuatDAO.Instance.InsertCTXKho(idSP, idPN, SoLuong, DonGia);
+ 
                 this.Close();
             }
         }

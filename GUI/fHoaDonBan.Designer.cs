@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnChange = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.grbTimKiem = new System.Windows.Forms.GroupBox();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
@@ -72,7 +71,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnChange);
-            this.panel2.Controls.Add(this.btnDeleteItem);
             this.panel2.Controls.Add(this.btnCreate);
             this.panel2.Location = new System.Drawing.Point(9, 374);
             this.panel2.Name = "panel2";
@@ -81,29 +79,19 @@
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(601, 18);
+            this.btnChange.Location = new System.Drawing.Point(601, 3);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(75, 28);
+            this.btnChange.Size = new System.Drawing.Size(75, 43);
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Xem";
             this.btnChange.UseVisualStyleBackColor = true;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(520, 18);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(75, 28);
-            this.btnDeleteItem.TabIndex = 2;
-            this.btnDeleteItem.Text = "Xóa";
-            this.btnDeleteItem.UseVisualStyleBackColor = true;
-            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
-            // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(682, 18);
+            this.btnCreate.Location = new System.Drawing.Point(682, 3);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 28);
+            this.btnCreate.Size = new System.Drawing.Size(75, 43);
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Tạo";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -292,7 +280,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnChange;
-        private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.GroupBox grbTimKiem;
         private System.Windows.Forms.DateTimePicker dtpEnd;

@@ -30,8 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtLyDo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbTenNCC = new System.Windows.Forms.ComboBox();
             this.cbTenSP = new System.Windows.Forms.ComboBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -55,6 +53,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.grbThongTinChung = new System.Windows.Forms.GroupBox();
+            this.txtLyDo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbDateCreate = new System.Windows.Forms.Label();
             this.txtMaPhieuXuat = new System.Windows.Forms.TextBox();
             this.lbMaPhieuXuat = new System.Windows.Forms.Label();
@@ -97,24 +97,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1021, 178);
             this.panel4.TabIndex = 7;
-            // 
-            // txtLyDo
-            // 
-            this.txtLyDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtLyDo.Location = new System.Drawing.Point(173, 75);
-            this.txtLyDo.Name = "txtLyDo";
-            this.txtLyDo.Size = new System.Drawing.Size(189, 24);
-            this.txtLyDo.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(25, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 18);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Lý do : ";
             // 
             // cbTenNCC
             // 
@@ -331,6 +313,24 @@
             this.grbThongTinChung.TabStop = false;
             this.grbThongTinChung.Text = "Tìm kiếm";
             // 
+            // txtLyDo
+            // 
+            this.txtLyDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtLyDo.Location = new System.Drawing.Point(173, 75);
+            this.txtLyDo.Name = "txtLyDo";
+            this.txtLyDo.Size = new System.Drawing.Size(189, 24);
+            this.txtLyDo.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(25, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Lý do : ";
+            // 
             // lbDateCreate
             // 
             this.lbDateCreate.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -388,6 +388,7 @@
             this.ClientSize = new System.Drawing.Size(1060, 654);
             this.Controls.Add(this.panel1);
             this.Name = "fTaoChiTietXuat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fTaoChiTietXuat";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

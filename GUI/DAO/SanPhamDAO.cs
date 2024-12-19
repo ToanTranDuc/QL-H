@@ -48,6 +48,11 @@ namespace GUI.DAO
             return null;
             
         }
+        public void UpdateSlSP(int MaSP, int SoLuong)
+        {
+            string query = "UPDATE SanPham SET SoLuong = SoLuong +" + SoLuong + " WHERE MaSP = " + MaSP;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
         public SanPham GetSanPham()
         {
             string query = "SELECT * FROM SanPham";

@@ -21,6 +21,7 @@ namespace GUI.DTO
         private string TenSP;
         private string MoTa;
         private DateTime? NgayNhap;
+        private int SoLuong;
 
         public int Id { get => id; set => id = value; }
         public int IdHang { get => idHang; set => idHang = value; }
@@ -34,8 +35,9 @@ namespace GUI.DTO
         public string TenSP1 { get => TenSP; set => TenSP = value; }
         public string MoTa1 { get => MoTa; set => MoTa = value; }
         public DateTime? NgayNhap1 { get => NgayNhap; set => NgayNhap = value; }
+        public int SoLuong1 { get => SoLuong; set => SoLuong = value; }
 
-        public SanPham(int id, int idHang, int idNCC, int idXuatXu, int idKieuDang, int idMauSac, int idTheLoai, double GiaNhap, double GiaBan, string TenSP, string MoTa, DateTime? Ngaynhap)
+        public SanPham(int id, int idHang, int idNCC, int idXuatXu, int idKieuDang, int idMauSac, int idTheLoai, double GiaNhap, double GiaBan, string TenSP, string MoTa, DateTime? Ngaynhap, int SoLuong)
         {
             this.id = id;
             this.idHang = idHang;
@@ -49,6 +51,7 @@ namespace GUI.DTO
             this.GiaBan = GiaBan;
             this.GiaNhap = GiaNhap;
             this.NgayNhap = Ngaynhap;
+            this.SoLuong= SoLuong;
         }
         public SanPham(DataRow row)
         {
@@ -64,6 +67,7 @@ namespace GUI.DTO
             this.GiaBan = double.Parse(row["GiaBan"].ToString());
             this.GiaNhap = double.Parse(row["GiaNhap"].ToString());
             this.NgayNhap = (DateTime?)row["NgayNhap"];
+            this.SoLuong = (int)row["SoLuong"];
         }
     }
 }

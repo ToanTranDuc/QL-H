@@ -124,6 +124,12 @@
     <Compile Include="fChiTietPhieuXuat.Designer.cs">
       <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPhieuNhapChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPhieuNhapChiTiet.Designer.cs">
+      <DependentUpon>fPhieuNhapChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChiTietDonDatHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fChiTietPhieuXuat.resx">
       <DependentUpon>fChiTietPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPhieuNhapChiTiet.resx">
+      <DependentUpon>fPhieuNhapChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChiTietDonDatHang.resx">
       <DependentUpon>frmChiTietDonDatHang.cs</DependentUpon>
