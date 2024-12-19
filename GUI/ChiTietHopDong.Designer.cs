@@ -36,7 +36,6 @@
             this.btnCTHDSua = new System.Windows.Forms.Button();
             this.btnCTHDHuy = new System.Windows.Forms.Button();
             this.btnCTHDXoa = new System.Windows.Forms.Button();
-            this.txtCTHDNCC = new System.Windows.Forms.TextBox();
             this.txtCTHDNguoiKy = new System.Windows.Forms.TextBox();
             this.txtCTHDGiaTri = new System.Windows.Forms.TextBox();
             this.txtCTHDMoTa = new System.Windows.Forms.TextBox();
@@ -54,11 +53,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnCTDong = new System.Windows.Forms.Button();
+            this.cmbCTTenNCC = new System.Windows.Forms.ComboBox();
             this.grbCTHopDong.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbCTHopDong
             // 
+            this.grbCTHopDong.Controls.Add(this.cmbCTTenNCC);
             this.grbCTHopDong.Controls.Add(this.cmbCTTrangThai);
             this.grbCTHopDong.Controls.Add(this.dtpCTHDNHH);
             this.grbCTHopDong.Controls.Add(this.dtpCTHDNgayKy);
@@ -66,7 +67,6 @@
             this.grbCTHopDong.Controls.Add(this.btnCTHDSua);
             this.grbCTHopDong.Controls.Add(this.btnCTHDHuy);
             this.grbCTHopDong.Controls.Add(this.btnCTHDXoa);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDNCC);
             this.grbCTHopDong.Controls.Add(this.txtCTHDNguoiKy);
             this.grbCTHopDong.Controls.Add(this.txtCTHDGiaTri);
             this.grbCTHopDong.Controls.Add(this.txtCTHDMoTa);
@@ -154,13 +154,6 @@
             this.btnCTHDXoa.UseVisualStyleBackColor = true;
             this.btnCTHDXoa.Click += new System.EventHandler(this.btnCTHDXoa_Click);
             // 
-            // txtCTHDNCC
-            // 
-            this.txtCTHDNCC.Location = new System.Drawing.Point(530, 263);
-            this.txtCTHDNCC.Name = "txtCTHDNCC";
-            this.txtCTHDNCC.Size = new System.Drawing.Size(192, 30);
-            this.txtCTHDNCC.TabIndex = 6;
-            // 
             // txtCTHDNguoiKy
             // 
             this.txtCTHDNguoiKy.Location = new System.Drawing.Point(468, 94);
@@ -211,6 +204,7 @@
             // 
             this.txtCTHDMHD.Location = new System.Drawing.Point(161, 45);
             this.txtCTHDMHD.Name = "txtCTHDMHD";
+            this.txtCTHDMHD.ReadOnly = true;
             this.txtCTHDMHD.Size = new System.Drawing.Size(192, 30);
             this.txtCTHDMHD.TabIndex = 9;
             // 
@@ -297,6 +291,14 @@
             this.btnCTDong.UseVisualStyleBackColor = true;
             this.btnCTDong.Click += new System.EventHandler(this.btnCTDong_Click);
             // 
+            // cmbCTTenNCC
+            // 
+            this.cmbCTTenNCC.FormattingEnabled = true;
+            this.cmbCTTenNCC.Location = new System.Drawing.Point(542, 263);
+            this.cmbCTTenNCC.Name = "cmbCTTenNCC";
+            this.cmbCTTenNCC.Size = new System.Drawing.Size(188, 30);
+            this.cmbCTTenNCC.TabIndex = 14;
+            // 
             // ChiTietHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -319,7 +321,6 @@
 
         private System.Windows.Forms.GroupBox grbCTHopDong;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TextBox txtCTHDNCC;
         private System.Windows.Forms.TextBox txtCTHDNguoiKy;
         private System.Windows.Forms.TextBox txtCTHDGiaTri;
         private System.Windows.Forms.TextBox txtCTHDMoTa;
@@ -343,5 +344,6 @@
         private System.Windows.Forms.Button btnCTHDSua;
         private System.Windows.Forms.DateTimePicker dtpCTHDNgayKy;
         private System.Windows.Forms.ComboBox cmbCTTrangThai;
+        private System.Windows.Forms.ComboBox cmbCTTenNCC;
     }
 }

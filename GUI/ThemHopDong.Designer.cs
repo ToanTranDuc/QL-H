@@ -33,7 +33,6 @@
             this.dtpCTHDNgayKy = new System.Windows.Forms.DateTimePicker();
             this.dtpCTHDNHL = new System.Windows.Forms.DateTimePicker();
             this.btnCTHDHuy = new System.Windows.Forms.Button();
-            this.txtCTHDNCC = new System.Windows.Forms.TextBox();
             this.txtCTHDNguoiKy = new System.Windows.Forms.TextBox();
             this.txtCTHDGiaTri = new System.Windows.Forms.TextBox();
             this.txtCTHDMoTa = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@
             this.grbCTHopDong = new System.Windows.Forms.GroupBox();
             this.cmbTTrangThai = new System.Windows.Forms.ComboBox();
             this.btnTHD = new System.Windows.Forms.Button();
+            this.cmbTTenNCC = new System.Windows.Forms.ComboBox();
             this.grbCTHopDong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,13 +99,6 @@
             this.btnCTHDHuy.Text = "   Hủy";
             this.btnCTHDHuy.UseVisualStyleBackColor = true;
             this.btnCTHDHuy.Click += new System.EventHandler(this.btnCTHDHuy_Click);
-            // 
-            // txtCTHDNCC
-            // 
-            this.txtCTHDNCC.Location = new System.Drawing.Point(530, 263);
-            this.txtCTHDNCC.Name = "txtCTHDNCC";
-            this.txtCTHDNCC.Size = new System.Drawing.Size(192, 30);
-            this.txtCTHDNCC.TabIndex = 6;
             // 
             // txtCTHDNguoiKy
             // 
@@ -157,6 +150,7 @@
             // 
             this.txtCTHDMHD.Location = new System.Drawing.Point(161, 45);
             this.txtCTHDMHD.Name = "txtCTHDMHD";
+            this.txtCTHDMHD.ReadOnly = true;
             this.txtCTHDMHD.Size = new System.Drawing.Size(192, 30);
             this.txtCTHDMHD.TabIndex = 9;
             // 
@@ -234,11 +228,11 @@
             // 
             // grbCTHopDong
             // 
+            this.grbCTHopDong.Controls.Add(this.cmbTTenNCC);
             this.grbCTHopDong.Controls.Add(this.cmbTTrangThai);
             this.grbCTHopDong.Controls.Add(this.dtpCTHDNHH);
             this.grbCTHopDong.Controls.Add(this.dtpCTHDNgayKy);
             this.grbCTHopDong.Controls.Add(this.dtpCTHDNHL);
-            this.grbCTHopDong.Controls.Add(this.txtCTHDNCC);
             this.grbCTHopDong.Controls.Add(this.txtCTHDNguoiKy);
             this.grbCTHopDong.Controls.Add(this.txtCTHDGiaTri);
             this.grbCTHopDong.Controls.Add(this.txtCTHDMoTa);
@@ -281,6 +275,14 @@
             this.btnTHD.UseVisualStyleBackColor = true;
             this.btnTHD.Click += new System.EventHandler(this.btnTHD_Click);
             // 
+            // cmbTTenNCC
+            // 
+            this.cmbTTenNCC.FormattingEnabled = true;
+            this.cmbTTenNCC.Location = new System.Drawing.Point(547, 263);
+            this.cmbTTenNCC.Name = "cmbTTenNCC";
+            this.cmbTTenNCC.Size = new System.Drawing.Size(181, 30);
+            this.cmbTTenNCC.TabIndex = 14;
+            // 
             // ThemHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -308,7 +310,6 @@
         private System.Windows.Forms.DateTimePicker dtpCTHDNgayKy;
         private System.Windows.Forms.DateTimePicker dtpCTHDNHL;
         private System.Windows.Forms.Button btnCTHDHuy;
-        private System.Windows.Forms.TextBox txtCTHDNCC;
         private System.Windows.Forms.TextBox txtCTHDNguoiKy;
         private System.Windows.Forms.TextBox txtCTHDGiaTri;
         private System.Windows.Forms.TextBox txtCTHDMoTa;
@@ -328,5 +329,6 @@
         private System.Windows.Forms.GroupBox grbCTHopDong;
         private System.Windows.Forms.Button btnTHD;
         private System.Windows.Forms.ComboBox cmbTTrangThai;
+        private System.Windows.Forms.ComboBox cmbTTenNCC;
     }
 }

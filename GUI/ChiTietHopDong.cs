@@ -27,6 +27,7 @@ namespace GUI
             this.maHopDong = maHopDong;
             LoadChiTietHopDong();
             LoadComboBox_TrangThai();
+            LoadComboBox_NCC();
             SetFieldsEnabled(isEditing);
         }
 
@@ -45,7 +46,7 @@ namespace GUI
             txtCTHDNguoiKy.Enabled = isEnabled;
             txtCTHDGiaTri.Enabled = isEnabled;
             cmbCTTrangThai.Enabled = isEnabled;
-            txtCTHDNCC.Enabled = isEnabled;
+            cmbCTTenNCC.Enabled = isEnabled;
         }
         private void btnCTHDSua_Click(object sender, EventArgs e)
         {
@@ -57,19 +58,29 @@ namespace GUI
             }
             else
             {
+                // Lấy mã nhà cung cấp từ ComboBox
+                int maNCC = ((ComboBoxItem)cmbCTTenNCC.SelectedItem)?.Value ?? 0;
+
+                // Kiểm tra mã NCC có hợp lệ không
+                if (maNCC <= 0)
+                {
+                    MessageBox.Show("Vui lòng chọn nhà cung cấp hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Thoát khỏi phương thức nếu mã NCC không hợp lệ
+                }
+
                 // Cập nhật thông tin mà không kiểm tra điều kiện
                 HopDong hopDong = new HopDong
                 {
-                    MaHopDong = maHopDong, // Cần mã hợp đồng
+                    MaHopDong = maHopDong, // Sử dụng giá trị MaHopDong hiện tại
                     TenHopDong = txtCTHDTenHD.Text,
                     MoTa = txtCTHDMoTa.Text,
                     NgayHieuLuc = dtpCTHDNHL.Value,
                     NgayHetHan = dtpCTHDNHH.Value,
                     NgayKy = dtpCTHDNgayKy.Value,
                     NguoiKy = txtCTHDNguoiKy.Text,
-                    GiaTri = decimal.TryParse(txtCTHDGiaTri.Text, out decimal giaTri) ? giaTri : 0, // Gán giá trị mặc định nếu không hợp lệ
+                    GiaTri = decimal.TryParse(txtCTHDGiaTri.Text, out decimal giaTri) ? giaTri : 0,
                     TrangThai = cmbCTTrangThai.Text,
-                    MaNCC = int.TryParse(txtCTHDNCC.Text, out int maNCC) ? maNCC : 0 // Gán giá trị mặc định nếu không hợp lệ
+                    MaNCC = maNCC // Sử dụng mã NCC đã kiểm tra
                 };
 
                 // Gọi phương thức cập nhật
@@ -99,7 +110,7 @@ namespace GUI
                 txtCTHDNguoiKy.Text = row["NguoiKy"].ToString();
                 txtCTHDGiaTri.Text = row["GiaTri"].ToString();
                 cmbCTTrangThai.Text = row["TrangThai"].ToString();
-                txtCTHDNCC.Text = row["TenNCC"].ToString();
+                cmbCTTenNCC.Text = row["TenNCC"].ToString();
                 cmbCTTrangThai.Items.Add(row["TrangThai"].ToString());
             }
         }
@@ -157,7 +168,34 @@ namespace GUI
             }
         }
 
+        private void txtCTHDNCC_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+        public class ComboBoxItem
+        {
+            public string Text { get; set; }
+            public int Value { get; set; }
 
+            public override string ToString() => Text;
+        }
+        void LoadComboBox_NCC()
+        {
+            try
+            {
+                var nccs = bll.LayTatCaNCC();
+
+                cmbCTTenNCC.Items.Clear();
+
+                foreach (var ncc in nccs)
+                {
+                    cmbCTTenNCC.Items.Add(new ComboBoxItem { Text = ncc.TenNCC, Value = ncc.MaNCC });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi load danh sách NCC: {ex.Message}");
+            }
+        }
     }
 }
